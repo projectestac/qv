@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+ 
+<web-app>
+ <filter>
+ 	<filter-name>QVViewerFilter</filter-name>
+ 	<filter-class>edu.xtec.qv.viewer.filter.QVViewerFilter</filter-class>
+ </filter>
+ <filter-mapping>
+ 	<filter-name>QVViewerFilter</filter-name>
+ 	<url-pattern>/quaderns/*</url-pattern>
+ </filter-mapping>
+	
+	
+ <servlet>
+  <servlet-name>zip</servlet-name>
+  <servlet-class>edu.xtec.qv.servlet.zip.ZipFolder</servlet-class>
+ </servlet>
+ <servlet>
+  <servlet-name>unzip</servlet-name>
+  <servlet-class>edu.xtec.qv.servlet.zip.UnzipFolder</servlet-class>
+ </servlet>
+ <servlet>
+  <servlet-name>generateHTML</servlet-name>
+  <servlet-class>edu.xtec.qv.servlet.QVGenerateHTMLServlet</servlet-class>
+ </servlet>
+ <servlet>
+  <servlet-name>openHTML</servlet-name>
+  <servlet-class>edu.xtec.qv.servlet.QVOpenHTMLServlet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+  <servlet-name>zip</servlet-name>
+  <url-pattern>/zip</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>unzip</servlet-name>
+  <url-pattern>/unzip</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>generateHTML</servlet-name>
+  <url-pattern>/generateHTML</url-pattern>
+ </servlet-mapping> 
+ <servlet-mapping>
+  <servlet-name>openHTML</servlet-name>
+  <url-pattern>/open</url-pattern>
+ </servlet-mapping> 
+ <session-config>
+  <session-timeout>30</session-timeout>
+ </session-config>
+ <welcome-file-list>
+  <welcome-file>http://clic.xtec.cat/qv_web/ca</welcome-file>
+ </welcome-file-list>
+</web-app>

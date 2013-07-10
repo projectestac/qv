@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<project name="qv_viewer" basedir="." default="all">
+
+  <!-- =================================================================== -->
+  <!-- INIT                                                                -->
+  <!-- =================================================================== -->
+  <target name="init">  
+
+    <!-- Variables -->
+    <property file="${user.home}/.ant-global.properties" />
+    <property name="alias" value="qv_viewer" />
+
+    <property name="name"           value="Quaderns Virtuals viewer" />    
+    <property name="year"           value="2007" />
+
+    <property name="server.name"    value="xtec-pro" />
+  	<property name="dist.name"      value="e13_qv_viewer" />
+
+  	<!-- QV is currently targeted to JVM 1.4 -->
+    <property name="ant.build.javac.source" value="1.4" />
+    <property name="ant.build.javac.target" value="1.4" />	
+    <property name="ant.build.javac.encoding" value="ISO-8859-15" />	
+
+    <property name="web.dir"        location="web" />
+    <property name="src.dir"        location="src" />
+    <property name="lib.dir"        location="web/WEB-INF/lib" />
+    <property name="build.dir"      location="build" />
+    <property name="dist.dir"       location="dist" />
+    <property name="apidoc.dir"     location="apidoc" />
+    <property name="servlet.jar" location="/usr/share/tomcat55/common/lib/servlet-api.jar" />
+    <property name="server.config"  location="${dist.dir}/config/${server.name}" />
+
+    <property name="debug"          value="off" />    
+    <property name="deprecation"    value="off" />    
+    <property name="optimize"       value="on" />    
+    
+    <!-- Patterns -->
+    <patternset id="props" >
+      <include name="**/*.properties"/>
+    </patternset>
+    <patternset id="web" >
+      <include name="**/*.htm"/>
+        <include name="**/*.js"/>
+    </patternset>
+
+    <!-- Create dirs -->
+    <mkdir dir="${build.dir}"/>
+    <mkdir dir="${dist.dir}"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- MAIN                                                                -->
+  <!-- =================================================================== -->
+  <target name="all" depends="qv_viewer" description="Build everything">
+    <echo message="*** qv_viewer successfully created for '${server.name}' server config!"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- CLEAN                                                               -->
+  <!-- =================================================================== -->
+  <target name="clean" 
+          depends="init" 
+          description="Clean build dir">
+    <echo message="*** Build dir cleared!"/>
+  	<delete dir="${build.dir}"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- ZIPFOLDER                                                       -->
+  <!-- =================================================================== -->
+  <target name="zipFolder" 
+          depends="init">
+    <mkdir dir="${build.dir}/qv_viewer/WEB-INF/classes"/>
+    <javac srcdir="${src.dir}/zipfolder"
+    	   destdir="${build.dir}/qv_viewer/WEB-INF/classes" 
+           debug="${debug}"
+           deprecation="${deprecation}"
+           optimize="${optimize}" 
+		   encoding="${ant.build.javac.encoding}"
+		   source="${ant.build.javac.source}"
+	   	   target="${ant.build.javac.target}" >
+      <classpath>
+        <pathelement location="${servlet.jar}"/>
+        <pathelement location="${lib.dir}/commons-fileupload-1.0.jar"/>
+        <pathelement location="${lib.dir}/jdom.jar"/>
+        <pathelement location="${lib.dir}/log4j-1.2.8.jar"/>
+        <pathelement location="${lib.dir}/xalan.jar"/>
+       </classpath>
+    </javac>
+  </target>
+
+
+  <!-- =================================================================== -->
+  <!-- QV Viewer                                                           -->
+  <!-- =================================================================== -->
+  <target name="compile" 
+          depends="init,zipFolder">
+    <mkdir dir="${build.dir}/qv_viewer/WEB-INF/classes"/>
+    <javac srcdir="${src.dir}/viewer"
+    	   destdir="${build.dir}/qv_viewer/WEB-INF/classes" 
+           debug="${debug}"
+           deprecation="${deprecation}"
+           optimize="${optimize}" 
+		   encoding="${ant.build.javac.encoding}"
+		   source="${ant.build.javac.source}"
+		   target="${ant.build.javac.target}" >
+      <classpath>
+        <pathelement location="${servlet.jar}"/>
+        <pathelement location="${lib.dir}/log4j-1.2.8.jar"/>
+        <pathelement location="${lib.dir}/commons-fileupload-1.0.jar"/>
+        <pathelement location="${lib.dir}/jdom.jar"/>
+       </classpath>
+    </javac>
+  </target>
+
+  <target name="dist" 
+          depends="compile">
+    <war destfile="${build.dir}/${dist.name}.war" 
+         webxml="${web.dir}/WEB-INF/web.xml">
+         <manifest>
+           <attribute name="Built-By" value="${user.name}"/>
+        </manifest>
+        <lib dir="${lib.dir}">
+	        <include name="commons-fileupload-1.0.jar"/>
+        	<include name="jdom.jar"/>
+			<include name="log4j-1.2.8.jar"/>
+        </lib>
+		<classes dir="${build.dir}/qv_viewer" prefix=""/>
+		<zipfileset dir="${server.config}" prefix="WEB-INF/classes">
+			<patternset refid="props"/>
+		</zipfileset>
+		<zipfileset dir="${server.config}/web" prefix="">
+			<patternset refid="web"/>
+    	</zipfileset>
+		<zipfileset dir="web/dist/html" prefix="dist/html" excludes="scripts/qv_local.js"/>
+		<zipfileset dir="web/dist/skins" prefix="dist/skins"/>
+    </war>
+    <echo level="warning" message="*** Have you changed the qv_local file in config/${server.config}?"/>
+  </target>
+  
+  <target name="deploy"
+  		  depends="dist">
+  	<mkdir dir="${dist.dir}/${server.name}"/>
+    <ear destfile="${dist.dir}/${server.name}/${dist.name}.ear" 
+         appxml="${server.config}/application.xml">
+         <manifest>
+           <attribute name="Built-By" 
+                      value="${user.name}"/>
+         </manifest>
+      <fileset dir="${build.dir}" includes="${dist.name}.war"/>
+    </ear>
+  </target>
+
+
+  <target name="qv_viewer"
+          depends="clean,deploy">
+  	<delete dir="${build.dir}"/>
+  </target>
+
+
+  <!-- =================================================================== -->
+  <!-- JAVADOC                                                             -->
+  <!-- =================================================================== -->
+  <target name="javadoc" 
+          depends="all" 
+          description="QV Viewer JavaDoc">
+    <delete dir="${apidoc.dir}" />
+    <mkdir dir="${apidoc.dir}"/>
+    <javadoc packagenames="edu.xtec.*" 
+             destdir="${apidoc.dir}" 
+             author="true" 
+             version="true" 
+             use="true" 
+             splitindex="true" 
+             noindex="false" 
+             windowtitle="${name} API" 
+             doctitle="${name}"
+             bottom="Copyright &#169; ${year} Sara Arjona. All Rights Reserved.">
+             <sourcepath>
+               <pathelement location="${src.dir}/viewer"/>
+               <pathelement location="${src.dir}/zipfolder"/>
+             </sourcepath>
+             <excludepackage name="edu.xtec.resources.*" />
+    </javadoc>
+  </target>
+
+</project>

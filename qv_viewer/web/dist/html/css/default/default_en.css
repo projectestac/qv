@@ -1,0 +1,21 @@
+a#correct-bt div {
+	background: url(image/en/correct_off.gif) no-repeat;
+}
+a#correct-bt:hover div {
+	background: url(image/en/correct_on.gif) no-repeat;
+}
+
+a#save-bt div {
+	background: url(image/en/save_off.gif) no-repeat;
+}
+a#save-bt:hover div {
+	background: url(image/en/save_on.gif) no-repeat;
+}
+
+a#deliver-bt div {
+	background: url(image/en/deliver_off.gif) no-repeat;
+}
+a#deliver-bt:hover div {
+	background: url(image/en/deliver_on.gif) no-repeat;
+}
+

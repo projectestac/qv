@@ -1,0 +1,13 @@
+th, #index-information-table td.section-info, #index-information-table tfoot{
+	visibility: visible;
+}
+
+.state{
+	visibility:visible;
+}
+#index-information-title{
+	display: block;
+}
+#header-puntuation-attempts{
+  display:block;
+}

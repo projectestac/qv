@@ -1,0 +1,34 @@
+.title{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 14pt;
+	font-weight: bold;
+	color : #004080;
+}
+
+.subtitle{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 10pt;
+	font-weight: bold;
+	color : #004080;
+}
+
+.text{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 8pt;
+	color : #004080;
+}
+.text:TD{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 8pt;
+	color : #004080;
+}
+
+.link{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 8pt;
+	color : #004080;
+}
+A:hover{
+	color: #FFFFFF;
+	background-color : #004080;
+}

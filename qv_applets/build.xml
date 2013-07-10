@@ -1,0 +1,250 @@
+<?xml version="1.0"?>
+<project name="qv_applets" basedir="." default="all">
+
+  <!-- =================================================================== -->
+  <!-- INIT                                                                -->
+  <!-- =================================================================== -->
+  <target name="init">  
+    <!-- DUC is currently targeted to JVM 1.4 -->
+    <property name="ant.build.javac.source" value="1.4"/>
+    <property name="ant.build.javac.target" value="1.4"/>	
+    <property name="ant.build.javac.encoding" value="ISO-8859-15"/>
+  	
+    <property name="name"           value="Quaderns Virtuals" />    
+    <property name="year"           value="2007" />
+
+    <property name="src.dir"        location="src" />
+    <property name="lib.dir"        location="lib" />
+    <property name="build.dir"      location="build" />
+    <property name="dist.dir"       location="dist" />
+    <property name="deploy.dir"     location="deploy" />
+    <property name="signed.dir"     location="${dist.dir}/signed" />
+    <property name="jnlp.dir"       location="${dist.dir}/jnlp" />
+    <property name="apidoc.dir"     location="apidoc" />
+    <property name="resource.path"  value="edu/xtec/resources" />
+  	
+    <property name="debug"          value="off" />    
+    <property name="deprecation"    value="off" />    
+    <property name="optimize"       value="on" />
+  	
+    <!-- Sign -->
+    <property file="${src}/.ant-global.properties" />
+    <property name="alias" value="qv" />
+    <property name="keystore.dir" location="data" />    
+  	
+    
+    <!-- Patterns -->
+    <patternset id="images" >
+      <include name="**/*.gif"/>
+      <include name="**/*.jpg"/>
+      <include name="**/*.png"/>
+      <include name="**/*.ttf"/>
+    </patternset>
+    <patternset id="sounds" >
+      <include name="**/*.wav"/>
+      <include name="**/*.mp3"/>
+      <include name="**/*.au"/>
+      <include name="**/*.aif"/>
+    </patternset>    
+    <patternset id="docs" >
+      <include name="**/*.html"/>
+      <include name="**/*.htm"/>
+      <include name="**/*.xml"/>
+      <include name="**/*.css"/>
+      <include name="**/*.js"/>
+    </patternset>    
+	<patternset id="info" >
+		<include name="*.dtd"/>
+		<include name="*.html"/>
+		<include name="*.htm"/>
+	</patternset>
+    <patternset id="xmls" >
+      <include name="**/*.xml"/>
+    </patternset>    
+    <patternset id="props" >
+      <include name="**/*.properties"/>
+    </patternset>
+
+    <echo message="---------------------"/>
+    <echo message="QV build"/>
+    <echo message="---------------------"/>
+    
+    <!-- Create dirs -->
+    <mkdir dir="${dist.dir}"/>
+    <mkdir dir="${build.dir}"/>
+
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- MAIN                                                                -->
+  <!-- =================================================================== -->
+  <target name="all" 
+          depends="qv_local, applets" 
+          description="Build everything.">
+    <echo message="*** QV_APPLETS successfully created!"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- CLEAN                                                               -->
+  <!-- =================================================================== -->
+  <target name="clean" 
+          depends="init" 
+          description="Clean build dir">
+    <delete dir="${build.dir}" />
+    <echo message="*** Build dir cleaned!"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- QV_LOCAL                                                            -->
+  <!-- =================================================================== -->
+  <target name="qv_local" 
+          depends="sign" 
+          description="Build qv_local applet">
+    <delete dir="${build.dir}" />
+    <echo message="*** dist/qv_local.jar successfully created!"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- COMPILE QV_LOCAL APPLET                                             -->
+  <!-- =================================================================== -->
+  <target name="compile" 
+          depends="init, clean">
+    <mkdir dir="${build.dir}"/>
+    <javac destdir="${build.dir}" 
+           debug="${debug}" 
+           deprecation="${deprecation}"
+           optimize="${optimize}"
+	       encoding="${ant.build.javac.encoding}"
+	       source="${ant.build.javac.source}"
+           target="${ant.build.javac.target}">
+      <src path="${src.dir}/local" />
+      <classpath>
+        <pathelement location="${lib.dir}/jdom.jar"/>
+        <pathelement location="${lib.dir}/log4j-1.2.8.jar"/>
+      </classpath>
+    </javac>
+  	<unzip src="${lib.dir}/jdom.jar"
+  	       dest="${build.dir}">
+  	</unzip>
+  	<delete file="${dist.dir}/qv_local.jar" />
+  	<jar jarfile="${dist.dir}/qv_local.jar" basedir="${build.dir}" />
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- SIGN QV_LOCAL                                                       -->
+  <!-- =================================================================== -->
+  <target name="sign" 
+          depends="compile" >
+  	
+  	<signjar
+  			alias="qv"
+  			jar="${dist.dir}/qv_local.jar"
+  			keystore="${keystore.dir}/qv.keystore"
+	  		keypass="virtuals" 
+  			storepass="virtuals"
+  		/>   	
+  </target>
+	
+  <!-- =================================================================== -->
+  <!-- BUILD all qv_viewer applets                                         -->
+  <!-- =================================================================== -->
+  <target name="applets" 
+          depends="hotspot_applet, dragdrop_applet, ordering_applet, drawer_applet">
+    <echo message="*** qv_viewer applets successfully created!"/>
+  </target>
+	
+  <!-- =================================================================== -->
+  <!-- BUILD QVHotspotAppletJS.jar APPLET                                  -->
+  <!-- =================================================================== -->
+  <target name="hotspot_applet" 
+          depends="clean">
+    <mkdir dir="${build.dir}"/>
+    <javac srcdir="${src.dir}/applets"
+ 	   	   includes="*JS*" 
+    	   destdir="${build.dir}" 
+           debug="${debug}" 
+           deprecation="${deprecation}"
+           optimize="${optimize}"
+	       encoding="${ant.build.javac.encoding}"
+	       source="${ant.build.javac.source}"
+           target="${ant.build.javac.target}">
+    </javac>
+  	<delete file="${dist.dir}/QVHotspotAppletJS.jar" />
+  	<jar jarfile="${dist.dir}/QVHotspotAppletJS.jar" basedir="${build.dir}" />
+    <delete dir="${build.dir}" />
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- BUILD QVDragDrop.jar APPLET                                  -->
+  <!-- =================================================================== -->
+  <target name="dragdrop_applet" 
+          depends="clean">
+    <mkdir dir="${build.dir}"/>
+    <javac srcdir="${src.dir}/applets"
+ 	   	   includes="QVDragDrop*.java ImageLoaderThread.java ImageObserver.java Source.java Target.java QVHotspotLabelJS.java QVRenderHotspotAppletJS.java QVAppletJS.java" 
+    	   destdir="${build.dir}" 
+           debug="${debug}" 
+           deprecation="${deprecation}"
+           optimize="${optimize}"
+	       encoding="${ant.build.javac.encoding}"
+	       source="${ant.build.javac.source}"
+           target="${ant.build.javac.target}">
+    </javac>
+    <copy todir="${build.dir}">
+      <fileset file="${src.dir}/applets/rotateCursor.gif"/>
+    </copy>        
+  	<delete file="${dist.dir}/QVDragDrop.jar" />
+  	<jar jarfile="${dist.dir}/QVDragDrop.jar" basedir="${build.dir}" />
+    <delete dir="${build.dir}" />
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- BUILD QVOrdering.jar APPLET                                  -->
+  <!-- =================================================================== -->
+  <target name="ordering_applet" 
+          depends="clean">
+    <mkdir dir="${build.dir}"/>
+    <javac srcdir="${src.dir}/applets"
+ 	   	   includes="*Ord*.java ImageLoaderThread.java ImageObserver.java QVAppletJS.java" 
+    	   destdir="${build.dir}" 
+           debug="${debug}" 
+           deprecation="${deprecation}"
+           optimize="${optimize}"
+	       encoding="${ant.build.javac.encoding}"
+	       source="${ant.build.javac.source}"
+           target="${ant.build.javac.target}">
+    </javac>
+  	<delete file="${dist.dir}/QVOrdering.jar" />
+  	<jar jarfile="${dist.dir}/QVOrdering.jar" basedir="${build.dir}" />
+    <delete dir="${build.dir}" />
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- BUILD QVDrawer.jar APPLET                                  -->
+  <!-- =================================================================== -->
+  <target name="drawer_applet" 
+          depends="clean">
+    <mkdir dir="${build.dir}"/>
+    <javac srcdir="${src.dir}/applets"
+ 	   	   includes="edu/xtec/qv/applet/*.java" 
+    	   destdir="${build.dir}" 
+           debug="${debug}" 
+           deprecation="${deprecation}"
+           optimize="${optimize}"
+	       encoding="${ant.build.javac.encoding}"
+	       source="${ant.build.javac.source}"
+           target="${ant.build.javac.target}">
+        <classpath>
+          <pathelement location="${lib.dir}/svg_generat.jar"/>
+        </classpath>
+    </javac>
+    <copy todir="${build.dir}/edu/xtec/resources">
+      <fileset file="${src.dir}/applets/edu/xtec/resources/**"/>
+    </copy>        
+  	<delete file="${dist.dir}/QVDrawer.jar" />
+  	<jar jarfile="${dist.dir}/QVDrawer.jar" basedir="${build.dir}" />
+    <delete dir="${build.dir}" />
+  </target>
+
+	
+</project>

@@ -1,0 +1,10 @@
+Release notes for qv_viewer (http://clic.xtec.cat/qv)
+
+More information on each of the fixes can be found in the project 
+development home at https://projectes.lafarga.cat/projects/q-virtuals/
+
+
+
+Changes in 8.X (not yet released)
+---------------------------------------------------------------------------------------
+

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+ 
+<web-app>
+ <filter>
+ 	<filter-name>LogFilter</filter-name>
+ 	<filter-class>edu.xtec.qv.filter.EditorLogFilter</filter-class>
+ </filter>
+
+ <filter-mapping>
+ 	<filter-name>LogFilter</filter-name>
+ 	<url-pattern>/web/index.jsp</url-pattern>
+ </filter-mapping>  
+
+ <filter-mapping>
+ 	<filter-name>LogFilter</filter-name>
+ 	<url-pattern>/web/edit.jsp</url-pattern>
+ </filter-mapping>  
+  
+ <session-config>
+  <session-timeout>30</session-timeout>
+ </session-config>
+ <welcome-file-list>
+  <welcome-file>index.htm</welcome-file>
+ </welcome-file-list>
+</web-app>

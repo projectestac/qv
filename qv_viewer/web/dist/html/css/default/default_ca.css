@@ -1,0 +1,20 @@
+a#correct-bt div {
+	background: url(image/ca/correct_off.gif) no-repeat center;
+}
+a#correct-bt:hover div {
+	background: url(image/ca/correct_on.gif) no-repeat;
+}
+
+a#save-bt div {
+	background: url(image/ca/save_off.gif) no-repeat;
+}
+a#save-bt:hover div {
+	background: url(image/ca/save_on.gif) no-repeat;
+}
+
+a#deliver-bt div {
+	background: url(image/ca/deliver_off.gif) no-repeat;
+}
+a#deliver-bt:hover div {
+	background: url(image/ca/deliver_on.gif) no-repeat;
+}

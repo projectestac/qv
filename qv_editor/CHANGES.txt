@@ -1,0 +1,19 @@
+Release notes for qv_editor (http://clic.xtec.cat/qv_editor)
+
+More information on each of the fixes can be found in the project 
+development home at https://projectes.lafarga.cat/projects/q-virtuals/
+
+
+
+Changes in 8.X (not yet released)
+---------------------------------------------------------------------------------------
+
+New Features
+
+- Added a maximum width for upload images. When the width of an image exceeds a limit the uploaded image is resized (qv_editor.properties needs to be configured).
+	
+- Added new material type "Document" (qv_editor.properties needs to be configured).
+
+Bug Fixes
+
+- When a file name contained some extension in its name (like foggy.jpg), it was added as image and audio.

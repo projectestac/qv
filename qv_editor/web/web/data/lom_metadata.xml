@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<metadata>
+  <languages>
+    <lang id="ca">
+    <string language="ca"><![CDATA[català]]></string>
+    <string language="es"><![CDATA[catalán]]></string>
+    </lang>
+    <lang id="es">
+    <string language="ca"><![CDATA[espanyol]]></string>
+    <string language="es"><![CDATA[español]]></string>
+    </lang>
+    <lang id="en">
+    <string language="ca"><![CDATA[anglès]]></string>
+    <string language="es"><![CDATA[inglés]]></string>
+    </lang>
+    <lang id="fr">
+    <string language="ca"><![CDATA[francès]]></string>
+    <string language="es"><![CDATA[francés]]></string>
+    </lang>
+  </languages>
+
+  <areas>
+    <area id="1" code="area_lleng">
+    <string language="ca"><![CDATA[Llengües]]></string>
+    <string language="es"><![CDATA[Lenguas]]></string>
+    </area>
+    <area id="2" code="area_mat">
+    <string language="ca"><![CDATA[Matemàtiques]]></string>
+    <string language="es"><![CDATA[Matemáticas]]></string>
+    </area>
+    <area id="3" code="area_soci">
+    <string language="ca"><![CDATA[Ciències socials]]></string>
+    <string language="es"><![CDATA[Ciencias sociales]]></string>
+    </area>
+    <area id="4" code="area_exp">
+    <string language="ca"><![CDATA[Ciències experimentals]]></string>
+    <string language="es"><![CDATA[Ciencias experimentales]]></string>
+    </area>
+    <area id="5" code="area_musica">
+    <string language="ca"><![CDATA[Educació musical]]></string>
+    <string language="es"><![CDATA[Educación musical]]></string>
+    </area>
+    <area id="6" code="area_visual">
+    <string language="ca"><![CDATA[Visual i plàstica]]></string>
+    <string language="es"><![CDATA[Visual y plástica]]></string>
+    </area>
+    <area id="7" code="area_edfis">
+    <string language="ca"><![CDATA[Educació física]]></string>
+    <string language="es"><![CDATA[Educación física]]></string>
+    </area>
+    <area id="8" code="area_tecn">
+    <string language="ca"><![CDATA[Tecnologia]]></string>
+    <string language="es"><![CDATA[Tecnología]]></string>
+    </area>
+    <area id="9" code="area_filo">
+    <string language="ca"><![CDATA[Filosofia]]></string>
+    <string language="es"><![CDATA[Filosofía]]></string>
+    </area>
+    <area id="10" code="area_div">
+    <string language="ca"><![CDATA[Diversos]]></string>
+    <string language="es"><![CDATA[Diversos]]></string>
+    </area>
+  </areas>
+  
+  <levels>
+    <level id="1" minAge="0" maxAge="3" context="pre-school">
+    <string language="ca"><![CDATA[Educació preescolar]]></string>
+    <string language="es"><![CDATA[Educación preescolar]]></string>
+    </level>
+    <level id="2" minAge="3" maxAge="6" context="pre-school">
+    <string language="ca"><![CDATA[Educació infantil]]></string>
+    <string language="es"><![CDATA[Educación infantil]]></string>
+    </level>
+    <level id="3" minAge="6" maxAge="12" context="compulsory education">
+    <string language="ca"><![CDATA[Educació primària]]></string>
+    <string language="es"><![CDATA[Educación primaria]]></string>
+    </level>
+    <level id="4" minAge="12" maxAge="16" context="compulsory education">
+    <string language="ca"><![CDATA[ESO]]></string>
+    <string language="es"><![CDATA[ESO]]></string>
+    </level>
+    <level id="5" minAge="0" maxAge="999" context="special education">
+    <string language="ca"><![CDATA[Educació especial]]></string>
+    <string language="es"><![CDATA[Educación especial]]></string>
+    </level>
+    <level id="6" minAge="16" maxAge="999" context="vocational education">
+    <string language="ca"><![CDATA[Cicle formatiu]]></string>
+    <string language="es"><![CDATA[Ciclo formativo]]></string>
+    </level>
+    <level id="7" minAge="16" maxAge="18" context="higher education">
+    <string language="ca"><![CDATA[Batxillerat]]></string>
+    <string language="es"><![CDATA[Bachillerato]]></string>
+    </level>
+    <level id="8" minAge="12" maxAge="999" context="distance education">
+    <string language="ca"><![CDATA[Educació a distància]]></string>
+    <string language="es"><![CDATA[Educación a distancia]]></string>
+    </level>
+    <level id="9" minAge="16" maxAge="999" context="adult / continuing education">
+    <string language="ca"><![CDATA[Formació d'adults]]></string>
+    <string language="es"><![CDATA[Formación de adultos]]></string>
+    </level>
+    <level id="10" minAge="18" maxAge="999" context="professional development">
+    <string language="ca"><![CDATA[Formació permanent]]></string>
+    <string language="es"><![CDATA[Formación permanente]]></string>
+    </level>
+    <level id="11" minAge="0" maxAge="999" context="other">
+    <string language="ca"><![CDATA[Altres]]></string>
+    <string language="es"><![CDATA[Otros]]></string>
+    </level>
+  </levels>
+  
+  
+</metadata>

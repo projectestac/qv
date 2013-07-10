@@ -1,0 +1,271 @@
+<?xml version="1.0"?>
+<project name="qv_editor" basedir="." default="all">
+
+
+  <!-- =================================================================== -->
+  <!-- INIT                                                                -->
+  <!-- =================================================================== -->
+  <target name="init">  
+
+    <!-- Variables -->
+    <property file="${user.home}/.ant-global.properties" />
+    <property name="alias" value="qv_editor" />
+    <property name="keystore" location="${user.home}/${keystoreDir}/qv.keystore" />    
+
+    <property name="name"           value="Editor de Quaderns Virtuals" />    
+    <property name="year"           value="2004" />
+
+    <property name="server.name"    value="xtec-int" />
+  	<property name="dist.name"      value="e13_qv_editor" />
+      	
+  	<!-- QV is currently targeted to JVM 1.4 -->
+    <property name="ant.build.javac.source" value="1.4" />
+    <property name="ant.build.javac.target" value="1.4" />	
+    <property name="ant.build.javac.encoding" value="ISO-8859-15" />	
+
+  	<property name="web.dir"        location="web" />
+    <property name="src.dir"        location="src" />
+    <property name="lib.dir"        location="web/WEB-INF/lib" />
+    <property name="build.dir"      location="build" />
+    <property name="dist.dir"       location="dist" />
+    <property name="apidoc.dir"     location="apidoc" />
+    <property name="servlet.jar" location="/usr/share/tomcat55/common/lib/servlet-api.jar" />
+    <property name="server.config"    location="${dist.dir}/config/${server.name}" />
+
+    <property name="debug"          value="off" />    
+    <property name="deprecation"    value="off" />    
+    <property name="optimize"       value="on" />    
+    
+    <!-- Patterns -->
+    <patternset id="images" >
+      <include name="**/*.gif"/>
+      <include name="**/*.jpg"/>
+      <include name="**/*.png"/>
+      <include name="**/*.ttf"/>
+    </patternset>
+    <patternset id="sounds" >
+      <include name="**/*.wav"/>
+      <include name="**/*.mp3"/>
+      <include name="**/*.au"/>
+      <include name="**/*.aif"/>
+    </patternset>    
+    <patternset id="docs" >
+      <include name="**/*.html"/>
+      <include name="**/*.htm"/>
+      <include name="**/*.xml"/>
+      <include name="**/*.css"/>
+      <include name="**/*.js"/>
+    </patternset>    
+	<patternset id="pages" >
+		<include name="*.html"/>
+		<include name="*.htm"/>
+		<include name="*.jsp"/>
+	</patternset>
+    <patternset id="xmls" >
+      <include name="**/*.xml"/>
+    </patternset>    
+    <patternset id="props" >
+      <include name="**/*.properties"/>
+    </patternset>
+    <patternset id="web" >
+      <include name="**/*.htm"/>
+        <include name="**/*.js"/>
+    </patternset>
+    <patternset id="intl.props" >
+      <include name="**/*_ca.properties"/>
+      <include name="**/*_es.properties"/>
+    </patternset>
+
+    <!-- Create dirs -->
+    <mkdir dir="${build.dir}"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- MAIN                                                                -->
+  <!-- =================================================================== -->
+  <target name="all" depends="qv_editor" description="Build everything">
+    <echo message="*** Editor QV successfully created!"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- CLEAN                                                               -->
+  <!-- =================================================================== -->
+  <target name="clean" 
+          depends="init" 
+          description="Clean build dir">
+    <echo message="*** Build dir cleared!"/>
+  	<delete dir="${build.dir}"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- QTI                                                                 -->
+  <!-- =================================================================== -->
+  <target name="qti" 
+          depends="init">
+    <mkdir dir="${build.dir}/qti"/>
+    <javac destdir="${build.dir}/qti" 
+           debug="${debug}" 
+           deprecation="${deprecation}"
+           optimize="${optimize}" 
+		   encoding="${ant.build.javac.encoding}"
+		   source="${ant.build.javac.source}"
+	   	   target="${ant.build.javac.target}" >
+      <src path="${src.dir}/qti" />
+      <classpath>
+        <pathelement location="${lib.dir}/log4j-1.2.8.jar"/>
+        <pathelement location="${lib.dir}/jdom.jar"/>
+      </classpath>
+    </javac>
+    <jar jarfile="${dist.dir}/qti.jar" 
+         basedir="${build.dir}/qti" />
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- LOM                                                                 -->
+  <!-- =================================================================== -->
+  <target name="lom" 
+          depends="init,clean,qti">
+    <mkdir dir="${build.dir}/lom"/>
+    <javac srcdir="${src.dir}/editor/"
+    	   includes="**/lom/**"
+    	   destdir="${build.dir}/lom" 
+           debug="${debug}" 
+           deprecation="${deprecation}"
+           optimize="${optimize}" 
+		   encoding="${ant.build.javac.encoding}"
+		   source="${ant.build.javac.source}"
+		   target="${ant.build.javac.target}" >
+      <classpath>
+        <pathelement location="${lib.dir}/log4j-1.2.8.jar"/>
+        <pathelement location="${lib.dir}/dbconn.jar"/>
+        <pathelement location="${lib.dir}/jdom.jar"/>
+        <pathelement location="${dist.dir}/qti.jar"/>
+      </classpath>
+    </javac>
+  	<copy todir="${build.dir}/lom" >
+  		<fileset dir="${build.dir}/qti" includes="**/qv/util/**"/>
+  	</copy>
+    <jar jarfile="${dist.dir}/lom.jar" 
+         basedir="${build.dir}/lom" />
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- EDITOR DE QV                                                        -->
+  <!-- =================================================================== -->
+  <target name="compile" 
+          depends="init,qti">
+    <mkdir dir="${build.dir}/qv_editor/WEB-INF/classes"/>
+    <javac srcdir="${src.dir}/editor"
+    	   destdir="${build.dir}/qv_editor/WEB-INF/classes" 
+           debug="${debug}"
+           deprecation="${deprecation}"
+           optimize="${optimize}" 
+		   encoding="${ant.build.javac.encoding}"
+		   source="${ant.build.javac.source}"
+		   target="${ant.build.javac.target}" >
+      <classpath>
+        <pathelement location="${lib.dir}/log4j-1.2.8.jar"/>
+        <pathelement location="${lib.dir}/commons-fileupload-1.0.jar"/>
+        <pathelement location="${servlet.jar}"/>
+        <pathelement location="${lib.dir}/jdom.jar"/>
+        <pathelement location="${lib.dir}/jCelebrate.jar"/>
+        <pathelement location="${lib.dir}/jCP.jar"/>
+        <pathelement location="${lib.dir}/dbconn.jar"/>
+        <pathelement location="${dist.dir}/qti.jar"/>
+       </classpath>
+    </javac>
+  </target>
+
+  <target name="dist" 
+          depends="compile">
+    <war destfile="${build.dir}/${dist.name}.war" 
+         webxml="${web.dir}/WEB-INF/web.xml">
+         <manifest>
+           <attribute name="Built-By" value="${user.name}"/>
+        </manifest>
+        <lib dir="${lib.dir}">
+			<include name="log4j-1.2.8.jar"/>
+	        <include name="commons-fileupload-1.0.jar"/>
+        	<include name="jdom.jar"/>
+        	<include name="xercesImpl.jar"/>
+        	<include name="CWHTM.jar"/>
+        	<include name="jCelebrate.jar"/>
+   	    	<include name="jCP.jar"/>
+   	    	<include name="dbconn.jar"/>
+        	<include name="struts.jar"/>
+        </lib>
+        <lib dir="${dist.dir}">
+			<include name="qti.jar"/>
+		</lib>
+		<classes dir="${build.dir}/qv_editor" prefix=""/>
+		<zipfileset dir="${src.dir}/editor/edu/xtec/resources/messages" prefix="WEB-INF/classes/edu/xtec/resources/messages">
+			<patternset refid="props"/>
+		</zipfileset>
+		<zipfileset dir="web" prefix="">
+			<patternset refid="pages"/>
+		</zipfileset>
+		<zipfileset dir="web/web" prefix="web">
+			<patternset>
+			      <exclude name="**/javaplugin.js"/>
+			</patternset>
+		</zipfileset>
+		<zipfileset dir="web/components" prefix="components"/>
+		<zipfileset dir="web/WEB-INF" prefix="WEB-INF">
+			<patternset includes="CWHTM.tld"/>
+		</zipfileset>
+		<zipfileset dir="${server.config}" prefix="WEB-INF/classes">
+			<patternset refid="props"/>
+		</zipfileset> 
+		<zipfileset dir="${server.config}/web" prefix="web">
+			<patternset refid="web"/>
+    	</zipfileset>
+    </war>
+  </target>
+  
+  <target name="deploy"
+  		  depends="dist">
+  	<mkdir dir="${dist.dir}/${server.name}"/>
+    <ear destfile="${dist.dir}/${server.name}/${dist.name}.ear" 
+         appxml="${server.config}/application.xml">
+         <manifest>
+           <attribute name="Built-By" 
+                      value="${user.name}"/>
+         </manifest>
+      <fileset dir="${build.dir}" includes="${dist.name}.war"/>
+    </ear>
+  	<delete dir="${build.dir}"/>
+  </target>
+
+
+  <target name="qv_editor" 
+          depends="clean,deploy">
+  </target>
+
+
+  <!-- =================================================================== -->
+  <!-- JAVADOC                                                             -->
+  <!-- =================================================================== -->
+  <target name="javadoc" 
+          depends="all" 
+          description="Editor QV JavaDoc">
+    <delete dir="${apidoc.dir}" />
+    <mkdir dir="${apidoc.dir}"/>
+    <javadoc packagenames="edu.xtec.*" 
+             destdir="${apidoc.dir}" 
+             author="true" 
+             version="true" 
+             use="true" 
+             splitindex="true" 
+             noindex="false" 
+             windowtitle="${name} API" 
+             doctitle="${name}"
+             bottom="Copyright &#169; ${year} Sara Arjona. All Rights Reserved.">
+             <sourcepath>
+               <pathelement location="${src.dir}/qti"/>
+               <pathelement location="${src.dir}/webapp/WEB-INF/classes"/>
+             </sourcepath>
+             <excludepackage name="edu.xtec.resources.*" />
+    </javadoc>
+  </target>
+
+</project>
