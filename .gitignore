@@ -1,0 +1,9 @@
+qv_applets/.classpath
+qv_applets/.project
+qv_applets/.settings
+qv_applets/bin
+qv_applets/dist/QVDragDrop.jar
+qv_applets/dist/QVDrawer.jar
+qv_applets/dist/QVHotspotAppletJS.jar
+qv_applets/dist/QVOrdering.jar
+

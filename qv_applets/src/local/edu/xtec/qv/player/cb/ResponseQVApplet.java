@@ -59,9 +59,7 @@ public class ResponseQVApplet extends LocalQVApplet {
 				updateResponses();
 				correct();				
 			}
-			System.out.println("start invoca a save");
 			save();
-			save3("K:/out555.txt", "aaaaaaa");
 		}
 	}
 	
@@ -203,7 +201,6 @@ public class ResponseQVApplet extends LocalQVApplet {
 	}
 	
 	public File getXML(){
-		System.out.println("getXML");
 		File fXML = null;
 		String sXML = this.getParameter("xml");
 		if (sXML==null) sXML = getDirBase()+File.separator+"resource"+File.separator+getAssessmentName()+".xml";
@@ -238,7 +235,6 @@ public class ResponseQVApplet extends LocalQVApplet {
 	}
 */
 	public void correct(){
-		System.out.println("correct");
 		File fXML = getXML();
 		if (bDebug && bTrace) System.out.println("ResponseQVApplet.correct() -> "+fXML);
 		try{
@@ -265,12 +261,10 @@ public class ResponseQVApplet extends LocalQVApplet {
 	}
 	
 	public void updateScores(){
-		System.out.println("updateScores");
 		String sScores = this.getParameter("responses");
 		updateScores(sScores);
 	}
 	public void updateScores(String sScores){
-		System.out.println("updateScores("+sScores+")");
 		StringTokenizer stScores = new StringTokenizer(sScores, "#");
 		while (stScores.hasMoreTokens()){
 			String sScore = stScores.nextToken();
@@ -355,7 +349,6 @@ public class ResponseQVApplet extends LocalQVApplet {
 	}
 
 	public String getResponses(){
-		System.out.println("getResponses");
 		if (this.sResponses==null){
 			this.sResponses = this.getParameter("responses");
 			if (isNull(this.sResponses)){
@@ -512,15 +505,11 @@ public class ResponseQVApplet extends LocalQVApplet {
  **************************************************/
 	
 	public Document getDocument(){
-		System.out.println("getDocument");
 		//System.out.println("ResponseQVApplet.getDocument()");
 		if (this.doc==null && getFile()!=null){
 			File f = new File(getFile());
-			System.out.println("new File");
 			if (f.exists()){
-				System.out.println("exists");
-				this.doc = open(getFile());
-				System.out.println("cridat open(getFile())");
+				this.doc = open(getFile());		
 			}			
 		}
 		return this.doc;
@@ -528,7 +517,6 @@ public class ResponseQVApplet extends LocalQVApplet {
 
     
 	public boolean save(){
-		System.out.println("save");
 		if (this.file!=null && getDocument()!=null){
 			return save(this.file, getDocument().getRootElement());			
 		}
@@ -543,18 +531,14 @@ public class ResponseQVApplet extends LocalQVApplet {
 	 * @return false si es produeix algun error guardant el fitxer XML; true en cas contrari
 	 */
 	public static boolean save(String sURL, Element eElement){
-		System.out.println("-save");
-		sURL="k:/out3.txt";
 		boolean bOk = true;
 		try{
 			if (bDebug && bTrace) System.out.println("save-> "+sURL+"  elem?"+(eElement!=null));
 			if (sURL!=null && eElement!=null){
 				File fFile = new File(sURL);
 				if (!fFile.exists()){
-					System.out.println("!exists");
 					fFile.createNewFile();
-				} 
-				System.out.println("--");
+				}
 				FileOutputStream fos=new FileOutputStream(sURL);
 				Format oFormat = Format.getPrettyFormat();
 	            oFormat.setEncoding("ISO-8859-1");
@@ -564,7 +548,6 @@ public class ResponseQVApplet extends LocalQVApplet {
 				fos.getFD().sync();
 				fos.flush();
 				fos.close();
-				System.out.println("close");
 			}
 		}
 		catch (IOException e){
@@ -577,154 +560,5 @@ public class ResponseQVApplet extends LocalQVApplet {
 		return bOk;
 	}
     	
-	public static boolean save3(String sURL, String text){
-		System.out.println("-save3");
-		boolean bOk = true;
-		try{
-			if (bDebug && bTrace) System.out.println("save-> "+sURL);
-			if (sURL!=null){
-				File fFile = new File(sURL);
-				if (!fFile.exists()){
-					System.out.println("!exists");
-					fFile.createNewFile();
-				} 
-				System.out.println("--");
-				FileOutputStream fos=new FileOutputStream(sURL);
-				java.io.PrintWriter pw=new java.io.PrintWriter(fos);
-				pw.println(text);
-				fos.getFD().sync();
-				fos.flush();
-				fos.close();
-				System.out.println("close");
-			}
-		}
-		catch (Exception e){
-			if (bTrace){
-				System.out.println("EXCEPCIO guardant el fitxer '"+sURL+"' --> "+e);
-				e.printStackTrace();
-			}
-			bOk = false;
-		}
-		return bOk;
-	}
-    	
-
-	
-	/*************************************************
-	 * Login
-	 **************************************************/
-		public static final String LOGIN_NUM_USERS_PROPERTY_NAME="numUsers";
-		public static final String LOGIN_PREFIX_USERS_PROPERTY_NAME="prefixUsers";
-		public static final String LOGIN_USERID_PROPERTY_NAME="userId";
-		public static final String LOGIN_USERNAME_PROPERTY_NAME="userName";
-		public static final String LOGIN_USERIT_PROPERTY_NAME="userIT";
-		public static final String LOGIN_USERNE_PROPERTY_NAME="userNE";
-		
-		public java.util.Properties prop = null;
-		
-		private String getLoginProperty(String property){
-			String sProp = null;
-			if (prop==null)
-				loadProperties();
-			if (prop!=null)
-				sProp = prop.getProperty(property);
-			return sProp;
-		}
-		
-		public void setLoginProperty(String propertyName, String value){
-			System.out.println("setLoginProperty("+propertyName+","+value+")");
-			if (prop==null)
-				loadProperties();
-			if (prop!=null){
-				System.out.println("put");
-				prop.put(propertyName, value);
-				System.out.println("abans save");
-				saveProperties();
-				System.out.println("despres save");
-			}
-				
-		}
-		
-		private void loadProperties(){
-			File dataDir = getDataDir();
-			prop = new java.util.Properties();
-			try{
-				String filePath = removeSpace(dataDir.getAbsolutePath()+File.separator+"login.properties");
-				FileInputStream fis = new FileInputStream(filePath);
-				System.out.println("Carregant fitxer de login des de: "+filePath);
-				prop.load(fis);
-				fis.close();
-			} catch (Exception ex){
-				ex.printStackTrace(System.out);
-				prop = null;
-			}
-		}
-		
-		private void saveProperties(){
-			File dataDir = getDataDir();
-			prop = new java.util.Properties();
-			try{
-				String filePath = removeSpace(dataDir.getAbsolutePath()+File.separator+"login2.xml");
-				filePath = "K:/out.txt";
-				System.out.println("**filePath:"+filePath);
-				File fFile = new File(filePath);
-				System.out.println("-0-");
-				if (!fFile.exists()){
-					System.out.println("-1-");
-					fFile.createNewFile();
-					System.out.println("-2-");
-				}
-				System.out.println("-3-");
-				FileOutputStream fos=new FileOutputStream(filePath);
-				System.out.println("-4-");
-				fos.getFD().sync();
-				System.out.println("-5-");
-				fos.flush();
-				System.out.println("-6-");
-				fos.close();
-				System.out.println("-7-");
-				
-				
-				//java.io.FileOutputStream fos = new java.io.FileOutputStream(filePath);
-				//System.out.println("Desant fitxer de login a: "+filePath);
-				//prop.store(fos, "QV Login properties file");
-				//fos.close();
-			} catch (Exception ex){
-				ex.printStackTrace(System.out);
-				prop = null;
-			}
-		}
-		
-		public File getDataDir(){
-			File fDir = new File(getDocumentBase().getFile()).getParentFile();
-			File fDataDir = new File(fDir+File.separator+"data");
-			return fDataDir;
-		}
-		
-		public String getNumUsers(){
-			return getLoginProperty(LOGIN_NUM_USERS_PROPERTY_NAME);
-		}
-		
-		public String getPrefixUsers(){
-			return getLoginProperty(LOGIN_PREFIX_USERS_PROPERTY_NAME);
-		}
-		
-		public String getUserId(int userNum){
-			return getLoginProperty(LOGIN_USERID_PROPERTY_NAME+userNum);
-		}
-		
-		public String getUserName(int userNum){
-			return getLoginProperty(LOGIN_USERNAME_PROPERTY_NAME+userNum);
-		}
-		
-		public String getUserIT(int userNum){
-			return getLoginProperty(LOGIN_USERIT_PROPERTY_NAME+userNum);
-		}
-		
-		public String getUserNE(int userNum){
-			return getLoginProperty(LOGIN_USERNE_PROPERTY_NAME+userNum);
-		}
-		
-	
 	
 }

@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <project name="qv_applets_org" basedir="." default="all">
-
+	<presetdef name="javac">
+	    <javac includeantruntime="false" />
+	</presetdef>
 	<!-- =================================================================== -->
 	<!-- INIT                                                                -->
 	<!-- =================================================================== -->
@@ -117,8 +119,9 @@
            optimize="${optimize}"
 	       encoding="${ant.build.javac.encoding}"
 	       source="${ant.build.javac.source}"
-           target="${ant.build.javac.target}">
-			<src path="${src.dir}/local" />
+           target="${ant.build.javac.target}"
+		   srcdir="${src.dir}/local" 
+		   >
 			<classpath>
 				<pathelement location="${lib.dir}/jdom.jar"/>
 				<pathelement location="${lib.dir}/log4j-1.2.8.jar"/>
