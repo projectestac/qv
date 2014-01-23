@@ -1,9 +1,23 @@
-qv_applets/.classpath
-qv_applets/.project
-qv_applets/.settings
+# class files
+*.class
+
+# Back and log files #
+*.bak
+*~
+*.log
+
+# Build and doc directories #
+**/build/
+**/apidoc/
+**/javadoc/
+
+# Development files
+netbeans
+**/netbeans
+**/.classpath
+**/.project
+**/.settings
+
 qv_applets/bin
-qv_applets/dist/QVDragDrop.jar
-qv_applets/dist/QVDrawer.jar
-qv_applets/dist/QVHotspotAppletJS.jar
-qv_applets/dist/QVOrdering.jar
+qv_applets/dist
 
