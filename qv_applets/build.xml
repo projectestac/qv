@@ -57,6 +57,13 @@
     <property name="optimize"       value="on" />
     <property name="encoding"       value="ISO-8859-15" />
 
+    <!-- JAR options -->
+    <property name="jar.caller.allowable.codebase" value="*" />
+    <!-- property name="jar.caller.allowable.codebase" value="clic.xtec.cat agora.xtec.cat agora.educat1x1.cat odissea.xtec.cat alexandria.xtec.cat edu365.cat www.xtec.cat pwc-acc.xtec.cat pwc-int.educacio.intranet acc-xtec.educat1x1.cat acc.xtec.cat acc-xtec.educat1x1.cat xtec-int.educacio.intranet localhost 127.0.0.1" / -->
+    <property name="jar.application.library.allowable.codebase" value="*" />
+    <property name="jar.codebase" value="*" />
+    <property name="jar.trusted.library" value="true" />
+
     <!-- Custom javac definition -->
     <presetdef name="ext.javac">
         <javac debug="${debug}"
@@ -220,9 +227,13 @@
             <attribute name="Permissions" 
                        value="all-permissions"/>
             <attribute name="Trusted-Library"
-                       value="true"/>
+                       value="${jar.trusted.library}"/>
+            <attribute name="Caller-Allowable-Codebase"
+                       value="${jar.caller.allowable.codebase}"/>
+            <attribute name="Application-Library-Allowable-Codebase" 
+                       value="${jar.application.library.allowable.codebase}"/>
             <attribute name="Codebase" 
-                       value="*"/>
+                       value="${jar.codebase}"/>
             <attribute name="Application-Name" 
                        value="Quaderns Virtuals"/>
         </manifest>
@@ -258,9 +269,13 @@
             <attribute name="Permissions" 
                        value="all-permissions"/>
             <attribute name="Trusted-Library"
-                       value="true"/>
+                       value="${jar.trusted.library}"/>
+            <attribute name="Caller-Allowable-Codebase"
+                       value="${jar.caller.allowable.codebase}"/>
+            <attribute name="Application-Library-Allowable-Codebase" 
+                       value="${jar.application.library.allowable.codebase}"/>
             <attribute name="Codebase" 
-                       value="*"/>
+                       value="${jar.codebase}"/>
             <attribute name="Application-Name" 
                        value="Quaderns Virtuals - Hotspot applet"/>
         </manifest>
@@ -291,9 +306,13 @@
             <attribute name="Permissions" 
                        value="all-permissions"/>
             <attribute name="Trusted-Library"
-                       value="true"/>
+                       value="${jar.trusted.library}"/>
+            <attribute name="Caller-Allowable-Codebase"
+                       value="${jar.caller.allowable.codebase}"/>
+            <attribute name="Application-Library-Allowable-Codebase" 
+                       value="${jar.application.library.allowable.codebase}"/>
             <attribute name="Codebase" 
-                       value="*"/>
+                       value="${jar.codebase}"/>
             <attribute name="Application-Name" 
                        value="Quaderns Virtuals - Drag &amp; drop applet"/>
         </manifest>
@@ -320,9 +339,13 @@
             <attribute name="Permissions" 
                        value="all-permissions"/>
             <attribute name="Trusted-Library"
-                       value="true"/>
+                       value="${jar.trusted.library}"/>
+            <attribute name="Caller-Allowable-Codebase"
+                       value="${jar.caller.allowable.codebase}"/>
+            <attribute name="Application-Library-Allowable-Codebase" 
+                       value="${jar.application.library.allowable.codebase}"/>
             <attribute name="Codebase" 
-                       value="*"/>
+                       value="${jar.codebase}"/>
             <attribute name="Application-Name" 
                        value="Quaderns Virtuals - Ordering applet"/>
         </manifest>
@@ -358,9 +381,13 @@
             <attribute name="Permissions" 
                        value="all-permissions"/>
             <attribute name="Trusted-Library"
-                       value="true"/>
+                       value="${jar.trusted.library}"/>
+            <attribute name="Caller-Allowable-Codebase"
+                       value="${jar.caller.allowable.codebase}"/>
+            <attribute name="Application-Library-Allowable-Codebase" 
+                       value="${jar.application.library.allowable.codebase}"/>
             <attribute name="Codebase" 
-                       value="*"/>
+                       value="${jar.codebase}"/>
             <attribute name="Application-Name" 
                        value="Quaderns Virtuals - Ordering applet"/>
         </manifest>
