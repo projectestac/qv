@@ -21,3 +21,6 @@ netbeans
 qv_applets/bin
 qv_applets/dist
 
+
+ **/qv_web/logs/**
+qv_web/logs/qv_editor_log.txt
