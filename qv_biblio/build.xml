@@ -1,0 +1,200 @@
+<?xml version="1.0"?>
+<project name="qv_biblio" basedir="." default="all">
+
+  <!-- =================================================================== -->
+  <!-- INIT                                                                -->
+  <!-- =================================================================== -->
+  <target name="init">  
+
+    <!-- Variables -->
+    <property file="${user.home}/.ant-global.properties" />
+    <property name="alias" value="qv_biblio" />
+    <property name="keystore" location="${user.home}/${keystoreDir}/qv.keystore" />    
+
+    <property name="name"           value="Biblioteca de Quaderns Virtuals" />    
+    <property name="year"           value="2005" />
+
+    <property name="server.name"    value="xtec-pro" />
+  	<property name="dist.name"      value="e13_qv_biblio" />
+
+    <!-- QV is currently targeted to JVM 1.4 -->
+    <property name="ant.build.javac.source" value="1.4"/>
+    <property name="ant.build.javac.target" value="1.4"/>	
+    <property name="ant.build.javac.encoding" value="ISO-8859-15"/>	
+
+    <property name="src.dir"        location="src" />
+    <property name="web.dir"     	location="web" />
+    <property name="lib.dir"        location="${web.dir}/WEB-INF/lib" />
+    <property name="servlet.jar" 	location="/usr/share/tomcat55/common/lib/servlet-api.jar" />
+    <property name="build.dir"      location="build" />
+    <property name="dist.dir"       location="dist" />
+    <property name="apidoc.dir"     location="apidoc" />
+    <property name="resource.path"  value="edu/xtec/resources" />
+    <property name="server.config"  location="${dist.dir}/config/${server.name}" />
+
+    <property name="debug"          value="off" />    
+    <property name="deprecation"    value="off" />    
+    <property name="optimize"       value="on" />    
+    
+    <!-- Patterns -->
+	<patternset id="jsps" >
+		<include name="*.jsp"/>
+	</patternset>
+    <patternset id="props" >
+      <include name="**/*.properties"/>
+    </patternset>
+
+    <echo message="---------------------"/>
+    <echo message="Biblioteca QV build"/>
+    <echo message="---------------------"/>
+    
+    <!-- Create dirs -->
+    <mkdir dir="${dist.dir}"/>
+    <mkdir dir="${build.dir}"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- MAIN                                                                -->
+  <!-- =================================================================== -->
+  <target name="all" 
+          depends="qv_biblio" 
+          description="Build everything.">
+
+    <echo message="*** Biblioteca QV successfully created!"/>
+
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- CLEAN                                                               -->
+  <!-- =================================================================== -->
+  <target name="clean" 
+          depends="init" 
+          description="Clean build dir">
+    <delete dir="${build.dir}" />
+    <echo message="*** Build dir cleared!"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- BIBLIOTECA DE QV                                                        -->
+  <!-- =================================================================== -->
+  <target name="compile" 
+          depends="init">
+    <mkdir dir="${build.dir}/${dist.name}/WEB-INF/classes"/>
+    <javac srcdir="${src.dir}/biblio"
+    	   destdir="${build.dir}/${dist.name}/WEB-INF/classes" 
+           debug="${debug}"
+           deprecation="${deprecation}"
+           optimize="${optimize}" 
+		   encoding="${ant.build.javac.encoding}"
+		   source="${ant.build.javac.source}"
+		   target="${ant.build.javac.target}">
+      <classpath>
+        <pathelement location="${lib.dir}/dbconn.jar"/>
+        <pathelement location="${lib.dir}/jdom.jar"/>
+        <pathelement location="${lib.dir}/log4j-1.2.13.jar"/>
+        <pathelement location="${lib.dir}/lom.jar"/>
+        <pathelement location="${servlet.jar}"/>
+       </classpath>
+    </javac>
+  </target>
+
+  <target name="dist" 
+          depends="compile">
+    <war destfile="${build.dir}/${dist.name}.war" 
+         webxml="${web.dir}/WEB-INF/web.xml">
+         <manifest>
+           <attribute name="Built-By" 
+                      value="${user.name}"/>
+        </manifest>
+        <lib dir="${lib.dir}">
+			<include name="log4j-1.2.13.jar"/>
+			<include name="dbconn.jar"/>
+			<include name="jdom.jar"/>
+			<include name="lom.jar"/>
+        </lib>
+		<classes dir="${build.dir}/${dist.name}" prefix=""/>
+		<zipfileset dir="${src.dir}/biblio/edu/xtec/resources/messages" prefix="WEB-INF/classes/edu/xtec/resources/messages">
+			<patternset refid="props"/>
+		</zipfileset>
+		<zipfileset dir="${server.config}" prefix="WEB-INF/classes">
+			<patternset refid="props"/>
+		</zipfileset>
+    	
+		<zipfileset dir="${web.dir}" prefix="">
+			<patternset refid="jsps"/>
+		</zipfileset>
+    </war>
+  </target>
+  
+  <target name="deploy"
+  		  depends="dist">
+  	<mkdir dir="${dist.dir}/${server.name}"/>
+    <ear destfile="${dist.dir}/${server.name}/${dist.name}.ear" 
+         appxml="${server.config}/application.xml">
+         <manifest>
+           <attribute name="Built-By" 
+                      value="${user.name}"/>
+         </manifest>
+      <fileset dir="${build.dir}" includes="${dist.name}.war"/>
+    </ear>
+  </target>
+
+
+  <target name="qv_biblio" 
+          depends="clean,deploy">
+  	<delete dir="${build.dir}" />
+  </target>
+	
+  <!-- =================================================================== -->
+  <!-- QV_BIBLIO                                                           -->
+  <!-- =================================================================== -->
+  <target name="jar" 
+          depends="init">
+    <mkdir dir="${build.dir}/jar"/>
+    <javac srcdir="${src.dir}/web/"
+    	   includes="**/biblio/*,**/biblio/db/*"
+    	   destdir="${build.dir}/jar" 
+           debug="${debug}" 
+           deprecation="${deprecation}"
+           optimize="${optimize}" 
+		   encoding="${ant.build.javac.encoding}"
+		   source="${ant.build.javac.source}"
+  		   target="${ant.build.javac.target}">
+      <classpath>
+        <pathelement location="${lib.dir}/log4j-1.2.13.jar"/>
+        <pathelement location="${lib.dir}/dbconn.jar"/>
+        <pathelement location="${lib.dir}/lom.jar"/>
+      </classpath>
+    </javac>
+    <jar jarfile="${build.dir}/qv_biblio.jar" 
+         basedir="${build.dir}/jar" />
+  </target>
+	
+
+
+  <!-- =================================================================== -->
+  <!-- JAVADOC                                                             -->
+  <!-- =================================================================== -->
+  <target name="javadoc" 
+          depends="all" 
+          description="Editor QV JavaDoc">
+    <delete dir="${apidoc.dir}" />
+    <mkdir dir="${apidoc.dir}"/>
+    <javadoc encoding="ISO-8859-15" docencoding="ISO-8859-15" packagenames="edu.xtec.*" 
+             destdir="${apidoc.dir}" 
+             author="true" 
+             version="true" 
+             use="true" 
+             splitindex="true" 
+             noindex="false" 
+             windowtitle="${name} API" 
+             doctitle="${name}"
+             bottom="Copyright &#169; ${year} Sara Arjona. All Rights Reserved.">
+             <sourcepath>
+               <pathelement location="${src.dir}/web"/>
+             </sourcepath>
+             <excludepackage name="edu.xtec.resources.*" />
+    </javadoc>
+  </target>
+
+</project>

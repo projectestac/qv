@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+ 
+<web-app>	
+ <servlet>
+	<servlet-name>GetActivities</servlet-name>
+	<servlet-class>edu.xtec.qv.biblio.servlets.GetActivitiesServlet</servlet-class>
+ </servlet>
+ <servlet>
+	<servlet-name>GetLanguages</servlet-name>
+	<servlet-class>edu.xtec.qv.biblio.servlets.GetLanguagesServlet</servlet-class>
+ </servlet>
+ <servlet>
+	<servlet-name>GetAreas</servlet-name>
+	<servlet-class>edu.xtec.qv.biblio.servlets.GetAreasServlet</servlet-class>
+ </servlet>
+ <servlet>
+	<servlet-name>GetLevels</servlet-name>
+	<servlet-class>edu.xtec.qv.biblio.servlets.GetLevelsServlet</servlet-class>
+ </servlet>
+ <servlet>
+	<servlet-name>OpenQV</servlet-name>
+	<servlet-class>edu.xtec.qv.biblio.servlets.OpenQVServlet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+	<servlet-name>GetActivities</servlet-name>
+	<url-pattern>/getActivities</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+	<servlet-name>GetLanguages</servlet-name>
+	<url-pattern>/getLanguages</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+	<servlet-name>GetAreas</servlet-name>
+	<url-pattern>/getAreas</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+	<servlet-name>GetLevels</servlet-name>
+	<url-pattern>/getLevels</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+	<servlet-name>OpenQV</servlet-name>
+	<url-pattern>/quaderns/*</url-pattern>
+ </servlet-mapping>
+
+ <session-config>
+  <session-timeout>30</session-timeout>
+ </session-config>
+ <welcome-file-list>
+  <welcome-file>act_list.jsp</welcome-file>
+ </welcome-file-list>
+</web-app>
