@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<rdf:RDF
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns="http://purl.org/rss/1.0/"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:syn="http://purl.org/rss/1.0/modules/syndication/"
+ xmlns:admin="http://webns.net/mvcb/"
+ xmlns:taxo="http://purl.org/rss/1.0/modules/taxonomy/"
+>
+
+<channel rdf:about="http://clic.xtec.cat/qv">
+<title>Quaderns Virtuals</title>
+<link>http://clic.xtec.cat/qv_web/es/index.htm</link>
+<description>Noticias relacionadas con el proyecto Quaderns Virtuals.</description>
+<dc:language>es</dc:language>
+<dc:date>2006-03-02T00:00:00+01:00</dc:date>
+<dc:creator>qv@xtec.cat</dc:creator>
+
+<items>
+ <rdf:Seq>
+  <rdf:li rdf:resource="http://clic.xtec.cat/qv_web/es/comu_news.htm#3"/>
+  <rdf:li rdf:resource="http://clic.xtec.cat/qv_web/es/comu_news.htm#2"/>
+  <rdf:li rdf:resource="http://clic.xtec.cat/qv_web/es/comu_news.htm#1"/>
+ </rdf:Seq>
+</items>
+<image rdf:resource="http://clic.xtec.cat/img/logo_zona.gif" />
+<textinput rdf:resource="http://clic.xtec.cat/qv/es" />
+</channel>
+
+<image rdf:about="http://clic.xtec.cat/img/logo_zona.gif">
+<title>Quaderns Virtuals</title>
+<url>http://clic.xtec.cat/img/logo_zona.gif</url>
+<link>http://clic.xtec.cat/qv</link>
+</image>
+
+<item rdf:about="http://clic.xtec.cat/qv_web/ca/comu_news.htm#3">
+<title>El portal web de Quaderns Virtuals ya está disponible en inglés</title>
+<link><![CDATA[http://clic.xtec.cat/qv_web/en/index.htm]]></link>
+<description>Ya está disponible la versión inglesa del portal de Quaderns Virtuals.</description>
+<dc:date>2006-05-17T00:00:00+01:00</dc:date>
+</item>
+
+<item rdf:about="http://clic.xtec.cat/qv_web/ca/comu_news.htm#2">
+<title>Estrenamos una nueva tipología de preguntas de DIBUJO</title>
+<link><![CDATA[http://clic.xtec.cat/qv_web/ca/qv_caract06.htm]]></link>
+<description>Ya está disponible al editor un nuevo tipo de preguntas, en las que el alumnado puede dibujar y pintar una serie de figuras gracias a un pequeño editor de dibujo.</description>
+<dc:date>2006-03-03T00:00:00+01:00</dc:date>
+</item>
+
+<item rdf:about="http://clic.xtec.cat/qv_web/ca/comu_news.htm#1">
+<title>Disponible el módulo de Quaderns Virtuals para la intraweb de centro</title>
+<link><![CDATA[http://phobos.xtec.net/intraweb/web/index.php?option=com_content&task=view&id=70&Itemid=2]]></link>
+<description>El proyecto Intraweb, que tiene por objetivo facilitar el uso de intranets dinámicas en centros educativos, ya dipone de un módulo que permite su integración con Quaderns Virtuals.</description>
+<dc:date>2006-01-18T00:00:00+01:00</dc:date>
+</item>
+
+</rdf:RDF>
+
+
+
+
+
+

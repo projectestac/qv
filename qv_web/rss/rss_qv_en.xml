@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<rdf:RDF
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns="http://purl.org/rss/1.0/"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:syn="http://purl.org/rss/1.0/modules/syndication/"
+ xmlns:admin="http://webns.net/mvcb/"
+ xmlns:taxo="http://purl.org/rss/1.0/modules/taxonomy/"
+>
+
+<channel rdf:about="http://clic.xtec.cat/qv">
+<title>Quaderns Virtuals</title>
+<link>http://clic.xtec.cat/qv_web/ca/index.htm</link>
+<description>Quaderns Virtuals news</description>
+<dc:language>en</dc:language>
+<dc:date>2006-03-02T00:00:00+01:00</dc:date>
+<dc:creator>qv@xtec.cat</dc:creator>
+
+<items>
+ <rdf:Seq>
+  <rdf:li rdf:resource="http://clic.xtec.cat/qv_web/en/comu_news.htm#2"/>
+  <rdf:li rdf:resource="http://clic.xtec.cat/qv_web/en/comu_news.htm#1"/>
+ </rdf:Seq>
+</items>
+<image rdf:resource="http://clic.xtec.cat/img/logo_zona.gif" />
+<textinput rdf:resource="http://clic.xtec.cat/qv/en" />
+</channel>
+
+<image rdf:about="http://clic.xtec.cat/img/logo_zona.gif">
+<title>Quaderns Virtuals</title>
+<url>http://clic.xtec.cat/img/logo_zona.gif</url>
+<link>http://clic.xtec.cat/qv</link>
+</image>
+
+<item rdf:about="http://clic.xtec.cat/qv_web/en/comu_news.htm#2">
+<title>We are setting out a new typology of questions, DRAWING</title>
+<link><![CDATA[http://clic.xtec.cat/qv_web/en/qv_caract06.htm]]></link>
+<description>A new type of questions is already available in the editor. Students can draw and paint a set of figures thanks to a small drawing editor.</description>
+<dc:date>2006-03-03T00:00:00+01:00</dc:date>
+</item>
+
+<item rdf:about="http://clic.xtec.cat/qv_web/en/comu_news.htm#1">
+<title>Unit of Quaderns Virtuals for schools' intrawebs already available</title>
+<link><![CDATA[http://phobos.xtec.net/intraweb/web/index.php?option=com_content&task=view&id=70&Itemid=2]]></link>
+<description>The intraweb project, which facilitates the use of dynamic intranets in educational centers, already has an unit which allows its integration with Quaderns Virtuals.</description>
+<dc:date>2006-01-18T00:00:00+01:00</dc:date>
+</item>
+
+</rdf:RDF>
+
+
+
+
+
+

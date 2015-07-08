@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<rdf:RDF
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns="http://purl.org/rss/1.0/"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:syn="http://purl.org/rss/1.0/modules/syndication/"
+ xmlns:admin="http://webns.net/mvcb/"
+ xmlns:taxo="http://purl.org/rss/1.0/modules/taxonomy/"
+>
+
+<channel rdf:about="http://clic.xtec.cat/qv">
+<title>Quaderns Virtuals</title>
+<link>http://clic.xtec.cat/qv_web/ca/index.htm</link>
+<description>Notícies relacionades amb el projecte Quaderns Virtuals.</description>
+<dc:language>ca</dc:language>
+<dc:date>2006-03-02T00:00:00+01:00</dc:date>
+<dc:creator>qv@xtec.cat</dc:creator>
+
+<items>
+ <rdf:Seq>
+  <rdf:li rdf:resource="http://clic.xtec.cat/qv_web/ca/comu_news.htm#8"/>
+  <rdf:li rdf:resource="http://clic.xtec.cat/qv_web/ca/comu_news.htm#7"/>
+  <rdf:li rdf:resource="http://clic.xtec.cat/qv_web/ca/comu_news.htm#6"/>
+  <rdf:li rdf:resource="http://clic.xtec.cat/qv_web/ca/comu_news.htm#5"/>
+  <rdf:li rdf:resource="http://clic.xtec.cat/qv_web/ca/comu_news.htm#4"/>
+  <rdf:li rdf:resource="http://clic.xtec.cat/qv_web/ca/comu_news.htm#3"/>
+  <rdf:li rdf:resource="http://clic.xtec.cat/qv_web/ca/comu_news.htm#2"/>
+  <rdf:li rdf:resource="http://clic.xtec.cat/qv_web/ca/comu_news.htm#1"/>
+ </rdf:Seq>
+</items>
+<image rdf:resource="http://clic.xtec.cat/qv_web/image/favicon.ico" />
+<textinput rdf:resource="http://clic.xtec.cat/qv/ca" />
+</channel>
+
+<image rdf:about="http://clic.xtec.cat/qv_web/image/favicon.ico">
+<title>Quaderns Virtuals</title>
+<url>http://clic.xtec.cat/qv_web/image/favicon.ico</url>
+<link>http://clic.xtec.cat/qv</link>
+</image>
+
+<item rdf:about="http://clic.xtec.cat/qv_web/ca/comu_news.htm#8">
+<title>Oberta la inscripció al curs de formació telemàtica D82 Quaderns Virtuals: aprenentatge i avaluació en xarxa </title>
+<link><![CDATA[http://www.xtec.cat:8081/pls/soloas/p_tipus_curs?p_llista=S&p_any=2008-2009&p_tipus=D82]]></link>
+<description><![CDATA[Ja està oberta la inscripció al curs de formació telemàtica sobre creació i ús de Quaderns Virtuals, que es durà a terme durant el 2008-2009. Esteu tots convidats a participar-hi. Des d'<a href="http://www.xtec.cat:8081/pls/soloas/p_tipus_curs?p_llista=S&p_any=2008-2009&p_tipus=D82" target="_blank">aquí</a> us hi podeu inscriure.
+]]></description>
+<dc:date>2008-09-03T00:00:00+01:00</dc:date>
+</item>
+
+<item rdf:about="http://clic.xtec.cat/qv_web/ca/comu_news.htm#7">
+<title>Tenim una aplicació nova: L'Editor de Quaderns Virtuals portable!</title>
+<link><![CDATA[https://projectes.lafarga.cat/projects/q-virtuals/downloads/files]]></link>
+<description><![CDATA[Ja està disponible la versió <i>portable</i> de l'Editor de Quaderns Virtuals. Els principals avantatges d'aquesta aplicació són que pot funcionar en dispositius portàtils (com ara memòries USB i discs durs externs) i que no cal disposar ni d'usuari/ària XTEC ni de connexió a Internet per accedir-hi.  La versió beta d'aquesta nova aplicació es troba a l'apartat <a href="https://projectes.lafarga.cat/projects/q-virtuals/downloads/files" target="_blank"><strong>qvportable</strong></a> del portal de <a href="https://projectes.lafarga.cat/projects/q-virtuals/downloads/files" target="_blank">LaFarga.cat</a>.
+]]></description>
+<dc:date>2008-02-29T00:00:00+01:00</dc:date>
+</item>
+
+
+<item rdf:about="http://clic.xtec.cat/qv_web/ca/comu_news.htm#6">
+<title>Versió 2.0beta del mòdul de Quaderns Virtuals per a Moodle</title>
+<link><![CDATA[https://projectes.lafarga.cat/projects/q-virtuals/downloads/files]]></link>
+<description><![CDATA[A l'apartat de <strong>desc&agrave;rregues de fitxers</strong> del portal de <a href="https://projectes.lafarga.cat/projects/q-virtuals/downloads/files" target="_blank">LaFarga.cat</a> teniu disponible la versi&oacute; 2.0beta del m&ograve;dul de Quaderns Virtuals per a Moodle. Aquesta versi&oacute;  incorpora importants novetats respecte a la 1.1.1 que hi havia fins ara. Els principals avantatges s&oacute;n que, per una banda, est&agrave; totalment desvinculada del servidor de Quaderns Virtuals (aix&ograve; vol dir que les respostes dels alumnes es desen directament a la base de dades de Moodle) i, per altra banda, funciona amb les versions  1.6, 1.7 i 1.8 de Moodle.]]></description>
+<dc:date>2007-02-26T00:00:00+01:00</dc:date>
+</item>
+
+
+<item rdf:about="http://clic.xtec.cat/qv_web/ca/comu_news.htm#5">
+<title>Secció nova al portal dels QV: les preguntes més freqüents (PMF)!</title>
+<link><![CDATA[http://clic.xtec.cat/qv_web/ca/suport_faq.htm]]></link>
+<description>Hem posat en marxa un sistema de preguntes més freqüents (PMF) que anirem actualitzant periòdicament per afegir les qüestions més demanades. El sistema incorpora un petit cercador per facilitar-vos la localització de les respostes i a més us permet afegir comentaris dins de les preguntes i enviar els vostres suggeriments.</description>
+<dc:date>2007-02-26T00:00:00+01:00</dc:date>
+</item>
+
+<item rdf:about="http://clic.xtec.cat/qv_web/ca/comu_news.htm#4">
+<title>Estrenem el fòrum dels Quaderns Virtuals dins del nostre portal!</title>
+<link><![CDATA[http://phobos.xtec.cat/qv/forum]]></link>
+<description>Aquest fòrum és un espai que permetrà a qualsevol enviar i/o trobar dubtes relacionats amb els Quaderns Virtuals</description>
+<dc:date>2006-12-05T00:00:00+01:00</dc:date>
+</item>
+
+<item rdf:about="http://clic.xtec.cat/qv_web/ca/comu_news.htm#3">
+<title>El portal web de Quaderns Virtuals ja està disponible en anglès</title>
+<link><![CDATA[http://clic.xtec.cat/qv_web/en/index.htm]]></link>
+<description>Ja està disponible la versió anglesa del portal de Quaderns Virtuals.</description>
+<dc:date>2006-05-17T00:00:00+01:00</dc:date>
+</item>
+
+<item rdf:about="http://clic.xtec.cat/qv_web/ca/comu_news.htm#2">
+<title>Estrenem una nova tipologia de preguntes de DIBUIX</title>
+<link><![CDATA[http://clic.xtec.cat/qv_web/ca/qv_caract06.htm]]></link>
+<description>Ja està disponible a l'editor un nou tipus de preguntes, en les que l'alumnat pot dibuixar i pintar una sèrie de figures gràcies a un petit editor de dibuix.</description>
+<dc:date>2006-03-03T00:00:00+01:00</dc:date>
+</item>
+
+<item rdf:about="http://clic.xtec.cat/qv_web/ca/comu_news.htm#1">
+<title>Disponible el mòdul de Quaderns Virtuals per a la intraweb de centre</title>
+<link><![CDATA[http://phobos.xtec.net/intraweb/web/index.php?option=com_content&task=view&id=70&Itemid=2]]></link>
+<description>El projecte intraweb, que té per objectiu facilitar l'ús d'intranets dinàmiques en els centres educatius, ja compta amb un mòdul que permet la seva integració amb Quaderns Virtuals.</description>
+<dc:date>2006-01-18T00:00:00+01:00</dc:date>
+</item>
+
+</rdf:RDF>
+
+
+
+
+
+

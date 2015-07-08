@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/WebQV.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+  <title>Quaderns Virtuals</title>
+<!-- InstanceEndEditable -->  
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <LINK rel="stylesheet" type="text/css" href="../css/qv_web.css" />
+  <LINK rel="icon" type="image/x-icon" href="../image/favicon.ico"/>
+  <LINK rel="shortcut icon" type="image/x-icon"  href="../image/favicon.ico"/>
+
+<!-- InstanceBeginEditable name="menu_sel" -->
+<script language="JavaScript" type="text/javascript">
+var menu_n1_sel="m_qv";
+var menu_n2_sel="m_qv_aplica";
+</script>
+<!-- InstanceEndEditable -->  
+
+<script type="text/javascript" src="scripts/menu_qv.js"></script>
+<script type="text/javascript" src="../scripts/qv_web.js"></script>
+<script type="text/javascript" src="http://clic.xtec.net/qv_web/scripts/launchQV.js"></script>
+</head>
+
+<body>
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="height:100%">
+<tr>
+	<td>
+	<!-- CAPÇALERA -->
+		<table border="0" cellpadding="0" cellspacing="0" width="700">
+		<tr>
+			<td><a href="index.htm"><img src="../image/logo.gif" width="93" height="107" alt="Logo de Quaderns Virtuals" border="0"/></a></td>
+			<td width="600" style="background: url(../image/fons_menu.gif)">
+				<table border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td height="31px"></td>
+				</tr>
+				<tr>
+					<td>
+						<table border="0" cellpadding="0" cellspacing="0" height="16px">
+						<tr>
+							<script>
+								for(i=0;i<menu_n1.length;i++){
+									var bg = "";
+									document.writeln("<td>|</td>");
+									if (menu_n1_sel==menu_n1[i][0]) bg=" style='background: url(../image/m_n1_fons.jpg)' ";
+									document.writeln("<td id="+menu_n1[i][0]+bg+">&nbsp;&nbsp;");
+									document.writeln("<a class='menu' href='"+menu_n1[i][2]+"'>"+menu_n1[i][1]+"</a>");
+									document.writeln("&nbsp;&nbsp;</td>");
+								}
+							</script>
+							<td>|</td>
+						</tr>
+						</table>					
+					</td>
+				</tr>
+				<tr>
+					<td height="7px"></td>
+				</tr>
+				<tr>
+					<td>
+						<table border="0" cellpadding="0" cellspacing="0" height="16px" style='background: url(../image/m_n1_fons.jpg)'>
+						<tr>
+							<script>
+							 if (menu_n1_sel!=""){
+								var menu_n2 = eval(menu_n1_sel+"_n2");
+								for(i=0;i<menu_n2.length;i++){
+									var bg = "";
+									document.writeln("<td>|</td>");
+									if (menu_n2_sel==menu_n2[i][0]) bg=" style='background: url(../image/m_n2_fons.jpg)' ";
+									document.writeln("<td id="+menu_n2[i][0]+bg+">&nbsp;&nbsp;");
+									document.writeln("<a class='menu' href='"+menu_n2[i][2]+"'>"+menu_n2[i][1]+"</a>");
+									document.writeln("&nbsp;&nbsp;</td>");
+								}
+							 } else{
+							 	document.writeln("<td></td>");
+							 }
+							</script>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				</table>
+			</td>
+			<td width="8" style="background: url(../image/fons_menu_d.gif)"></td>
+		</tr>
+		</table>
+	</td>
+</tr>
+<tr>
+	<td height="20px"></td>
+</tr>
+<tr>
+	<td style="height:100%">
+	<!-- CONTINGUT -->
+		<table border="0" cellpadding="0" cellspacing="0" width="700" style="height:100%">
+		<tr>
+			<td width="80"></td>
+			<td style="height:100%">
+				<table border="0" cellpadding="0" cellspacing="0" width="100%" style="height:100%">
+				<tr>
+					<td class="titol1"><!-- InstanceBeginEditable name="titol" -->Requeriments<!-- InstanceEndEditable --></td>
+				</tr>
+				<tr>
+					<td class="linia-titol" height="1px" width="100%"></td>
+				</tr>
+				<tr>
+					<!-- InstanceBeginEditable name="separacio-titol-contingut" --><td height="20px"></td><!-- InstanceEndEditable -->
+				</tr>
+				<tr>
+					<td class="text" style="height:100%"><!-- InstanceBeginEditable name="text" -->
+				    <p><span class="titol2">REQUERIMENTS T&Egrave;CNICS </span></p>
+				    <p>El programari requerit per accedir a les aplicacions de Quaderns Virtuals s&oacute;n:</p>
+				    <ul>
+                      <li><strong>Connexi&oacute; a internet</strong><br/>
+					  Les aplicacions nom&eacute;s estan disponibles mitjan&ccedil;ant Internet, &eacute;s a dir, no hi ha cap d'elles que disposi d'una versi&oacute; local que es pugui instal&middot;lar a l'ordinador i permeti treballar sense connexi&oacute;. </li>
+                      <li><b>Navegador web</b><br/>
+                        L'acc&eacute;s a l'editor i al visualitzador es fa mitjan&ccedil;ant un navegador web com ara <a href="http://www.softcatala.org/projectes/mozilla/" target="_blank">Mozilla FireFox</a>, <a href="http://www.microsoft.com/windows/ie_intl/es/default.mspx" target="_blank">Internet Explorer</a> (versi&oacute; 5.5 i superior), Safari, Opera...</li>
+                      <li><b>Motor de Java</b>. <br />
+  Algunes preguntes d'un quadern poden necessitar carregar applets de Java&trade;. Per executar aquests applets cal que l'ordinador disposi d'un programari especial, anomenat m&agrave;quina virtual Java&trade;. La m&agrave;quina virtual Java&trade; necess&agrave;ria pels Quaderns Virtuals ha de ser de la versi&oacute; 1.1 o superior.<br />
+  En <a href="http://clic.xtec.net/ca/jclic/instjava.htm" target="_blank">aquesta p&agrave;gina del JClic</a> trobareu informaci&oacute; per a instal&middot;lar i configurar el Java&trade;.</li>
+                      <li><b>Reproductor multim&egrave;dia</b>.<br />
+  Per tal de poder escoltar i visualitzar correctament els &agrave;udios i v&iacute;deos que pugui contenir cada quadern ser&agrave; necessari tenir instal&middot;lat un reproductor multim&egrave;dia (com ara el <a href="http://www.realnetworks.com/info/freeplayer/" target="_blank">Real Player</a> o el <a href="http://www.apple.com/quicktime/download/" target="_blank">Quicktime</a>). 
+  A m&eacute;s, si el quadern t&eacute; incrustada alguna animaci&oacute; flash, ser&agrave; necessari instal&middot;lar tamb&eacute; el <a href="http://www.macromedia.com/go/getflashplayer">plugin de Flash</a>.</li>
+                    </ul>
+				    
+                    <p>&nbsp;</p>
+                    <!-- InstanceEndEditable --></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+		</tr>
+		</table>	
+	</td>
+</tr>
+<tr>
+	<td>
+	<!-- PEU -->
+		<table border="0" cellpadding="0" cellspacing="0" width="700">
+		<tr>
+			<td width="80" height="40" valign="bottom"></td>
+			<td><a href="http://www.xtec.net"><img src="../image/linia_inf.gif" title="Xarxa Telemàtica Educativa de Catalunya" width="620" height="14" border="0"/></a></td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+</body>
+<!-- InstanceEnd --></html>

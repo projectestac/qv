@@ -1,0 +1,97 @@
+BODY{
+	background: url(../image/fons.jpg) repeat-x;
+	background-color: #C4E9F3;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color: #002230;
+}
+li{
+	list-style-image: url(../image/fletxa.gif);
+	padding-bottom: 20px;
+}
+
+A{
+	color: #002230;
+}
+A:hover{
+	color: #FD5F07;
+	text-decoration:underline;
+}
+.menu{
+	color: #002230;
+	text-decoration:none;
+}
+.menu:A:hover{
+	color: #FD5F07;
+	text-decoration:underline;
+}
+
+.titol1{
+	font-size: 15px;
+	font-weight: bold;
+	color: #36627F;
+}
+.titol2{
+	font-size: 11px;
+	font-weight: bold;
+  width:80%;	
+	padding: 2px;
+	color: #36627F;
+}
+td.titol2{
+	color: #FFF;
+}
+.titol-news{
+	background-color: #36627F;
+}
+.titol3{
+	font-size: 11px;
+	font-weight: bold;
+    width:80%;	
+	padding: 2px;
+	color: #002230;
+	border-bottom: 1px solid rgb(102, 102, 102);
+}
+.titol-taula{
+	font-size: 11px;
+	color: #36627F;
+	font-style:italic;
+}
+.linia-titol{
+	border-top: 1px solid #66B0CF;
+	margin:4px;
+	height:4px;
+	font-size: 1px;
+	padding:0px;
+}
+.text{
+	color: #002230;
+}
+.codi {
+	font-family: "Courier New", Courier, mono;
+	color: #888888;
+}
+.fons-verd{
+	background: url(../image/m_n1_fons.jpg); 
+}
+
+.text-new{
+	text-decoration:blink;
+	color:red;
+	font-weight:bold;
+}
+
+#avis{
+	visibility:hidden;
+	display:none;
+/*	visibility: hidden;
+	display: none;*/
+}
+.avis{
+	background-color:#FFFFFF;
+	border:thin solid #66B0CF;
+	padding: 7px;
+}
+.version-content{
+  color:#36627F;
+}

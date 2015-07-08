@@ -1,0 +1,56 @@
+BODY{
+	background: url(../image/fons.jpg) repeat-x;
+	background-color: #C4E9F3;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color: #002230;
+}
+li{
+	list-style-image: url(../image/fletxa.gif);
+	padding-bottom: 20px;
+}
+
+A{
+	color: #002230;
+}
+A:hover{
+	color: #FD5F07;
+	text-decoration:underline;
+}
+.menu{
+	color: #002230;
+	text-decoration:none;
+}
+.menu:A:hover{
+	color: #FD5F07;
+	text-decoration:underline;
+}
+
+.titol1{
+	font-size: 15px;
+	font-weight: bold;
+	color: #36627F;
+}
+.titol2{
+	font-size: 11px;
+	font-weight: bold;
+	color: #36627F;
+}
+.titol-taula{
+	font-size: 11px;
+	color: #36627F;
+	font-style:italic;
+}
+.linia-titol{
+	background-color: #66B0CF;
+}
+.text{
+	color: #002230;
+}
+.codi {
+	font-family: "Courier New", Courier, mono;
+	color: #888888;
+}
+.fons-verd{
+	background: url(../image/m_n1_fons.jpg); 
+}
