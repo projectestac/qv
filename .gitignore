@@ -21,6 +21,10 @@ netbeans
 qv_applets/bin
 qv_applets/dist
 
+qv_editor/dist/qti.jar
+qv_editor/dist/dev
+qv_editor/web/WEB-INF/log4j.properties
+qv_editor/web/WEB-INF/classes
 
  **/qv_web/logs/**
 qv_web/logs/qv_editor_log.txt
