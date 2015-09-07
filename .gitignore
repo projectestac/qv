@@ -22,8 +22,8 @@ qv_applets/bin
 qv_applets/dist
 
 qv_editor/dist/qti.jar
-qv_editor/dist/dev
 qv_editor/web/WEB-INF/classes
+qv_editor/web/quaderns/biblioteca/
 
 qv_viewer/web/WEB-INF/classes
 

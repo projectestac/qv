@@ -173,6 +173,9 @@
     <copy todir="${web.dir}/WEB-INF/classes/edu/xtec/resources/" >
       <fileset dir="${src.dir}/viewer/edu/xtec/resources/"/>
     </copy>
+    <copy todir="${web.dir}/WEB-INF/classes/edu/xtec/resources/" >
+      <fileset dir="${src.dir}/zipfolder/edu/xtec/resources/"/>
+    </copy>
     <copy todir="${web.dir}/WEB-INF/classes" >
       <fileset dir="${src.dir}/viewer" includes="log4j.properties"/>
     </copy>
