@@ -1,0 +1,30 @@
+body{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 9pt;
+	color : #004080;
+}
+a{
+	font-size : 8pt;
+	color : #004080;
+}
+INPUT{
+	font-weight: bold;
+	color : #004080;
+}
+SELECT{
+	font-weight: bold;
+	color : #004080;
+}
+TEXTAREA{
+	font-weight: bold;
+	color : #004080;
+}
+
+.box{
+	background-color: #b7ccf0;
+	border: 1px #004080 solid;
+}
+.title{
+	font-size : 12pt;
+	font-weight: bold;
+}

@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<project name="qv_admin" basedir="." default="all">
+
+  <!-- =================================================================== -->
+  <!-- INIT                                                                -->
+  <!-- =================================================================== -->
+  <target name="init">
+
+    <property name="tomcat.home" value="/usr/share/tomcat7/lib" />
+
+    <!-- Variables -->
+    <property file="${user.home}/.ant-global.properties" />
+    <property name="alias" value="qv_admin" />
+
+    <property name="name"           value="Eina d'administracio de Quaderns Virtuals" />
+    <property name="year"           value="2005" />
+
+  	<property name="dist.name"      value="e13_qv_admin" />
+
+    <!-- QV is currently targeted to JVM 1.4 -->
+    <property name="ant.build.javac.source" value="1.7"/>
+    <property name="ant.build.javac.target" value="1.7"/>
+    <property name="ant.build.javac.encoding" value="ISO-8859-15"/>
+
+  	<property name="web.dir"        location="web" />
+    <property name="src.dir"        location="src" />
+    <property name="lib.dir"        location="web/WEB-INF/lib" />
+    <property name="build.dir"      location="build" />
+    <property name="dist.dir"       location="dist" />
+    <property name="apidoc.dir"     location="apidoc" />
+    <property name="servlet.jar"    location="${tomcat.home}/servlet-api.jar" />
+    <property name="server.config"  location="${dist.dir}/config/${server.name}" />
+    <property name="resource.path"  value="edu/xtec/resources" />
+
+    <property name="debug"          value="off" />
+    <property name="deprecation"    value="off" />
+    <property name="optimize"       value="on" />
+
+    <!-- Patterns -->
+	<patternset id="html" >
+		<include name="*.jsp"/>
+        <include name="**/*.css"/>
+	    <include name="**/*.js"/>
+	</patternset>
+    <patternset id="props" >
+      <include name="**/*.properties"/>
+    </patternset>
+
+    <echo message="---------------------"/>
+    <echo message="QV Administration build"/>
+    <echo message="---------------------"/>
+
+    <!-- Create dirs -->
+    <mkdir dir="${build.dir}"/>
+  </target>
+
+
+  <target name="dev_init">
+    <property name="server.name" value="dev" />
+  </target>
+
+  <target name="pro_init">
+    <property name="server.name" value="xtec-pro" />
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- MAIN                                                                -->
+  <!-- =================================================================== -->
+
+  <target name="dev" depends="dev_init,dev_deploy" description="Build development, no ear generated">
+    <echo message="*** qv_admin successfully created for development!"/>
+  </target>
+
+  <target name="pro" depends="pro_init,qv_admin" description="Build development">
+    <echo message="*** qv_admin successfully created for production!"/>
+  </target>
+
+  <target name="all" depends="pro" description="Build everything">
+    <echo message="*** qv_admin successfully created for '${server.name}' server config!"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- CLEAN                                                               -->
+  <!-- =================================================================== -->
+  <target name="clean"
+          depends="init"
+          description="Clean build dir">
+    <echo message="*** Build dir cleared!"/>
+  	<delete dir="${build.dir}"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- QV ADMINISTRATION                                                   -->
+  <!-- =================================================================== -->
+  <target name="compile" depends="init">
+    <mkdir dir="${build.dir}/qv_admin/WEB-INF/classes"/>
+    <javac srcdir="${src.dir}/admin"
+    	   destdir="${build.dir}/qv_admin/WEB-INF/classes"
+           debug="${debug}"
+           deprecation="${deprecation}"
+           optimize="${optimize}"
+		   encoding="${ant.build.javac.encoding}"
+		   source="${ant.build.javac.source}"
+    	   target="${ant.build.javac.target}">
+      <classpath>
+        <pathelement location="${servlet.jar}"/>
+        <pathelement location="${lib.dir}/log4j-1.2.8.jar"/>
+        <pathelement location="${lib.dir}/dbconn.jar"/>
+        <pathelement location="${lib.dir}/lom.jar"/>
+        <pathelement location="${lib.dir}/qv_biblio.jar"/>
+       </classpath>
+    </javac>
+  </target>
+
+  <target name="dist" depends="compile">
+    <war destfile="${build.dir}/${dist.name}.war"
+         webxml="${web.dir}/WEB-INF/web.xml">
+         <manifest>
+           <attribute name="Built-By" value="${user.name}"/>
+        </manifest>
+        <lib dir="${lib.dir}">
+			<include name="log4j-1.2.8.jar"/>
+			<include name="dbconn.jar"/>
+			<include name="lom.jar"/>
+			<include name="qv_biblio.jar"/>
+        </lib>
+		<classes dir="${build.dir}/qv_admin" prefix=""/>
+		<zipfileset dir="${server.config}" prefix="WEB-INF/classes">
+			<patternset refid="props"/>
+		</zipfileset>
+		<zipfileset dir="${web.dir}" prefix="">
+			<patternset refid="html"/>
+		</zipfileset>
+    </war>
+  </target>
+
+  <target name="deploy" depends="dist">
+  	<mkdir dir="${dist.dir}/${server.name}"/>
+    <ear destfile="${dist.dir}/${server.name}/${dist.name}.ear"
+         appxml="${server.config}/application.xml">
+         <manifest>
+           <attribute name="Built-By"
+                      value="${user.name}"/>
+         </manifest>
+      <fileset dir="${build.dir}" includes="${dist.name}.war"/>
+    </ear>
+  </target>
+
+  <target name="dev_deploy" depends="clean,compile">
+    <delete dir="${web.dir}/WEB-INF/classes"/>
+    <mkdir dir="${web.dir}/WEB-INF/classes"/>
+    <copy todir="${web.dir}/WEB-INF/classes" >
+      <fileset dir="${build.dir}/qv_admin/WEB-INF/classes"/>
+    </copy>
+    <copy todir="${web.dir}/WEB-INF/classes/edu/xtec/resources/" >
+      <fileset dir="${src.dir}/admin/edu/xtec/resources/"/>
+    </copy>
+    <copy todir="${web.dir}/WEB-INF/classes" >
+      <fileset dir="${src.dir}/admin" includes="log4j.properties"/>
+    </copy>
+    <delete dir="${build.dir}"/>
+  </target>
+
+
+  <target name="qv_admin"
+          depends="clean,deploy">
+  	<delete dir="${build.dir}"/>
+  </target>
+
+</project>

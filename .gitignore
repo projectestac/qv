@@ -21,6 +21,8 @@ netbeans
 qv_applets/bin
 qv_applets/dist
 
+qv_admin/web/WEB-INF/classes
+
 qv_editor/dist/qti.jar
 qv_editor/web/WEB-INF/classes
 qv_editor/web/quaderns/biblioteca/
