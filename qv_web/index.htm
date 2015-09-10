@@ -9,9 +9,12 @@
 
 <body>
 <script>
-<!--
-document.location="ca/index.htm";
- -->
- </script>
+var language = window.navigator.userLanguage || window.navigator.language;
+if (language == "ca" || language == "es" || language == "en") {
+    document.location=language+"/index.htm";
+} else {
+  document.location="ca/index.htm";
+}
+</script>
 </body>
 </html>
