@@ -8,8 +8,7 @@ var menu_n1= new Array(
 
 var m_qv_n2= new Array(
 	new Array("m_qv_caract","Características","qv_caract.htm"),
-	new Array("m_qv_aplica","Aplicaciones","qv_aplica.htm"),
-	new Array("m_qv_faq","Preguntas frecuentes","suport_faq.htm"));
+	new Array("m_qv_aplica","Aplicaciones","qv_aplica.htm"));
 
 var m_biblio_n2= new Array(
 	new Array("m_biblio_cerca","Búsqueda","../../qv_biblio/act_list.jsp?lang=es"),
@@ -20,7 +19,6 @@ var m_docs_n2= new Array(
 	new Array("m_docs_curs","Cursos","docs_curs.htm"));
 
 var m_suport_n2= new Array(
-	new Array("m_suport_faq","Preguntas frecuentes","suport_faq.htm"),
 	new Array("m_suport_bustia","Buzón","suport_bustia.htm"));
 
 var m_comu_n2= new Array(

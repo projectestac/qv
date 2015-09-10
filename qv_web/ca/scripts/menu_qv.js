@@ -1,6 +1,6 @@
 var menu_n1= new Array(
 	new Array("m_qv","Quaderns Virtuals","qv.htm"),
-	new Array("m_biblio","Biblioteca","/qv_biblio/act_list.jsp?lang=ca"),
+	new Array("m_biblio","Biblioteca","../../qv_biblio/act_list.jsp?lang=ca"),
 	new Array("m_docs","Documents","docs.htm"),
 	new Array("m_suport","Suport","suport.htm"),
 	new Array("m_comu","Comunitat","comu.htm"),
@@ -12,7 +12,7 @@ var m_qv_n2= new Array(
 	new Array("m_qv_faq","Preguntes freqüents","suport_faq.htm"));
 
 var m_biblio_n2= new Array(
-	new Array("m_biblio_cerca","Cerca","/qv_biblio/act_list.jsp?lang=ca"),
+	new Array("m_biblio_cerca","Cerca","../../qv_biblio/act_list.jsp?lang=ca"),
 	new Array("m_biblio_aporta","Com aportar quaderns?","biblio_aporta.htm"));
 
 var m_docs_n2= new Array(
