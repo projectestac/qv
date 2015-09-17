@@ -1,0 +1,1914 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<questestinterop>
+ <assessment ident="quadernClima" title="El clima y la vegetación">
+  <qtimetadata>
+   <qtimetadatafield>
+    <fieldlabel><![CDATA[materia]]></fieldlabel>
+    <fieldentry><![CDATA[Conocimiento del Medio Social y Cultural]]></fieldentry>
+   </qtimetadatafield>
+   <qtimetadatafield>
+    <fieldlabel><![CDATA[level]]></fieldlabel>
+    <fieldentry><![CDATA[Primer curso del Ciclo Superior de Educación Primária]]></fieldentry>
+   </qtimetadatafield>
+   <qtimetadatafield>
+    <fieldlabel><![CDATA[idioma]]></fieldlabel>
+    <fieldentry><![CDATA[es]]></fieldentry>
+   </qtimetadatafield>
+   <qtimetadatafield>
+    <fieldlabel><![CDATA[author]]></fieldlabel>
+    <fieldentry><![CDATA[Eva Gea, Sara Arjona]]></fieldentry>
+   </qtimetadatafield>
+  </qtimetadata>
+  <outcomes_processing scoremodel="SumOfScores">
+   <outcomes>
+    <decvar varname="SCORE" vartype="Decimal" defaultval="0"/>
+   </outcomes>
+   <map_output varname="SCORE"><![CDATA[SCORE]]></map_output>
+  </outcomes_processing>
+  <section ident="section01" title="Situación geográfica y diversos factores">
+   <outcomes_processing scoremodel="SumOfScores">
+    <outcomes>
+     <decvar varname="SCORE" vartype="Decimal" defaultval="0"/>
+    </outcomes>
+    <map_output varname="SCORE"><![CDATA[SCORE]]></map_output>
+   </outcomes_processing>
+   <item ident="section01_item01" title="situació geogràfica">
+    <qticomment><![CDATA[Relacionar el clima de Cataluña con su situación geográfica]]></qticomment>
+    <presentation>
+     <flow>
+      <material>
+       <mattext><![CDATA[Visualiza el siguiente vídeo y contesta las preguntas:]]></mattext>
+      </material>
+      <flow>
+       <material>
+        <matvideo videotype="audio/x-pn-realaudio-plugin" uri="qv_01.rpm" width="250" height="210"/>
+       </material>
+      </flow>
+      <flow>
+       <response_str ident="res01">
+        <render_fib rows="10" columns="70">
+         <material>
+          <mattext><![CDATA[¿Crees que hay relación entre la vegetación de un lugar y las características de su clima? ¿Por qué?]]></mattext>
+         </material>
+         <flow_label>
+          <response_label ident="lab01"/>
+         </flow_label>
+        </render_fib>
+       </response_str>
+      </flow>
+     </flow>
+    </presentation>
+   </item>
+   <item ident="section01_item02" title="factores climáticos del clima mediterráneo">
+    <qticomment><![CDATA[Considerar el clima como una consecuencia de diversos factores climáticos]]></qticomment>
+    <presentation>
+     <flow>
+      <material>
+       <mattext><![CDATA[El clima mediterráneo se caracteriza por tener...]]></mattext>
+      </material>
+      <response_lid ident="res01" rcardinality="Single">
+       <render_choice>
+        <flow_label>
+         <flow_label>
+          <response_label ident="lab01">
+           <material>
+            <mattext><![CDATA[veranos secos y calurosos]]></mattext>
+           </material>
+          </response_label>
+         </flow_label>
+         <flow_label>
+          <response_label ident="lab02">
+           <material>
+            <mattext><![CDATA[inviernos secos y fríos]]></mattext>
+           </material>
+          </response_label>
+         </flow_label>
+         <flow_label>
+          <response_label ident="lab03">
+           <material>
+            <mattext><![CDATA[ambas respuestas son correctas]]></mattext>
+           </material>
+          </response_label>
+         </flow_label>
+        </flow_label>
+       </render_choice>
+      </response_lid>
+     </flow>
+    </presentation>
+    <resprocessing>
+     <outcomes>
+      <decvar varname="SCORE" vartype="Integer"/>
+      <decvar varname="CORRECT" vartype="Boolean" defaultval="False"/>
+     </outcomes>
+     <respcondition>
+      <conditionvar>
+       <and>
+        <varequal respident="res01" case="No"><![CDATA[lab03]]></varequal>
+       </and>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[1]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[True]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="1056368532078165"/>
+     </respcondition>
+    </resprocessing>
+    <itemfeedback ident="1056368532078165">
+     <flow_mat>
+      <material>
+       <mattext><![CDATA[Correcte]]></mattext>
+      </material>
+     </flow_mat>
+    </itemfeedback>
+   </item>
+   <item ident="section01_item03" title="factors climàtics">
+    <qticomment><![CDATA[Considerar el clima como una consecuencia de diversos factores climáticos]]></qticomment>
+    <presentation>
+     <flow>
+      <material>
+       <mattext><![CDATA[Los factores que determinan el clima son: la cantidad y la frecuencia de las precipitaciones, la temperatura, el grado de humedad y la intensidad del viento.]]></mattext>
+      </material>
+      <response_lid ident="res01" rcardinality="Single">
+       <render_choice>
+        <flow_label>
+         <response_label ident="lab01">
+          <material>
+           <mattext><![CDATA[Verdadero]]></mattext>
+          </material>
+         </response_label>
+         <response_label ident="lab02">
+          <material>
+           <mattext><![CDATA[Falso]]></mattext>
+          </material>
+         </response_label>
+        </flow_label>
+       </render_choice>
+      </response_lid>
+     </flow>
+    </presentation>
+    <resprocessing>
+     <outcomes>
+      <decvar varname="SCORE" vartype="Integer"/>
+      <decvar varname="CORRECT" vartype="Boolean" defaultval="False"/>
+     </outcomes>
+     <respcondition>
+      <conditionvar>
+       <and>
+        <varequal respident="res01" case="No"><![CDATA[lab01]]></varequal>
+       </and>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[1]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[True]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="1056009129609525"/>
+     </respcondition>
+    </resprocessing>
+    <itemfeedback ident="1056009129609525">
+     <flow_mat>
+      <material>
+       <mattext><![CDATA[Correcto]]></mattext>
+      </material>
+     </flow_mat>
+    </itemfeedback>
+   </item>
+  </section>
+  <section ident="section02" title="Diversidad climática">
+   <outcomes_processing scoremodel="SumofScores">
+    <outcomes>
+     <decvar varname="SCORE" vartype="Decimal"/>
+    </outcomes>
+    <map_output varname="SCORE"><![CDATA[SCORE]]></map_output>
+   </outcomes_processing>
+   <item ident="section02_item01" title="variacions climàtiques">
+    <qticomment><![CDATA[Conocer la diversidad climática de Cataluña y sus causas]]></qticomment>
+    <presentation>
+     <flow>
+      <material>
+       <mattext><![CDATA[Las variaciones climáticas de Cataluña dependen sobre todo de:]]></mattext>
+      </material>
+      <response_lid ident="res01" rcardinality="Multiple">
+       <render_choice>
+        <flow_label>
+         <flow_label>
+          <response_label ident="lab01">
+           <material>
+            <mattext><![CDATA[la contaminación]]></mattext>
+           </material>
+          </response_label>
+         </flow_label>
+         <flow_label>
+          <response_label ident="lab02">
+           <material>
+            <mattext><![CDATA[la altitud]]></mattext>
+           </material>
+          </response_label>
+         </flow_label>
+         <flow_label>
+          <response_label ident="lab03">
+           <material>
+            <mattext><![CDATA[la proximidad al mar]]></mattext>
+           </material>
+          </response_label>
+         </flow_label>
+         <flow_label>
+          <response_label ident="lab04">
+           <material>
+            <mattext><![CDATA[del número de habitantes]]></mattext>
+           </material>
+          </response_label>
+         </flow_label>
+         <flow_label>
+          <response_label ident="lab05">
+           <material>
+            <mattext><![CDATA[las lluvias]]></mattext>
+           </material>
+          </response_label>
+         </flow_label>
+        </flow_label>
+       </render_choice>
+      </response_lid>
+     </flow>
+    </presentation>
+    <resprocessing>
+     <outcomes>
+      <decvar varname="SCORE" vartype="Integer"/>
+      <decvar varname="CORRECT" vartype="Boolean" defaultval="False"/>
+     </outcomes>
+     <respcondition>
+      <conditionvar>
+       <and>
+        <and>
+         <varequal respident="res01" case="No"><![CDATA[lab02]]></varequal>
+         <varequal respident="res01" case="No"><![CDATA[lab03]]></varequal>
+         <not>
+          <varequal respident="res01" case="No"><![CDATA[lab01]]></varequal>
+         </not>
+         <not>
+          <varequal respident="res01" case="No"><![CDATA[lab04]]></varequal>
+         </not>
+         <not>
+          <varequal respident="res01" case="No"><![CDATA[lab05]]></varequal>
+         </not>
+        </and>
+       </and>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[1]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[True]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="1056368532078610"/>
+     </respcondition>
+    </resprocessing>
+    <itemfeedback ident="1056368532078610">
+     <flow_mat>
+      <material>
+       <mattext><![CDATA[Correcto]]></mattext>
+      </material>
+     </flow_mat>
+    </itemfeedback>
+   </item>
+   <item ident="section02_item02" title="zonas climátiques de Cataluña">
+    <qticomment><![CDATA[Conocer la diversidad climática de Cataluña y sus causas]]></qticomment>
+    <presentation>
+     <flow>
+      <material>
+       <mattext texttype="text/html"><![CDATA[Rellena los espacios en blanco de la leyenda del gráfico. Cada color se corresponde con una de las zonas climáticas del mapa de Cataluña. <BR/>Las opciones que has de incluir están junto al mapa.]]></mattext>
+      </material>
+      <flow>
+       <material>
+        <matimage imagtype="image/jpg" uri="mapclimes.jpg" width="483"/>
+       </material>
+      </flow>
+      <flow>
+       <response_str ident="res01">
+        <render_fib columns="37">
+         <material>
+          <matimage imagtype="image/gif" uri="llegenda_clima1.gif" width="20" height="20"/>
+         </material>
+         <response_label ident="lab01"/>
+        </render_fib>
+       </response_str>
+       <response_str ident="res02">
+        <render_fib columns="37">
+         <material>
+          <matimage imagtype="image/gif" uri="llegenda_clima2.gif" width="20" height="20"/>
+         </material>
+         <response_label ident="lab01"/>
+        </render_fib>
+       </response_str>
+      </flow>
+      <flow>
+       <response_str ident="res03">
+        <render_fib columns="37">
+         <material>
+          <matimage imagtype="image/gif" uri="llegenda_clima3.gif" width="20" height="20"/>
+         </material>
+         <response_label ident="lab01"/>
+        </render_fib>
+       </response_str>
+       <response_str ident="res04">
+        <render_fib columns="37">
+         <material>
+          <matimage imagtype="image/gif" uri="llegenda_clima4.gif" width="20" height="20"/>
+         </material>
+         <response_label ident="lab01"/>
+        </render_fib>
+       </response_str>
+      </flow>
+      <flow>
+       <response_str ident="res05">
+        <render_fib columns="37">
+         <material>
+          <matimage imagtype="image/gif" uri="llegenda_clima5.gif" width="20" height="20"/>
+         </material>
+         <response_label ident="lab01"/>
+        </render_fib>
+       </response_str>
+       <response_str ident="res06">
+        <render_fib columns="37">
+         <material>
+          <matimage imagtype="image/gif" uri="llegenda_clima6.gif" width="20" height="20"/>
+         </material>
+         <response_label ident="lab01"/>
+        </render_fib>
+       </response_str>
+      </flow>
+     </flow>
+    </presentation>
+    <resprocessing>
+     <outcomes>
+      <decvar varname="SCORE" vartype="Integer"/>
+      <decvar varname="CORRECT" vartype="Boolean" defaultval="False"/>
+     </outcomes>
+     <respcondition>
+      <conditionvar>
+       <and>
+        <varequal respident="res01" case="No"><![CDATA[Mediterráneo litoral]]></varequal>
+        <varequal respident="res02" case="No"><![CDATA[Mediterráneo continental]]></varequal>
+        <varequal respident="res03" case="No"><![CDATA[Atlántico]]></varequal>
+        <varequal respident="res04" case="No"><![CDATA[Alpino]]></varequal>
+        <varequal respident="res05" case="No"><![CDATA[Mediterráneo de alta montaña]]></varequal>
+        <varequal respident="res06" case="No"><![CDATA[Mediterráneo de montaña media y baja]]></varequal>
+       </and>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[10]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[True]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="feed00"/>
+     </respcondition>
+     <respcondition continue="Yes">
+      <conditionvar>
+       <and>
+        <not>
+         <varequal respident="res01" case="No"><![CDATA[Mediterráneo litoral]]></varequal>
+        </not>
+       </and>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[0]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[False]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="feed01"/>
+     </respcondition>
+     <respcondition continue="Yes">
+      <conditionvar>
+       <and>
+        <not>
+         <varequal respident="res02" case="No"><![CDATA[Mediterráneo continental]]></varequal>
+        </not>
+       </and>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[0]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[False]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="feed02"/>
+     </respcondition>
+     <respcondition continue="Yes">
+      <conditionvar>
+       <and>
+        <not>
+         <varequal respident="res03" case="No"><![CDATA[Atlántico]]></varequal>
+        </not>
+       </and>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[0]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[False]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="feed03"/>
+     </respcondition>
+     <respcondition continue="Yes">
+      <conditionvar>
+       <and>
+        <not>
+         <varequal respident="res04" case="No"><![CDATA[Alpino]]></varequal>
+        </not>
+       </and>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[0]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[False]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="feed04"/>
+     </respcondition>
+     <respcondition continue="Yes">
+      <conditionvar>
+       <and>
+        <not>
+         <varequal respident="res05" case="No"><![CDATA[Mediterráneo de alta montaña]]></varequal>
+        </not>
+       </and>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[0]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[False]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="feed05"/>
+     </respcondition>
+     <respcondition continue="Yes">
+      <conditionvar>
+       <and>
+        <not>
+         <varequal respident="res06" case="No"><![CDATA[Mediterráneo de montaña media y baja]]></varequal>
+        </not>
+       </and>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[0]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[False]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="feed06"/>
+     </respcondition>
+    </resprocessing>
+    <itemfeedback ident="feed00">
+     <flow_mat>
+      <material>
+       <mattext><![CDATA[Todas las respuestas son correctas]]></mattext>
+      </material>
+     </flow_mat>
+    </itemfeedback>
+    <itemfeedback ident="feed01">
+     <flow_mat>
+      <material>
+       <mattext><![CDATA[Mediterráneo litoral incorrecto]]></mattext>
+      </material>
+     </flow_mat>
+    </itemfeedback>
+    <itemfeedback ident="feed02">
+     <flow_mat>
+      <material>
+       <mattext><![CDATA[Mediterráneo continental incorrecto]]></mattext>
+      </material>
+     </flow_mat>
+    </itemfeedback>
+    <itemfeedback ident="feed03">
+     <flow_mat>
+      <material>
+       <mattext><![CDATA[Atlántico incorrecto]]></mattext>
+      </material>
+     </flow_mat>
+    </itemfeedback>
+    <itemfeedback ident="feed04">
+     <flow_mat>
+      <material>
+       <mattext><![CDATA[Alpino incorrecto]]></mattext>
+      </material>
+     </flow_mat>
+    </itemfeedback>
+    <itemfeedback ident="feed05">
+     <flow_mat>
+      <material>
+       <mattext><![CDATA[Mediterráneo de alta montaña incorrecto]]></mattext>
+      </material>
+     </flow_mat>
+    </itemfeedback>
+    <itemfeedback ident="feed06">
+     <flow_mat>
+      <material>
+       <mattext><![CDATA[Mediterráneo de montaña media y baja incorrecto]]></mattext>
+      </material>
+     </flow_mat>
+    </itemfeedback>
+   </item>
+   <item ident="section02_item03" title="características del clima mediterráneo litoral">
+    <qticomment><![CDATA[Conocer la diversidad climática de Cataluña y sus causas]]></qticomment>
+    <presentation>
+     <flow>
+      <material>
+       <mattext><![CDATA[¿Cuáles son las características generales del clima mediterráneo litoral?]]></mattext>
+      </material>
+      <response_str ident="res01">
+       <render_fib rows="8" columns="45">
+        <material>
+         <matimage imagtype="image/jpg" uri="platja.jpg" width="200"/>
+        </material>
+        <response_label ident="lab01"/>
+       </render_fib>
+      </response_str>
+     </flow>
+    </presentation>
+   </item>
+   <item ident="section02_item04" title="fenómenos meteorológicos">
+    <presentation>
+     <flow>
+      <material>
+       <mattext><![CDATA[En Cataluña hay fenómenos meteorológicos característicos. Algunos incluso producen catástrofes... Escribe los que conozcas.]]></mattext>
+      </material>
+      <flow>
+       <response_str ident="res01" rcardinality="Single">
+        <render_fib columns="15">
+         <response_label ident="lab01"/>
+        </render_fib>
+       </response_str>
+       <response_str ident="res02" rcardinality="Single">
+        <render_fib columns="15">
+         <response_label ident="lab01"/>
+        </render_fib>
+       </response_str>
+       <response_str ident="res03" rcardinality="Single">
+        <render_fib columns="15">
+         <response_label ident="lab01"/>
+        </render_fib>
+       </response_str>
+       <response_str ident="res04" rcardinality="Single">
+        <render_fib columns="15">
+         <response_label ident="lab01"/>
+        </render_fib>
+       </response_str>
+      </flow>
+      <flow>
+       <response_str ident="res05" rcardinality="Single">
+        <render_fib columns="15">
+         <response_label ident="lab01"/>
+        </render_fib>
+       </response_str>
+       <response_str ident="res06" rcardinality="Single">
+        <render_fib columns="15">
+         <response_label ident="lab01"/>
+        </render_fib>
+       </response_str>
+       <response_str ident="res07" rcardinality="Single">
+        <render_fib columns="15">
+         <response_label ident="lab01"/>
+        </render_fib>
+       </response_str>
+       <response_str ident="res08" rcardinality="Single">
+        <render_fib columns="15">
+         <response_label ident="lab01"/>
+        </render_fib>
+       </response_str>
+      </flow>
+     </flow>
+    </presentation>
+    <resprocessing>
+     <outcomes>
+      <decvar varname="SCORE" vartype="Integer" defaultval="0"/>
+      <decvar varname="CORRECT" vartype="Boolean" defaultval="False"/>
+     </outcomes>
+     <respcondition>
+      <conditionvar>
+       <or>
+        <varequal respident="res01" case="No"><![CDATA[fredolades]]></varequal>
+        <varequal respident="res02" case="No"><![CDATA[fredolades]]></varequal>
+        <varequal respident="res03" case="No"><![CDATA[fredolades]]></varequal>
+        <varequal respident="res04" case="No"><![CDATA[fredolades]]></varequal>
+        <varequal respident="res05" case="No"><![CDATA[fredolades]]></varequal>
+        <varequal respident="res06" case="No"><![CDATA[fredolades]]></varequal>
+        <varequal respident="res07" case="No"><![CDATA[fredolades]]></varequal>
+        <varequal respident="res08" case="No"><![CDATA[fredolades]]></varequal>
+        <varequal respident="res09" case="No"><![CDATA[fredolades]]></varequal>
+        <varequal respident="res10" case="No"><![CDATA[fredolades]]></varequal>
+       </or>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[1]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[True]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="feed01"/>
+     </respcondition>
+     <respcondition>
+      <conditionvar>
+       <or>
+        <varequal respident="res01" case="No"><![CDATA[tramuntana]]></varequal>
+        <varequal respident="res02" case="No"><![CDATA[tramuntana]]></varequal>
+        <varequal respident="res03" case="No"><![CDATA[tramuntana]]></varequal>
+        <varequal respident="res04" case="No"><![CDATA[tramuntana]]></varequal>
+        <varequal respident="res05" case="No"><![CDATA[tramuntana]]></varequal>
+        <varequal respident="res06" case="No"><![CDATA[tramuntana]]></varequal>
+        <varequal respident="res07" case="No"><![CDATA[tramuntana]]></varequal>
+        <varequal respident="res08" case="No"><![CDATA[tramuntana]]></varequal>
+        <varequal respident="res09" case="No"><![CDATA[tramuntana]]></varequal>
+        <varequal respident="res10" case="No"><![CDATA[tramuntana]]></varequal>
+       </or>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[1]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[True]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="feed02"/>
+     </respcondition>
+     <respcondition>
+      <conditionvar>
+       <or>
+        <varequal respident="res01" case="No"><![CDATA[mestralades]]></varequal>
+        <varequal respident="res02" case="No"><![CDATA[mestralades]]></varequal>
+        <varequal respident="res03" case="No"><![CDATA[mestralades]]></varequal>
+        <varequal respident="res04" case="No"><![CDATA[mestralades]]></varequal>
+        <varequal respident="res05" case="No"><![CDATA[mestralades]]></varequal>
+        <varequal respident="res06" case="No"><![CDATA[mestralades]]></varequal>
+        <varequal respident="res07" case="No"><![CDATA[mestralades]]></varequal>
+        <varequal respident="res08" case="No"><![CDATA[mestralades]]></varequal>
+        <varequal respident="res09" case="No"><![CDATA[mestralades]]></varequal>
+        <varequal respident="res10" case="No"><![CDATA[mestralades]]></varequal>
+       </or>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[1]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[True]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="feed03"/>
+     </respcondition>
+     <respcondition>
+      <conditionvar>
+       <or>
+        <varequal respident="res01" case="No"><![CDATA[aiguats]]></varequal>
+        <varequal respident="res02" case="No"><![CDATA[aiguats]]></varequal>
+        <varequal respident="res03" case="No"><![CDATA[aiguats]]></varequal>
+        <varequal respident="res04" case="No"><![CDATA[aiguats]]></varequal>
+        <varequal respident="res05" case="No"><![CDATA[aiguats]]></varequal>
+        <varequal respident="res06" case="No"><![CDATA[aiguats]]></varequal>
+        <varequal respident="res07" case="No"><![CDATA[aiguats]]></varequal>
+        <varequal respident="res08" case="No"><![CDATA[aiguats]]></varequal>
+        <varequal respident="res09" case="No"><![CDATA[aiguats]]></varequal>
+        <varequal respident="res10" case="No"><![CDATA[aiguats]]></varequal>
+       </or>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[1]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[True]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="feed04"/>
+     </respcondition>
+     <respcondition>
+      <conditionvar>
+       <or>
+        <varequal respident="res01" case="No"><![CDATA[tempestes]]></varequal>
+        <varequal respident="res02" case="No"><![CDATA[tempestes]]></varequal>
+        <varequal respident="res03" case="No"><![CDATA[tempestes]]></varequal>
+        <varequal respident="res04" case="No"><![CDATA[tempestes]]></varequal>
+        <varequal respident="res05" case="No"><![CDATA[tempestes]]></varequal>
+        <varequal respident="res06" case="No"><![CDATA[tempestes]]></varequal>
+        <varequal respident="res07" case="No"><![CDATA[tempestes]]></varequal>
+        <varequal respident="res08" case="No"><![CDATA[tempestes]]></varequal>
+        <varequal respident="res09" case="No"><![CDATA[tempestes]]></varequal>
+        <varequal respident="res10" case="No"><![CDATA[tempestes]]></varequal>
+       </or>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[1]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[True]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="feed05"/>
+     </respcondition>
+     <respcondition>
+      <conditionvar>
+       <or>
+        <varequal respident="res01" case="No"><![CDATA[llevantades]]></varequal>
+        <varequal respident="res02" case="No"><![CDATA[llevantades]]></varequal>
+        <varequal respident="res03" case="No"><![CDATA[llevantades]]></varequal>
+        <varequal respident="res04" case="No"><![CDATA[llevantades]]></varequal>
+        <varequal respident="res05" case="No"><![CDATA[llevantades]]></varequal>
+        <varequal respident="res06" case="No"><![CDATA[llevantades]]></varequal>
+        <varequal respident="res07" case="No"><![CDATA[llevantades]]></varequal>
+        <varequal respident="res08" case="No"><![CDATA[llevantades]]></varequal>
+        <varequal respident="res09" case="No"><![CDATA[llevantades]]></varequal>
+        <varequal respident="res10" case="No"><![CDATA[llevantades]]></varequal>
+       </or>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[1]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[True]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="feed06"/>
+     </respcondition>
+     <respcondition>
+      <conditionvar>
+       <or>
+        <varequal respident="res01" case="No"><![CDATA[boires]]></varequal>
+        <varequal respident="res02" case="No"><![CDATA[boires]]></varequal>
+        <varequal respident="res03" case="No"><![CDATA[boires]]></varequal>
+        <varequal respident="res04" case="No"><![CDATA[boires]]></varequal>
+        <varequal respident="res05" case="No"><![CDATA[boires]]></varequal>
+        <varequal respident="res06" case="No"><![CDATA[boires]]></varequal>
+        <varequal respident="res07" case="No"><![CDATA[boires]]></varequal>
+        <varequal respident="res08" case="No"><![CDATA[boires]]></varequal>
+        <varequal respident="res09" case="No"><![CDATA[boires]]></varequal>
+        <varequal respident="res10" case="No"><![CDATA[boires]]></varequal>
+       </or>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[1]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[True]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="feed07"/>
+     </respcondition>
+     <respcondition>
+      <conditionvar>
+       <or>
+        <varequal respident="res01" case="No"><![CDATA[gebrades]]></varequal>
+        <varequal respident="res02" case="No"><![CDATA[gebrades]]></varequal>
+        <varequal respident="res03" case="No"><![CDATA[gebrades]]></varequal>
+        <varequal respident="res04" case="No"><![CDATA[gebrades]]></varequal>
+        <varequal respident="res05" case="No"><![CDATA[gebrades]]></varequal>
+        <varequal respident="res06" case="No"><![CDATA[gebrades]]></varequal>
+        <varequal respident="res07" case="No"><![CDATA[gebrades]]></varequal>
+        <varequal respident="res08" case="No"><![CDATA[gebrades]]></varequal>
+        <varequal respident="res09" case="No"><![CDATA[gebrades]]></varequal>
+        <varequal respident="res10" case="No"><![CDATA[gebrades]]></varequal>
+       </or>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[1]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[True]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="feed08"/>
+     </respcondition>
+     <respcondition>
+      <conditionvar>
+       <or>
+        <varequal respident="res01" case="No"><![CDATA[nevades]]></varequal>
+        <varequal respident="res02" case="No"><![CDATA[nevades]]></varequal>
+        <varequal respident="res03" case="No"><![CDATA[nevades]]></varequal>
+        <varequal respident="res04" case="No"><![CDATA[nevades]]></varequal>
+        <varequal respident="res05" case="No"><![CDATA[nevades]]></varequal>
+        <varequal respident="res06" case="No"><![CDATA[nevades]]></varequal>
+        <varequal respident="res07" case="No"><![CDATA[nevades]]></varequal>
+        <varequal respident="res08" case="No"><![CDATA[nevades]]></varequal>
+        <varequal respident="res09" case="No"><![CDATA[nevades]]></varequal>
+        <varequal respident="res10" case="No"><![CDATA[nevades]]></varequal>
+       </or>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[1]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[True]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="feed09"/>
+     </respcondition>
+    </resprocessing>
+    <itemfeedback ident="feed01">
+     <material>
+      <mattext><![CDATA[Fredolades és correcta]]></mattext>
+     </material>
+    </itemfeedback>
+    <itemfeedback ident="feed02">
+     <material>
+      <mattext><![CDATA[Tramuntana és correcta]]></mattext>
+     </material>
+    </itemfeedback>
+    <itemfeedback ident="feed03">
+     <material>
+      <mattext><![CDATA[Mestrelades és correcta]]></mattext>
+     </material>
+    </itemfeedback>
+    <itemfeedback ident="feed04">
+     <material>
+      <mattext><![CDATA[Aiguats és correcta]]></mattext>
+     </material>
+    </itemfeedback>
+    <itemfeedback ident="feed05">
+     <material>
+      <mattext><![CDATA[Tempestes és correcta]]></mattext>
+     </material>
+    </itemfeedback>
+    <itemfeedback ident="feed06">
+     <material>
+      <mattext><![CDATA[Llevantades és correcta]]></mattext>
+     </material>
+    </itemfeedback>
+    <itemfeedback ident="feed07">
+     <material>
+      <mattext><![CDATA[Boires és correcta]]></mattext>
+     </material>
+    </itemfeedback>
+    <itemfeedback ident="feed08">
+     <material>
+      <mattext><![CDATA[Gebrades és correcta]]></mattext>
+     </material>
+    </itemfeedback>
+    <itemfeedback ident="feed09">
+     <material>
+      <mattext><![CDATA[Nevades és correcta]]></mattext>
+     </material>
+    </itemfeedback>
+   </item>
+  </section>
+  <section ident="section03" title="Climogramas">
+   <outcomes_processing scoremodel="SumofScores">
+    <outcomes>
+     <decvar varname="SCORE" vartype="Decimal"/>
+    </outcomes>
+    <map_output varname="SCORE"><![CDATA[SCORE]]></map_output>
+   </outcomes_processing>
+   <item ident="section03_item01" title="Climogrames 1">
+    <qticomment><![CDATA[Interpretar y confeccionar climogramas]]></qticomment>
+    <presentation>
+     <flow>
+      <material>
+       <mattext><![CDATA[Rellena los espacios en blanco que hay en esta frase:]]></mattext>
+      </material>
+      <flow>
+       <material>
+        <mattext><![CDATA[Los]]></mattext>
+       </material>
+       <response_str ident="res01">
+        <render_fib>
+         <response_label ident="lab01"/>
+        </render_fib>
+       </response_str>
+       <material>
+        <mattext><![CDATA[son gráficos de doble entrada. Nos informan sobre la evolución de las]]></mattext>
+       </material>
+       <response_lid ident="res02" rcardinality="Single">
+        <render_choice display="LIST">
+         <response_label ident="lab01">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[tormentas]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab02">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[lluvias]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab03">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[temperaturas]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab04">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[nevadas]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+        </render_choice>
+       </response_lid>
+       <material>
+        <mattext><![CDATA[y el volumen de las precipitaciones durante un periodo determinado en un lugar concreto.]]></mattext>
+       </material>
+      </flow>
+      <flow>
+       <material>
+        <mattext><![CDATA[La temperatura se mide con el]]></mattext>
+       </material>
+       <response_str ident="res03">
+        <render_fib>
+         <response_label ident="lab01"/>
+        </render_fib>
+       </response_str>
+       <material>
+        <mattext><![CDATA[y la cantidad de precipitaciones con un]]></mattext>
+       </material>
+       <response_str ident="res04">
+        <render_fib>
+         <response_label ident="lab01"/>
+        </render_fib>
+       </response_str>
+      </flow>
+     </flow>
+    </presentation>
+    <resprocessing>
+     <outcomes>
+      <decvar varname="SCORE" vartype="Integer" defaultval="0"/>
+      <decvar varname="CORRECT" vartype="Boolean" defaultval="False"/>
+     </outcomes>
+     <respcondition>
+      <conditionvar>
+       <and>
+        <varequal respident="res01" case="No"><![CDATA[climogramas]]></varequal>
+        <varequal respident="res02" case="No"><![CDATA[lab03]]></varequal>
+        <varequal respident="res03" case="No"><![CDATA[termómetro]]></varequal>
+        <varequal respident="res04" case="No"><![CDATA[pluviómetro]]></varequal>
+       </and>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[1]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[True]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="feed01"/>
+     </respcondition>
+    </resprocessing>
+    <itemfeedback ident="feed01">
+     <material>
+      <mattext><![CDATA[Correcto]]></mattext>
+     </material>
+    </itemfeedback>
+   </item>
+   <item ident="section03_item02" title="Climogrames 2">
+    <qticomment><![CDATA[Interpretar y confeccionar climogramas]]></qticomment>
+    <presentation>
+     <flow>
+      <material>
+       <mattext><![CDATA[Une los puntos del gráfico que representan las temperaturas medias de todos los meses.]]></mattext>
+      </material>
+      <flow>
+       <material>
+        <mattext texttype="text/html"><![CDATA[<CENTER> <TABLE border="1" cellpadding="2" cellspacing="0" width="90%" style="font-size:10px"> <TR bgcolor="#295A94" style="color: #ffffff"> <TD colspan="2"/> <TD> <B>Ene.</B> </TD> <TD> <B>Feb.</B> </TD> <TD> <B>Mar.</B> </TD> <TD> <B>Abr.</B> </TD> <TD> <B>Mayo</B> </TD> <TD> <B>Jun.</B> </TD> <TD> <B>Jul.</B> </TD> <TD> <B>Ago.</B> </TD> <TD> <B>Sept.</B> </TD> <TD> <B>Oct.</B> </TD> <TD> <B>Nov.</B> </TD> <TD> <B>Dic.</B> </TD> </TR> <TR style="color: #295A94; border:1px #004080 solid" > <TD> <B>Temperaturas</B> </TD> <TD width="70">ºC</TD> <TD width="70">8</TD> <TD width="70">9</TD> <TD width="70">10</TD> <TD width="70">12</TD> <TD width="70">16</TD> <TD width="70">20</TD> <TD width="70">23</TD> <TD width="70">23</TD> <TD width="70">20</TD> <TD width="70">15</TD> <TD width="70">10</TD> <TD width="70">8</TD> </TR> <TR style="color: #295A94"> <TD> <B>Precipitaciones</B> </TD> <TD>mm</TD> <TD>42</TD> <TD>48</TD> <TD>81</TD> <TD>70</TD> <TD>78</TD> <TD>60</TD> <TD>41</TD> <TD>60</TD> <TD>90</TD> <TD>108</TD> <TD>59</TD> <TD>73</TD> </TR> </TABLE> </CENTER>]]></mattext>
+       </material>
+       <response_lid ident="res01" rcardinality="Multiple">
+        <render_hotspot maxnumber="12" showdraw="Yes" showoptions="Yes" transp="No">
+         <material>
+          <matimage uri="climograma1.gif" width="375" height="359"/>
+         </material>
+         <response_label ident="lab01" rarea="ellipse"><![CDATA[62,291,9,9]]></response_label>
+         <response_label ident="lab02" rarea="ellipse"><![CDATA[83,288,9,9]]></response_label>
+         <response_label ident="lab03" rarea="ellipse"><![CDATA[104,283,9,9]]></response_label>
+         <response_label ident="lab04" rarea="ellipse"><![CDATA[125,277,9,9]]></response_label>
+         <response_label ident="lab05" rarea="ellipse"><![CDATA[146,265,9,9]]></response_label>
+         <response_label ident="lab06" rarea="ellipse"><![CDATA[168,253,9,9]]></response_label>
+         <response_label ident="lab07" rarea="ellipse"><![CDATA[189,243,9,9]]></response_label>
+         <response_label ident="lab08" rarea="ellipse"><![CDATA[210,243,9,9]]></response_label>
+         <response_label ident="lab09" rarea="ellipse"><![CDATA[232,253,9,9]]></response_label>
+         <response_label ident="lab10" rarea="ellipse"><![CDATA[253,267,9,9]]></response_label>
+         <response_label ident="lab11" rarea="ellipse"><![CDATA[274,283,9,9]]></response_label>
+         <response_label ident="lab12" rarea="ellipse"><![CDATA[295,291,9,9]]></response_label>
+         <response_label ident="lab13" rarea="ellipse"><![CDATA[62,306,9,9]]></response_label>
+         <response_label ident="lab14" rarea="ellipse"><![CDATA[83,303,9,9]]></response_label>
+         <response_label ident="lab16" rarea="ellipse"><![CDATA[125,292,9,9]]></response_label>
+         <response_label ident="lab17" rarea="ellipse"><![CDATA[146,280,9,9]]></response_label>
+         <response_label ident="lab20" rarea="ellipse"><![CDATA[210,258,9,9]]></response_label>
+         <response_label ident="lab21" rarea="ellipse"><![CDATA[232,268,9,9]]></response_label>
+         <response_label ident="lab23" rarea="ellipse"><![CDATA[274,298,9,9]]></response_label>
+         <response_label ident="lab24" rarea="ellipse"><![CDATA[295,306,9,9]]></response_label>
+         <response_label ident="lab26" rarea="ellipse"><![CDATA[83,273,9,9]]></response_label>
+         <response_label ident="lab30" rarea="ellipse"><![CDATA[168,238,9,9]]></response_label>
+         <response_label ident="lab31" rarea="ellipse"><![CDATA[189,228,9,9]]></response_label>
+         <response_label ident="lab32" rarea="ellipse"><![CDATA[210,228,9,9]]></response_label>
+         <response_label ident="lab34" rarea="ellipse"><![CDATA[253,252,9,9]]></response_label>
+         <response_label ident="lab35" rarea="ellipse"><![CDATA[274,268,9,9]]></response_label>
+         <response_label ident="lab37" rarea="ellipse"><![CDATA[62,261,9,9]]></response_label>
+         <response_label ident="lab40" rarea="ellipse"><![CDATA[125,247,9,9]]></response_label>
+         <response_label ident="lab41" rarea="ellipse"><![CDATA[146,235,9,9]]></response_label>
+         <response_label ident="lab46" rarea="ellipse"><![CDATA[295,261,9,9]]></response_label>
+         <response_label ident="lab47" rarea="ellipse"><![CDATA[62,246,9,9]]></response_label>
+         <response_label ident="lab48" rarea="ellipse"><![CDATA[83,243,9,9]]></response_label>
+         <response_label ident="lab49" rarea="ellipse"><![CDATA[104,238,9,9]]></response_label>
+         <response_label ident="lab52" rarea="ellipse"><![CDATA[274,238,9,9]]></response_label>
+         <response_label ident="lab55" rarea="ellipse"><![CDATA[83,228,9,9]]></response_label>
+         <response_label ident="lab56" rarea="ellipse"><![CDATA[274,223,9,9]]></response_label>
+         <response_label ident="lab57" rarea="ellipse"><![CDATA[295,231,9,9]]></response_label>
+         <response_label ident="lab58" rarea="ellipse"><![CDATA[125,307,9,9]]></response_label>
+         <response_label ident="lab61" rarea="ellipse"><![CDATA[189,273,9,9]]></response_label>
+         <response_label ident="lab62" rarea="ellipse"><![CDATA[210,273,9,9]]></response_label>
+         <response_label ident="lab64" rarea="ellipse"><![CDATA[253,297,9,9]]></response_label>
+         <response_label ident="lab60" rarea="ellipse"><![CDATA[168,298,9,9]]></response_label>
+         <response_label ident="lab61" rarea="ellipse"><![CDATA[189,288,9,9]]></response_label>
+         <response_label ident="lab63" rarea="ellipse"><![CDATA[232,298,9,9]]></response_label>
+        </render_hotspot>
+       </response_lid>
+      </flow>
+     </flow>
+    </presentation>
+    <resprocessing>
+     <outcomes>
+      <decvar varname="SCORE" vartype="Integer"/>
+      <decvar varname="CORRECT" vartype="Boolean" defaultval="False"/>
+     </outcomes>
+     <respcondition continue="yes">
+      <conditionvar>
+       <and>
+        <varequal respident="res01"><![CDATA[lab01,lab02,lab03,lab04,lab05,lab06,lab07,lab08,lab09,lab10,lab11,lab12]]></varequal>
+       </and>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[10]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[True]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="feed01"/>
+     </respcondition>
+    </resprocessing>
+    <itemfeedback ident="feed01">
+     <flow_mat>
+      <material>
+       <mattext><![CDATA[Correcto]]></mattext>
+      </material>
+     </flow_mat>
+    </itemfeedback>
+   </item>
+   <item ident="section03_item03" title="Climogrames 3">
+    <qticomment><![CDATA[Interpretar y confeccionar climogramas]]></qticomment>
+    <presentation>
+     <flow>
+      <material>
+       <mattext texttype="text/plain"><![CDATA[Arrastra los datos numéricos que aparecen en la parte inferior de la imagen y colócalos en el espacio correspondiente de la tabla. Para saber donde incluir cada uno de ellos, has de interpretar el climograma.]]></mattext>
+      </material>
+      <flow>
+       <material>
+        <matimage imagtype="image/gif" uri="climograma2.gif" width="540" height="400"/>
+       </material>
+      </flow>
+      <response_grp ident="res01" rcardinality="Multiple">
+       <render_extension>
+        <ims_render_object orientation="Row">
+         <response_label ident="climo02_source" match_group="climo01_target, climo02_target, climo03_target, climo04_target,climo05_target" match_max="1">
+          <material>
+           <matimage imagtype="image/gif" uri="climo02.gif" width="51" height="16" x0="250" y0="380"/>
+          </material>
+         </response_label>
+         <response_label ident="climo04_source" match_group="climo01_target, climo02_target, climo03_target, climo04_target,climo05_target" match_max="1">
+          <material>
+           <matimage imagtype="image/gif" uri="climo04.gif" width="51" height="16" x0="100" y0="380"/>
+          </material>
+         </response_label>
+         <response_label ident="climo03_source" match_group="climo01_target, climo02_target, climo03_target, climo04_target,climo05_target" match_max="1">
+          <material>
+           <matimage imagtype="image/gif" uri="climo03.gif" width="51" height="16" x0="175" y0="380"/>
+          </material>
+         </response_label>
+         <response_label ident="climo01_source" match_group="climo01_target, climo02_target, climo03_target, climo04_target,climo05_target" match_max="1">
+          <material>
+           <matimage imagtype="image/gif" uri="climo01.gif" width="51" height="16" x0="25" y0="380"/>
+          </material>
+         </response_label>
+         <response_label ident="climo05_source" match_group="climo01_target, climo02_target, climo03_target, climo04_target,climo05_target" match_max="1">
+          <material>
+           <matimage imagtype="image/gif" uri="climo05.gif" width="51" height="16" x0="325" y0="380"/>
+          </material>
+         </response_label>
+         <response_label ident="climo01_target" rarea="Rectangle"><![CDATA[271,309,32,20]]></response_label>
+         <response_label ident="climo02_target" rarea="Rectangle"><![CDATA[376,309,36,20]]></response_label>
+         <response_label ident="climo03_target" rarea="Rectangle"><![CDATA[118,331,39,20]]></response_label>
+         <response_label ident="climo04_target" rarea="Rectangle"><![CDATA[203,331,33,20]]></response_label>
+         <response_label ident="climo05_target" rarea="Rectangle"><![CDATA[472,331,32,20]]></response_label>
+        </ims_render_object>
+       </render_extension>
+      </response_grp>
+     </flow>
+    </presentation>
+    <resprocessing>
+     <outcomes>
+      <decvar varname="SCORE" vartype="Integer"/>
+      <decvar varname="CORRECT" vartype="Boolean" defaultval="False"/>
+     </outcomes>
+     <respcondition>
+      <conditionvar>
+       <varsubset respident="res01" setmatch="Exact"><![CDATA[climo01_source, climo01_target]]></varsubset>
+       <varsubset respident="res01" setmatch="Exact"><![CDATA[climo02_source, climo02_target]]></varsubset>
+       <varsubset respident="res01" setmatch="Exact"><![CDATA[climo03_source, climo03_target]]></varsubset>
+       <varsubset respident="res01" setmatch="Exact"><![CDATA[climo04_source, climo04_target]]></varsubset>
+       <varsubset respident="res01" setmatch="Exact"><![CDATA[climo05_source, climo05_target]]></varsubset>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[5]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[True]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="feed01"/>
+     </respcondition>
+    </resprocessing>
+    <itemfeedback ident="feed01">
+     <material>
+      <mattext texttype="text/plain"><![CDATA[Correcto]]></mattext>
+     </material>
+    </itemfeedback>
+   </item>
+   <item ident="section03_item04" title="Climogrames 4">
+    <qticomment><![CDATA[Interpretar y confeccionar climogramas]]></qticomment>
+    <presentation>
+     <flow>
+      <material>
+       <mattext><![CDATA[Observa el climograma y responde a las preguntas seleccionando la opción correcta.]]></mattext>
+      </material>
+      <flow>
+       <material>
+        <matimage imagtype="image/gif" uri="climograma3.gif" width="375" height="267"/>
+       </material>
+      </flow>
+      <flow>
+       <material>
+        <mattext><![CDATA[¿Cuál es la estación más seca?]]></mattext>
+       </material>
+       <response_lid ident="res01" rcardinality="Single">
+        <render_choice display="LIST">
+         <response_label ident="lab01">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[verano]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab02">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[otoño]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab03">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[invierno]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab04">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[primavera]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+        </render_choice>
+       </response_lid>
+      </flow>
+      <flow>
+       <material>
+        <mattext><![CDATA[¿Cuál ha sido el mes más frío?]]></mattext>
+       </material>
+       <response_lid ident="res02" rcardinality="Single">
+        <render_choice display="LIST">
+         <response_label ident="lab01">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[enero]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab02">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[febrero]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab03">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[marzo]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab04">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[abril]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab05">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[mayo]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab06">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[junio]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab07">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[julio]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab08">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[agosto]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab09">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[septiembre]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab10">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[octubre]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab11">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[noviembre]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab12">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[diciembre]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+        </render_choice>
+       </response_lid>
+      </flow>
+      <flow>
+       <material>
+        <mattext><![CDATA[¿Cuál ha sido la estación más lluviosa?]]></mattext>
+       </material>
+       <response_lid ident="res03" rcardinality="Single">
+        <render_choice display="LIST">
+         <response_label ident="lab01">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[verano]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab02">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[otoño]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab03">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[invierno]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab04">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[primavera]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+        </render_choice>
+       </response_lid>
+      </flow>
+      <flow>
+       <material>
+        <mattext><![CDATA[¿En qué estación han sido menos abundantes las precipitaciones?]]></mattext>
+       </material>
+       <response_lid ident="res04" rcardinality="Single">
+        <render_choice display="LIST">
+         <response_label ident="lab01">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[verano]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab02">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[otoño]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab03">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[invierno]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab04">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[primavera]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+        </render_choice>
+       </response_lid>
+      </flow>
+      <flow>
+       <material>
+        <mattext><![CDATA[¿Cuál ha sido el valor más alto alcanzado en grados centígrados?]]></mattext>
+       </material>
+       <response_lid ident="res05" rcardinality="Single">
+        <render_choice display="LIST">
+         <response_label ident="lab01">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[15]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab02">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[19]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab03">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[23]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab04">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[28]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+        </render_choice>
+       </response_lid>
+      </flow>
+     </flow>
+    </presentation>
+    <resprocessing>
+     <outcomes>
+      <decvar varname="SCORE" vartype="Integer" defaultval="0"/>
+      <decvar varname="CORRECT" vartype="Boolean" defaultval="False"/>
+     </outcomes>
+     <respcondition>
+      <conditionvar>
+       <and>
+        <varequal respident="res01"><![CDATA[lab01]]></varequal>
+        <varequal respident="res02"><![CDATA[lab12]]></varequal>
+        <varequal respident="res03"><![CDATA[lab02]]></varequal>
+        <varequal respident="res04"><![CDATA[lab01]]></varequal>
+        <varequal respident="res05"><![CDATA[lab03]]></varequal>
+       </and>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[1]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[True]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="feed01"/>
+     </respcondition>
+    </resprocessing>
+    <itemfeedback ident="feed01">
+     <material>
+      <mattext><![CDATA[Correcte]]></mattext>
+     </material>
+    </itemfeedback>
+   </item>
+   <item ident="section03_item05" title="Climogrames 5">
+    <qticomment><![CDATA[Interpretar y confeccionar climogramas]]></qticomment>
+    <presentation>
+     <flow>
+      <material>
+       <mattext><![CDATA[Selecciona el climograma que se corresponde con los datos de la tabla.]]></mattext>
+      </material>
+      <flow>
+       <flow>
+        <material>
+         <mattext texttype="text/html"><![CDATA[<CENTER> <TABLE border="1" cellpadding="2" cellspacing="0" width="90%" style="font-size:10px"> <TR bgcolor="#295A94" style="color: #ffffff"> <TD colspan="2"/> <TD> <B>Ene.</B> </TD> <TD> <B>Feb.</B> </TD> <TD> <B>Mar.</B> </TD> <TD> <B>Abr.</B> </TD> <TD> <B>Mayo</B> </TD> <TD> <B>Jun.</B> </TD> <TD> <B>Jul.</B> </TD> <TD> <B>Ago.</B> </TD> <TD> <B>Sept.</B> </TD> <TD> <B>Oct.</B> </TD> <TD> <B>Nov.</B> </TD> <TD> <B>Dic.</B> </TD> </TR> <TR style="color: #295A94; border:1px #004080 solid" > <TD> <B>Temperaturas</B> </TD> <TD width="70">ºC</TD> <TD width="70">2</TD> <TD width="70">3</TD> <TD width="70">6</TD> <TD width="70">8</TD> <TD width="70">&nbsp;</TD> <TD width="70">15</TD> <TD width="70">18</TD> <TD width="70">&nbsp;</TD> <TD width="70">15</TD> <TD width="70">9</TD> <TD width="70">4</TD> <TD width="70">2</TD> </TR> <TR style="color: #295A94"> <TD> <B>Precipitaciones</B> </TD> <TD>mm</TD> <TD>&nbsp;</TD> <TD>60</TD> <TD>&nbsp;</TD> <TD>93</TD> <TD>96</TD> <TD>81</TD> <TD>65</TD> <TD>79</TD> <TD>92</TD> <TD>70</TD> <TD>&nbsp;</TD> <TD>100</TD> </TR> </TABLE> </CENTER>]]></mattext>
+        </material>
+       </flow>
+       <flow>
+        <response_lid ident="res01" rcardinality="Single">
+         <render_hotspot showdraw="No" showoptions="Yes" transp="Yes">
+          <material>
+           <matimage uri="climogrames.gif" width="482" height="418"/>
+          </material>
+          <response_label ident="lab01" rarea="Rectangle"><![CDATA[8,3,225,201]]></response_label>
+          <response_label ident="lab02" rarea="Rectangle"><![CDATA[248,3,225,201]]></response_label>
+          <response_label ident="lab03" rarea="Rectangle"><![CDATA[8,210,225,201]]></response_label>
+          <response_label ident="lab04" rarea="Rectangle"><![CDATA[248,210,225,201]]></response_label>
+         </render_hotspot>
+        </response_lid>
+       </flow>
+      </flow>
+     </flow>
+    </presentation>
+    <resprocessing>
+     <outcomes>
+      <decvar varname="SCORE" vartype="Integer"/>
+      <decvar varname="CORRECT" vartype="Boolean" defaultval="False"/>
+     </outcomes>
+     <respcondition>
+      <conditionvar>
+       <and>
+        <varequal respident="res01" case="No"><![CDATA[lab01]]></varequal>
+       </and>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[1]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[True]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="feed01"/>
+     </respcondition>
+    </resprocessing>
+    <itemfeedback ident="feed01">
+     <flow_mat>
+      <material>
+       <mattext><![CDATA[Correcto]]></mattext>
+      </material>
+     </flow_mat>
+    </itemfeedback>
+   </item>
+  </section>
+  <section ident="section04" title="Vegetación">
+   <presentation_material>
+    <flow_mat>
+     <material>
+      <mattext texttype="text/html"><![CDATA[<table cellspacing="1" cellpadding="1" border="0" width="90%" style="font-size:14px"><tr><td><img hspace="0" src="mapmunta.jpg" align="bottom" border="0" /></td><td class="additional-material">Las plantas necesitan unas condiciones específicas para crecer, según la especie a la que pertenecen. Algunas necesitan mucha agua, mientras que otras son muy resistentes a la sequía. Unas resisten muy bien el frío y otras necesitan temperaturas muy cálidas. Es por ello que la vegetación varía según el relieve, el clima, el tipo de suelo y la influencia del ser humano.</td></tr></table>]]></mattext>
+     </material>
+    </flow_mat>
+   </presentation_material>
+   <outcomes_processing scoremodel="SumofScores">
+    <outcomes>
+     <decvar varname="SCORE" vartype="Decimal"/>
+    </outcomes>
+    <map_output varname="SCORE"><![CDATA[SCORE]]></map_output>
+   </outcomes_processing>
+   <item ident="section04_item01" title="Vegetacio 1">
+    <qticomment><![CDATA[Identificar las diversas zonas de vegetación de Cataluña y las especies que se encuentran.]]></qticomment>
+    <presentation>
+     <flow>
+      <material>
+       <mattext><![CDATA[Ordena las imágenes según la altura de la montaña en la que se encuentran: la primera la que encontrarías más abajo (en la falda de la montaña) y la última la que encontrarías más arriba.]]></mattext>
+      </material>
+      <flow>
+       <response_lid ident="res01" rcardinality="Ordered" rtiming="No">
+        <render_extension>
+         <ims_render_object order="Yes" orientation="Row" shuffle="Yes" width="470" height="168">
+          <flow_label>
+           <response_label ident="lab01">
+            <material>
+             <matimage imagtype="image/gif" uri="vegetacio1.gif"/>
+            </material>
+           </response_label>
+           <response_label ident="lab02">
+            <material>
+             <matimage imagtype="image/gif" uri="vegetacio2.gif"/>
+            </material>
+           </response_label>
+           <response_label ident="lab03">
+            <material>
+             <matimage imagtype="image/gif" uri="vegetacio3.gif"/>
+            </material>
+           </response_label>
+           <response_label ident="lab04">
+            <material>
+             <matimage imagtype="image/gif" uri="vegetacio4.gif"/>
+            </material>
+           </response_label>
+          </flow_label>
+         </ims_render_object>
+        </render_extension>
+       </response_lid>
+      </flow>
+     </flow>
+    </presentation>
+    <resprocessing>
+     <outcomes>
+      <decvar varname="SCORE" vartype="Integer"/>
+      <decvar varname="CORRECT" vartype="Boolean" defaultval="False"/>
+     </outcomes>
+     <respcondition>
+      <conditionvar>
+       <and>
+        <varequal respident="res01"><![CDATA[lab04,lab03,lab01,lab02]]></varequal>
+       </and>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[1]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[True]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="feed01"/>
+     </respcondition>
+    </resprocessing>
+    <itemfeedback ident="feed01">
+     <flow_mat>
+      <material>
+       <mattext><![CDATA[Correcto]]></mattext>
+      </material>
+     </flow_mat>
+    </itemfeedback>
+   </item>
+   <item ident="section04_item02" title="Vegetació 2">
+    <qticomment><![CDATA[Identificar las diversas zonas de vegetación de Cataluña y las especies que se encuentran.]]></qticomment>
+    <presentation>
+     <flow>
+      <material>
+       <mattext><![CDATA[Señala la letra en la que encontrarías bosques de pino negro.]]></mattext>
+       <matbreak/>
+      </material>
+      <response_lid ident="res01" rcardinality="Single">
+       <render_hotspot showdraw="No" showoptions="Yes" transp="No">
+        <material>
+         <matimage uri="mapvegeta.gif" width="336" height="346"/>
+        </material>
+        <response_label ident="lab01" rarea="Ellipse"><![CDATA[73,51,12,12]]></response_label>
+        <response_label ident="lab02" rarea="Ellipse"><![CDATA[175,125,12,12]]></response_label>
+        <response_label ident="lab03" rarea="Ellipse"><![CDATA[66,202,12,12]]></response_label>
+       </render_hotspot>
+      </response_lid>
+     </flow>
+    </presentation>
+    <resprocessing>
+     <outcomes>
+      <decvar varname="SCORE" vartype="Integer"/>
+      <decvar varname="CORRECT" vartype="Boolean" defaultval="False"/>
+     </outcomes>
+     <respcondition>
+      <conditionvar>
+       <and>
+        <varequal respident="res01" case="No"><![CDATA[lab01]]></varequal>
+       </and>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[1]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[True]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="feed01"/>
+     </respcondition>
+    </resprocessing>
+    <itemfeedback ident="feed01">
+     <flow_mat>
+      <material>
+       <mattext><![CDATA[Correcto]]></mattext>
+      </material>
+     </flow_mat>
+    </itemfeedback>
+   </item>
+   <item ident="section04_item03" title="Vegetació 3">
+    <qticomment><![CDATA[Identificar las diversas zonas de vegetación de Cataluña y las especies que se encuentran.]]></qticomment>
+    <presentation>
+     <flow>
+      <material>
+       <mattext><![CDATA[¿Cuál de éstas es una hoja de roble?]]></mattext>
+      </material>
+      <response_lid ident="res01" rcardinality="Single">
+       <render_choice>
+        <flow_label>
+         <response_label ident="lab01">
+          <material>
+           <matimage imagtype="image/jpg" uri="fulla1.jpg" width="100" height="150"/>
+          </material>
+         </response_label>
+         <response_label ident="lab02">
+          <material>
+           <matimage imagtype="image/jpg" uri="fulla2.jpg" width="100" height="150"/>
+          </material>
+         </response_label>
+         <response_label ident="lab03">
+          <material>
+           <matimage imagtype="image/jpg" uri="fulla3.jpg" width="100" height="150"/>
+          </material>
+         </response_label>
+         <response_label ident="lab04">
+          <material>
+           <matimage imagtype="image/jpg" uri="fulla4.jpg" width="100" height="150"/>
+          </material>
+         </response_label>
+        </flow_label>
+       </render_choice>
+      </response_lid>
+     </flow>
+    </presentation>
+    <resprocessing>
+     <outcomes>
+      <decvar varname="SCORE" vartype="Integer" defaultval="0"/>
+      <decvar varname="CORRECT" vartype="Boolean" defaultval="False"/>
+     </outcomes>
+     <respcondition>
+      <conditionvar>
+       <and>
+        <varequal respident="res01"><![CDATA[lab03]]></varequal>
+       </and>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[1]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[True]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="feed01"/>
+     </respcondition>
+    </resprocessing>
+    <itemfeedback ident="feed01">
+     <material>
+      <mattext><![CDATA[Correcto]]></mattext>
+     </material>
+    </itemfeedback>
+   </item>
+   <item ident="section04_item04" title="Vegetació 4">
+    <qticomment><![CDATA[Identificar las diversas zonas de vegetación de Cataluña y las especies que se encuentran.]]></qticomment>
+    <presentation>
+     <flow>
+      <material>
+       <mattext><![CDATA[Coloca las palabras de estas frases en el orden correcto.]]></mattext>
+      </material>
+      <response_lid ident="res01" rcardinality="Ordered">
+       <render_extension>
+        <ims_render_object orientation="row" width="450" height="30">
+         <response_label ident="lab01">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[PINO:]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab05">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[de]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab06">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[agujas]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab03">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[con]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab02">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[hoja]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab04">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[forma]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+        </ims_render_object>
+       </render_extension>
+      </response_lid>
+      <response_lid ident="res02" rcardinality="Ordered">
+       <render_extension>
+        <ims_render_object orientation="row" width="450" height="30">
+         <response_label ident="lab01">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[CASTAÑO:]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab08">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[de]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab02">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[hoja]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab09">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[sierra]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab03">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[con]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab05">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[perfil]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab04">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[el]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab06">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[en]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab07">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[forma]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+        </ims_render_object>
+       </render_extension>
+      </response_lid>
+      <response_lid ident="res03" rcardinality="Ordered">
+       <render_extension>
+        <ims_render_object orientation="row" width="450" height="30">
+         <response_label ident="lab01">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[HAYA:]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab02">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[hoja]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab06">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[liso]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab03">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[con]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab08">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[los]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab10">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[paralelos]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab05">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[contorno]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab07">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[i]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab04">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[el]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab09">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[nervios]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+        </ims_render_object>
+       </render_extension>
+      </response_lid>
+      <response_lid ident="res04" rcardinality="Ordered">
+       <render_extension>
+        <ims_render_object orientation="row" width="450" height="30">
+         <response_label ident="lab01">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[ROBLE:]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab05">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[contornos]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab03">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[con]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab02">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[hoja]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab04">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[los]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+         <response_label ident="lab06">
+          <flow_mat>
+           <material>
+            <mattext><![CDATA[redondeados]]></mattext>
+           </material>
+          </flow_mat>
+         </response_label>
+        </ims_render_object>
+       </render_extension>
+      </response_lid>
+     </flow>
+    </presentation>
+    <resprocessing>
+     <outcomes>
+      <decvar varname="SCORE" vartype="Integer"/>
+      <decvar varname="CORRECT" vartype="Boolean" defaultval="False"/>
+     </outcomes>
+     <respcondition>
+      <conditionvar>
+       <and>
+        <varequal respident="res01" case="No"><![CDATA[lab01,lab02,lab03,lab04,lab05,lab06]]></varequal>
+        <varequal respident="res02" case="No"><![CDATA[lab01,lab02,lab03,lab04,lab05,lab06,lab07,lab08,lab09]]></varequal>
+        <or>
+         <varequal respident="res03" case="No"><![CDATA[lab01,lab02,lab03,lab04,lab05,lab06,lab07,lab08,lab09,lab10]]></varequal>
+         <varequal respident="res03" case="No"><![CDATA[lab01,lab02,lab03,lab08,lab09,lab10,lab07,lab04,lab05,lab06]]></varequal>
+        </or>
+        <varequal respident="res04" case="No"><![CDATA[lab01,lab02,lab03,lab04,lab05,lab06]]></varequal>
+       </and>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[5]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[True]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="feed00"/>
+     </respcondition>
+     <respcondition>
+      <conditionvar>
+       <and>
+        <not>
+         <varequal respident="res01" case="No"><![CDATA[lab01,lab02,lab03,lab04,lab05]]></varequal>
+        </not>
+       </and>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[1]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[False]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="feed01"/>
+     </respcondition>
+     <respcondition>
+      <conditionvar>
+       <and>
+        <not>
+         <varequal respident="res02" case="No"><![CDATA[lab01,lab02,lab03,lab04,lab05,lab06,lab07,lab08,lab09]]></varequal>
+        </not>
+       </and>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[1]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[False]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="feed02"/>
+     </respcondition>
+     <respcondition>
+      <conditionvar>
+       <and>
+        <not>
+         <or>
+          <varequal respident="res03" case="No"><![CDATA[lab01,lab02,lab03,lab04,lab05,lab06,lab07,lab08,lab09,lab10]]></varequal>
+          <varequal respident="res03" case="No"><![CDATA[lab01,lab02,lab03,lab08,lab09,lab10,lab07,lab04,lab05,lab06]]></varequal>
+         </or>
+        </not>
+       </and>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[1]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[False]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="feed03"/>
+     </respcondition>
+     <respcondition>
+      <conditionvar>
+       <and>
+        <not>
+         <varequal respident="res04" case="No"><![CDATA[lab01,lab02,lab03,lab04,lab05,lab06]]></varequal>
+        </not>
+       </and>
+      </conditionvar>
+      <setvar varname="SCORE" action="Add"><![CDATA[1]]></setvar>
+      <setvar varname="CORRECT" action="Set"><![CDATA[False]]></setvar>
+      <displayfeedback feedbacktype="Response" linkrefid="feed04"/>
+     </respcondition>
+    </resprocessing>
+    <itemfeedback ident="feed00">
+     <flow_mat>
+      <material>
+       <mattext><![CDATA[Todas las frases están ordenadas correctamente]]></mattext>
+      </material>
+     </flow_mat>
+    </itemfeedback>
+    <itemfeedback ident="feed01">
+     <flow_mat>
+      <material>
+       <mattext><![CDATA[El orden del PINO no és correcto]]></mattext>
+      </material>
+     </flow_mat>
+    </itemfeedback>
+    <itemfeedback ident="feed02">
+     <flow_mat>
+      <material>
+       <mattext><![CDATA[El orden del CASTAÑO no es correcto]]></mattext>
+      </material>
+     </flow_mat>
+    </itemfeedback>
+    <itemfeedback ident="feed03">
+     <flow_mat>
+      <material>
+       <mattext><![CDATA[El orden de la HAYA no es correcto]]></mattext>
+      </material>
+     </flow_mat>
+    </itemfeedback>
+    <itemfeedback ident="feed04">
+     <flow_mat>
+      <material>
+       <mattext><![CDATA[El orden del ROBLE no es correcto]]></mattext>
+      </material>
+     </flow_mat>
+    </itemfeedback>
+   </item>
+  </section>
+ </assessment>
+</questestinterop>

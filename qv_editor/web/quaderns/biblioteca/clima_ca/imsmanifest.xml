@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<imscp:manifest xmlns:imscp="http://www.imsglobal.org/xsd/imscp_v1p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:euncl="http://celebrate.eun.org/xml/ns/celebrateLOM-0_2" xmlns:imsqti="http://www.imsglobal.org/xsd/imsqti_item_v1p2" xmlns:rights="http://celebrate.eun.org/xml/ns/rights-0_1" identifier="mf_qv_biblioteca_clima_ca" xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 http://clic.xtec.net/qv_web/dist/imscp_v1p1.xsd">
+  <imscp:metadata>
+    <imscp:schema>IMS Content</imscp:schema>
+    <imscp:schemaversion>1.4</imscp:schemaversion>
+  </imscp:metadata>
+  <imscp:organizations />
+  <imscp:resources>
+    <imscp:resource identifier="qv_biblioteca_clima_ca" type="imsqti_item_xmlv1p2">
+      <imscp:metadata>
+        <imscp:schema>IMS QTI</imscp:schema>
+        <imscp:schemaversion>1.2</imscp:schemaversion>
+        <euncl:lom schemaVersion="0.2">
+          <euncl:general>
+            <euncl:identifier>
+              <euncl:catalog>XTEC</euncl:catalog>
+              <euncl:entry>qv_biblioteca_clima_ca</euncl:entry>
+            </euncl:identifier>
+            <euncl:title />
+            <euncl:language>ca</euncl:language>
+            <euncl:description />
+          </euncl:general>
+          <euncl:technical>
+            <euncl:location>http://localhost:8080/qv_viewer/quaderns/biblioteca/clima_ca</euncl:location>
+          </euncl:technical>
+          <euncl:educational>
+            <euncl:intendedEndUserRole>
+              <euncl:source>ELNv1.1</euncl:source>
+              <euncl:value>author</euncl:value>
+            </euncl:intendedEndUserRole>
+            <euncl:typicalAgeRange>-1</euncl:typicalAgeRange>
+          </euncl:educational>
+          <euncl:rights>
+            <euncl:copyrightAndOtherRestrictions>
+              <euncl:source>LOMv1.0</euncl:source>
+              <euncl:value>yes</euncl:value>
+            </euncl:copyrightAndOtherRestrictions>
+            <rights:cdr schemaVersion="0.1">
+              <rights:permission>
+                <rights:action>remoteplay</rights:action>
+              </rights:permission>
+            </rights:cdr>
+          </euncl:rights>
+          <euncl:classification>
+            <euncl:keyword />
+          </euncl:classification>
+        </euncl:lom>
+      </imscp:metadata>
+    </imscp:resource>
+  </imscp:resources>
+</imscp:manifest>

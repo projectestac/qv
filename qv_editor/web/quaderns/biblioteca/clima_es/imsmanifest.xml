@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<manifest xmlns="http://www.imsglobal.org/xsd/imscp_v1p1"
+	xmlns:euncl="http://celebrate.eun.org/xml/ns/celebrateLOM-0_2"
+	xmlns:rights="http://celebrate.eun.org/xml/ns/rights-0_1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:imsqti="http://www.imsglobal.org/xsd/imsqti_item_v2p0"
+	identifier="qv-clima"
+	xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 http://www.imsglobal.org/xsd/imscp_v1p1.xsd http://celebrate.eun.org/xml/ns/celebrateLOM-0_2 http://celebrate.eun.org/xml/schemas/celebrateLOM-0.2.xsd http://celebrate.eun.org/xml/ns/rights-0_1 http://celebrate.eun.org/xml/schemas/rights-0.1.xsd http://www.imsglobal.org/xsd/imsqti_item_v2p0 http://www.imsglobal.org/xsd/imsqti_item_v2p0.xsd"
+	version="CP 1.1.4">
+	<metadata>
+		<schema>IMS Content</schema>
+		<schemaversion>1.4</schemaversion>
+	</metadata>
+	<organizations />
+	<resources>
+		<resource identifier="qv_clima" type="imsqti_item_xmlv1p2" href="clima.xml">
+			<metadata>
+				<schema>IMS QTI</schema>
+				<schemaversion>1.2</schemaversion>
+				<euncl:lom schemaVersion="0.2">
+					<euncl:general>
+						<euncl:identifier>
+							<euncl:catalog>XTEC</euncl:catalog>
+							<euncl:entry>qv_clima</euncl:entry>
+						</euncl:identifier>
+						<euncl:title>
+							<euncl:string language="ca">El clima i la vegetació</euncl:string>
+						</euncl:title>
+						<euncl:language>ca</euncl:language>
+						<euncl:description>
+							<euncl:string language="ca">
+								<![CDATA[Quadern d'exemple sobre el clima, amb els següents continguts: <ul><li>El clima: caracter&iacute;stiques</li><li>Els climogrames</li><li>Zones de vegetaci&oacute;</li><li>Esp&egrave;cies vegetals</li></ul>]]>
+							</euncl:string>
+						</euncl:description>
+					</euncl:general>
+					<euncl:lifeCycle>
+						<euncl:version>
+							<euncl:string language="x-none">1.0</euncl:string>
+						</euncl:version>
+						<euncl:status>
+							<euncl:source>LOMv1.0</euncl:source>
+							<euncl:value>revised</euncl:value>
+						</euncl:status>
+						<euncl:contribute>
+							<euncl:role>
+								<euncl:source>LOMv1.0</euncl:source>
+								<euncl:value>author</euncl:value>
+							</euncl:role>
+							<euncl:entity>Eva Gea</euncl:entity>
+							<euncl:entity>Sara Arjona</euncl:entity>
+							<euncl:date>
+								<euncl:dateTime>2004-06</euncl:dateTime>
+							</euncl:date>
+						</euncl:contribute>
+					</euncl:lifeCycle>
+					<euncl:technical>
+						<euncl:location>http://clic.xtec.net/quaderns/exemples/clima/clima.xml</euncl:location>
+					</euncl:technical>
+					<euncl:educational>
+						<euncl:learningResourceType>
+							<euncl:source>ELNv1.1</euncl:source>
+							<euncl:value>assessment</euncl:value>
+						</euncl:learningResourceType>
+						<euncl:intendedEndUserRole>
+							<euncl:source>ELNv1.1</euncl:source>
+							<euncl:value>author</euncl:value>
+						</euncl:intendedEndUserRole>
+						<euncl:context>
+							<euncl:source>ELNv1.1</euncl:source>
+							<euncl:value>compulsory education</euncl:value>
+						</euncl:context>
+						<euncl:typicalAgeRange>12-14</euncl:typicalAgeRange>
+						<!--euncl:typicalLearningTime>
+							<euncl:duration></euncl:duration>
+						</euncl:typicalLearningTime-->
+					</euncl:educational>
+					<euncl:rights>
+						<euncl:copyrightAndOtherRestrictions>
+							<euncl:source>LOMv1.0</euncl:source>
+							<euncl:value>yes</euncl:value>
+						</euncl:copyrightAndOtherRestrictions>
+						<euncl:description>
+							<euncl:string>
+							<![CDATA[
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="">
+  <dc:title>El clima i la vegetació</dc:title>
+  <dc:date>2004-06-01</dc:date>
+  <dc:description>Quadern d'exemple sobre el clima, amb els següents continguts: "El clima: característiques", "Els climogrames", "Zones de vegetació" i "Esp?cies vegetals"</dc:description>
+   <dc:creator><Agent><dc:title>Eva Gea Santiago</dc:title></Agent></dc:creator>
+   <dc:creator><Agent><dc:title>Sara Arjona Téllez</dc:title></Agent></dc:creator>
+  <dc:rights>
+    <Agent><dc:title>Subdirecció General de Tecnologies de la Informació</dc:title></Agent>
+  </dc:rights>
+  <dc:source rdf:resource="http://clic.xtec.net/quaderns/exemples/clima/clima.xml"/>
+  <dc:type rdf:resource="http://purl.org/dc/dcmitype/Interactive" />
+  <license rdf:resource="http://creativecommons.org/licenses/by-nc-sa/2.0/" />
+</Work>
+
+<License rdf:about="http://creativecommons.org/licenses/by-nc-sa/2.0/">
+   <permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+   <permits rdf:resource="http://web.resource.org/cc/Distribution" />
+   <requires rdf:resource="http://web.resource.org/cc/Notice" />
+   <requires rdf:resource="http://web.resource.org/cc/Attribution" />
+   <prohibits rdf:resource="http://web.resource.org/cc/CommercialUse" />
+   <permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+   <requires rdf:resource="http://web.resource.org/cc/ShareAlike" />
+</License>
+</rdf:RDF>
+   		 ]]>
+   		 					</euncl:string>
+						</euncl:description>
+						<rights:cdr schemaVersion="0.1">
+							<rights:permission>
+								<rights:action>remoteplay</rights:action>
+							</rights:permission>						
+							<rights:permission>
+								<rights:action>download</rights:action>
+							</rights:permission>						
+							<rights:permission>
+								<rights:action>play</rights:action>
+							</rights:permission>						
+						</rights:cdr>
+					</euncl:rights>
+					<euncl:classification>
+						<euncl:keyword>
+							<euncl:string language="ca">educació secundària</euncl:string>
+						</euncl:keyword>
+					</euncl:classification>
+				</euncl:lom>
+			</metadata>
+			<file href="clima.xml" />
+			<file href="climo01.gif" />
+			<file href="climo02.gif" />
+			<file href="climo03.gif" />
+			<file href="climo04.gif" />
+			<file href="climo05.gif" />
+			<file href="climograma1.gif" />
+			<file href="climograma2.gif" />
+			<file href="climograma3.gif" />
+			<file href="climogrames.gif" />
+			<file href="fulla1.jpg" />
+			<file href="fulla2.jpg" />
+			<file href="fulla3.jpg" />
+			<file href="fulla4.jpg" />
+			<file href="llegenda_clima1.gif" />
+			<file href="llegenda_clima2.gif" />
+			<file href="llegenda_clima3.gif" />
+			<file href="llegenda_clima4.gif" />
+			<file href="llegenda_clima5.gif" />
+			<file href="llegenda_clima6.gif" />
+			<file href="mapclimes.jpg" />
+			<file href="mapmunta.jpg" />
+			<file href="mapvegeta.gif" />
+			<file href="platja.jpg" />
+			<file href="qv_01.rpm" />
+			<file href="taula_climo.gif" />
+			<file href="vegetacio1.gif" />
+			<file href="vegetacio2.gif" />
+			<file href="vegetacio3.gif" />
+			<file href="vegetacio4.gif" />
+		</resource>
+	</resources>
+</manifest>
