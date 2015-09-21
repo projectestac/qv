@@ -15,7 +15,7 @@
     <property name="name"           value="Quaderns Virtuals viewer" />
     <property name="year"           value="2007" />
 
-  	<property name="dist.name"      value="e13_qv_viewer" />
+  	<property name="dist.name"      value="qv_viewer" />
 
   	<!-- QV is currently targeted to JVM 1.4 -->
     <property name="ant.build.javac.source" value="1.7" />
@@ -54,7 +54,7 @@
   </target>
 
   <target name="pro_init">
-    <property name="server.name" value="xtec-pro" />
+    <property name="server.name" value="xtec-int" />
   </target>
 
   <!-- =================================================================== -->
