@@ -17,7 +17,7 @@
     <property name="name"           value="Editor de Quaderns Virtuals" />
     <property name="year"           value="2004" />
 
-  	<property name="dist.name"      value="e13_qv_editor" />
+  	<property name="dist.name"      value="qv_editor" />
 
   	<!-- QV is currently targeted to JVM 1.4 -->
     <property name="ant.build.javac.source" value="1.7" />
