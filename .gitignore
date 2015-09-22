@@ -17,6 +17,7 @@ netbeans
 **/.classpath
 **/.project
 **/.settings
+**/.idea
 
 qv_applets/bin
 qv_applets/dist
