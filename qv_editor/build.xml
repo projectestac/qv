@@ -85,6 +85,14 @@
     <property name="server.name" value="dev" />
   </target>
 
+  <target name="pro_init">
+    <property name="server.name" value="xtec-pro" />
+  </target>
+
+  <target name="acc_init">
+    <property name="server.name" value="xtec-acc" />
+  </target>
+
   <target name="int_init">
     <property name="server.name" value="xtec-int" />
   </target>
@@ -96,11 +104,19 @@
     <echo message="*** Editor QV successfully created for development!"/>
   </target>
 
+  <target name="pro" depends="pro_init,qv_editor" description="Build development">
+    <echo message="*** Editor QV successfully created for production!"/>
+  </target>
+
+  <target name="acc" depends="acc_init,qv_editor" description="Build development">
+    <echo message="*** Editor QV successfully created for acceptation!"/>
+  </target>
+
   <target name="int" depends="int_init,qv_editor" description="Build development">
     <echo message="*** Editor QV successfully created for integration!"/>
   </target>
 
-  <target name="all" depends="int" description="Build everything">
+  <target name="all" depends="pro" description="Build everything">
     <echo message="*** Editor QV successfully created!"/>
   </target>
 

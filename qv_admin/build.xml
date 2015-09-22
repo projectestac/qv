@@ -63,6 +63,15 @@
     <property name="server.name" value="xtec-pro" />
   </target>
 
+  <target name="acc_init">
+    <property name="server.name" value="xtec-acc" />
+  </target>
+
+  <target name="int_init">
+    <property name="server.name" value="xtec-int" />
+  </target>
+
+
   <!-- =================================================================== -->
   <!-- MAIN                                                                -->
   <!-- =================================================================== -->
@@ -73,6 +82,14 @@
 
   <target name="pro" depends="pro_init,qv_admin" description="Build development">
     <echo message="*** qv_admin successfully created for production!"/>
+  </target>
+
+  <target name="acc" depends="acc_init,qv_admin" description="Build development">
+    <echo message="*** qv_admin successfully created for acceptation!"/>
+  </target>
+
+  <target name="int" depends="int_init,qv_admin" description="Build development">
+    <echo message="*** qv_admin successfully created for integration!"/>
   </target>
 
   <target name="all" depends="pro" description="Build everything">

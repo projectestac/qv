@@ -49,28 +49,44 @@
     <mkdir dir="${dist.dir}"/>
   </target>
 
-   <target name="dev_init">
-    <property name="server.name" value="dev" />
-  </target>
+    <target name="dev_init">
+        <property name="server.name" value="dev" />
+    </target>
 
-  <target name="pro_init">
-    <property name="server.name" value="xtec-int" />
-  </target>
+    <target name="pro_init">
+        <property name="server.name" value="xtec-pro" />
+    </target>
+
+    <target name="acc_init">
+        <property name="server.name" value="xtec-acc" />
+    </target>
+
+    <target name="int_init">
+        <property name="server.name" value="xtec-int" />
+    </target>
 
   <!-- =================================================================== -->
   <!-- MAIN                                                                -->
   <!-- =================================================================== -->
-  <target name="dev" depends="dev_init,dev_deploy" description="Build development, no ear generated">
-    <echo message="*** qv_viewer QV successfully created for development!"/>
-  </target>
+    <target name="dev" depends="dev_init,dev_deploy" description="Build development, no ear generated">
+        <echo message="*** qv_viewer QV successfully created for development!"/>
+    </target>
 
-  <target name="pro" depends="pro_init,qv_viewer" description="Build development">
-    <echo message="*** qv_viewer successfully created for production!"/>
-  </target>
+    <target name="pro" depends="pro_init,qv_viewer" description="Build development">
+        <echo message="*** qv_viewer successfully created for production!"/>
+    </target>
 
-  <target name="all" depends="pro" description="Build everything">
-    <echo message="*** qv_viewer successfully created for '${server.name}' server config!"/>
-  </target>
+    <target name="acc" depends="acc_init,qv_viewer" description="Build development">
+        <echo message="*** qv_viewer successfully created for acceptation!"/>
+    </target>
+
+    <target name="int" depends="int_init,qv_viewer" description="Build development">
+        <echo message="*** qv_viewer successfully created for integration!"/>
+    </target>
+
+    <target name="all" depends="pro" description="Build everything">
+        <echo message="*** qv_viewer successfully created for '${server.name}' server config!"/>
+    </target>
 
   <!-- =================================================================== -->
   <!-- CLEAN                                                               -->
