@@ -4,27 +4,32 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+
 import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.CallableStatement;
+import java.sql.Types;
+
+import javax.sql.DataSource;
+
 import java.util.Properties;
+
 
 import org.apache.log4j.Logger;
 
-import edu.xtec.util.db.ConnectionBean;
-import edu.xtec.util.db.ConnectionBeanProvider;
+import javax.naming.InitialContext;
 
 public class UserDatabase {
 
 	public final static String DBCONF_PATH = "/edu/xtec/resources/properties/";
 	public final static String DBCONF_FILE = "connectionQV.properties";
 
-	private static ConnectionBeanProvider broker;
-	private ConnectionBean c;
+	private static Connection conn;
 	private static Properties pDB;
-	
+
 	private static final Logger logger = Logger.getRootLogger();
-	
+
 	public UserDatabase() {
 	}
 
@@ -35,67 +40,73 @@ public class UserDatabase {
      * @return true if user validation is correct; otherwise false
      */
 	public boolean validateUser(String sUsername, String sPassword){
-		boolean bValidate = false;
-		StringBuffer query = new StringBuffer();
-		try{
-			query.append("SELECT * ");
-			query.append("FROM t_guest_user gu ");
-			query.append("WHERE gu.username=? AND gu.password=? ");
-			PreparedStatement pstmt=getConnection().getPreparedStatement(query.toString());
-			pstmt.setString(1, sUsername);
-			pstmt.setString(2, sPassword);
-			ResultSet rs=pstmt.executeQuery();
-			bValidate = rs.next();
-		}
-		catch (SQLException e) {
-			logger.error("EXCEPTION validating user '"+sUsername+"' -> "+e);
-		} finally{
-			freeConnection();				
-		}
-		return bValidate;
+        boolean bValidate = false;
+
+        Connection c = getConnection();
+        try {
+            CallableStatement oFunction = c.prepareCall("{ call admxtec.PKG_XTEC.AUTENTICACIO(?,?,?) }");
+            logger.info("Connecting to: admxtec.PKG_XTEC.AUTENTICACIO(?,?,?)");
+            oFunction.setString(1, sUsername);
+            oFunction.setString(2, sPassword);
+            oFunction.registerOutParameter(3, Types.INTEGER);
+            oFunction.execute();
+            String sResult = oFunction.getString(3);
+            logger.info("sResult: " + sResult);
+            oFunction.close();
+            if ("1".equals(sResult)) {
+                bValidate = true;
+            }
+        } catch (SQLException e) {
+            logger.error("EXCEPTION validating user '"+sUsername+"' -> "+e);
+        } finally {
+            freeConnection();
+        }
+        return bValidate;
 	}
 
-//	************************************	
+//	************************************
 //	* Database
 //	************************************
-	
-	protected ConnectionBeanProvider getConnectionBeanProvider(){
-		try{
-			if(broker == null) { // Only created by first servlet to call
-				broker = ConnectionBeanProvider.getConnectionBeanProvider(true, getDBProperties());				
-			}
-		}catch (Exception e){
-			logger.error("EXCEPTION getting ConnectionBeanProvider-> "+e);
-			e.printStackTrace();
-		}
-		return broker;
-	}
-	
-	protected ConnectionBean getConnection(){
-		if (c==null){
-			try{
-				c = getConnectionBeanProvider().getConnectionBean();
-				c.getConnection().setAutoCommit(true);
-			}catch (Exception e){
-				logger.error("EXCEPTION getting connection -> "+e);				
-			}
-		}
-		return c;
+
+	protected Connection getConnection(){
+		if (conn == null){
+            try {
+                Properties prop = getDBProperties();
+                String sDriver = prop.getProperty("dbDriver");
+                if ("JNDI".equalsIgnoreCase(sDriver)){
+                    InitialContext ctx = new InitialContext();
+                    String sDbContext = prop.getProperty("dbContext");
+                    String sURL = (sDbContext.length() > 0?sDbContext+"/":"")+prop.getProperty("dbServer");
+                    DataSource ds = (DataSource)ctx.lookup(sURL);
+                    conn = ds.getConnection();
+                }else{
+                    Class.forName(sDriver);
+                    conn = DriverManager.getConnection(prop.getProperty("dbServer"),prop.getProperty("dbLogin"),prop.getProperty("dbPassword"));
+                }
+            } catch (Exception e) {
+                logger.error(e);
+            }
+        }
+        return conn;
 	}
 
 	protected void freeConnection() {
-		if (c!=null && broker!=null) {
-			broker.freeConnectionBean(c);
-			c=null;
-		}
+		if (conn != null){
+            try {
+                conn.close();
+                conn = null;
+            } catch (Exception e) {
+                logger.error(e);
+            }
+        }
 	}
-	
-//	************************************	
+
+//	************************************
 //	* Properties
 //	************************************
-	
+
 	protected static Properties getDBProperties() throws Exception{
-		if (pDB==null){
+		if (pDB == null) {
 			pDB = new Properties();
 			try{
 				/*InputStream isl = LOMDatabase.class.getResourceAsStream(DBCONF_PATH+DBCONF_FILE);
@@ -117,5 +128,5 @@ public class UserDatabase {
 		}
 		return pDB;
 	}
-	
+
 }

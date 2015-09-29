@@ -1,6 +1,6 @@
 /*
  * QVBean.java
- * 
+ *
  * Created on 29/gener/2004
  */
 package edu.xtec.qv.editor.beans;
@@ -61,8 +61,8 @@ public class QVBean implements QVConstants{
 	protected static HashMap localeObjects=new HashMap();
 	protected ResourceBundle bundle;
 	protected DateFormat shortDateFormat;
-	protected String sStartToken; 
-	protected String sEndToken; 
+	protected String sStartToken;
+	protected String sEndToken;
 
 	protected HttpServletRequest request;
 	protected HttpServletResponse response;
@@ -74,15 +74,15 @@ public class QVBean implements QVConstants{
 	protected String sRedirectPage;
 	protected Assessment oQuadern;
 
-	protected QVSpecificBean specificBean;	
+	protected QVSpecificBean specificBean;
 	protected String sPage = null;
 	protected Hashtable hImages = new Hashtable();
-	
+
 	protected LOMDatabase oLOMDB;
 	protected UserDatabase oUserDB;
 	protected QVCPDocument oCPDoc;
-	
-// ***************************	
+
+// ***************************
 // * Constants
 // ***************************
 	public static final String USER_KEY="usuari-edu365";
@@ -94,7 +94,7 @@ public class QVBean implements QVConstants{
 	public static final String SI="si";
 
 
-//	***************************	
+//	***************************
 //	* Inicialitzacio
 //	***************************
 	public boolean init(HttpServletRequest request, HttpSession session, HttpServletResponse response){
@@ -139,21 +139,21 @@ public class QVBean implements QVConstants{
 		//logger.debug("quadern="+getIdQuadern()+"   request="+request.getParameter(ID_QUADERN_PARAM)+" session="+session.getAttribute(ID_QUADERN_PARAM)+"  specificBean="+getSpecificBean()+" ok?"+bOk);
 		return bOk;
 	}
-	
+
 	public String getRedirectPage(){
 		return sRedirectPage;
 	}
-	
+
 	public void loadHeader(){
 		bHeaderLoaded = true;
 	}
-	
+
 	public boolean isHeaderLoaded(){
 		return bHeaderLoaded;
 	}
 
-	
-//	***************************	
+
+//	***************************
 //	* Specific Bean
 //	***************************
 	protected boolean initSpecificBean(){
@@ -172,7 +172,7 @@ public class QVBean implements QVConstants{
 		}
 		return bOk;
 	}
-	
+
 	protected String getBeanClassName(String sPage){
 		String sBeanClassName = "QVSpecificBean";
 		if (sPage!=null){
@@ -203,14 +203,14 @@ public class QVBean implements QVConstants{
 			}else if (sPage.equals(JSP_LOGIN)){
 				sBeanClassName = "QVLoginBean";
 			}
-		} 
+		}
 		return sBeanClassName;
 	}
-	
+
 	protected String getJSPPage(){
 		String sURL = request.getRequestURI();
 		if (sURL!=null){
-			int iStart = sURL.lastIndexOf("/"); 
+			int iStart = sURL.lastIndexOf("/");
 			if (iStart<0){
 				iStart = 0;
 			}else{
@@ -220,7 +220,7 @@ public class QVBean implements QVConstants{
 		}
 		return sURL;
 	}
-	
+
 	public String getIncludePage(){
 		String sURL = getJSPPage();
 		if (sURL!=null){
@@ -244,14 +244,14 @@ public class QVBean implements QVConstants{
 				}
 			}
 		}
-		return sPage;		
+		return sPage;
 	}
-	
+
 	public QVSpecificBean getSpecificBean(){
 		return specificBean;
 	}
 
-//	***************************	
+//	***************************
 //	* Properties
 //	***************************
 	static{
@@ -269,15 +269,15 @@ public class QVBean implements QVConstants{
 			e.printStackTrace(System.err);
 		}
 	}
-	
+
 	public static Properties getSettings(){
 		return settings;
 	}
-	
+
 	protected Properties getUserSettings(){
 		return getUserSettings(getUserId());
 	}
-    
+
 	protected Properties getUserSettings(String sUser){
 		if (sUser==null) pUserSettings = new Properties();
 		else{
@@ -298,11 +298,11 @@ public class QVBean implements QVConstants{
 									String sKey = (String)enumUserSettings.nextElement();
 									String sValue = settings.getProperty(sKey);
 									if (sValue!=null){
-										pUserSettings.setProperty(sKey, sValue); 
+										pUserSettings.setProperty(sKey, sValue);
 									}
 								}
 							}
-							
+
 							String sPath = settings.getProperty(QVSTORE_LOCAL_URL_KEY)+sUser;
 							if (sPath!=null){
 								if (!sPath.endsWith("/") && !sPath.endsWith("\"")){
@@ -313,14 +313,14 @@ public class QVBean implements QVConstants{
 									FileInputStream is=new FileInputStream(f);
 									pUserSettings.load(is);
 									is.close();
-									hUserSettings.put(sUser, pUserSettings);										
+									hUserSettings.put(sUser, pUserSettings);
 								}
 								f = new File(sPath+SETTINGS_FILE);
 								if(f.exists()){
 									FileInputStream is=new FileInputStream(f);
 									pUserSettings.load(is);
 									is.close();
-									hUserSettings.put(sUser, pUserSettings);										
+									hUserSettings.put(sUser, pUserSettings);
 								}
 							}
 						}
@@ -332,7 +332,7 @@ public class QVBean implements QVConstants{
 		}
 		return pUserSettings;
 	}
-    
+
     protected void initUserSettings(){
 		try{
 /*			String sPath = getUserLocalURL();
@@ -345,7 +345,7 @@ public class QVBean implements QVConstants{
 					FileInputStream is=new FileInputStream(f);
 					usersettings.load(is);
 					is.close();
-				}				
+				}
 			}
 */
 			String sUserSettings = settings.getProperty(SETTING_LIST_KEY);
@@ -362,13 +362,13 @@ public class QVBean implements QVConstants{
 				vUserSettings.addElement(DEFAULT_LANGUAGE_KEY);
 				vUserSettings.addElement(AUTOSAVE_KEY);
 				vUserSettings.addElement(BACKUP_KEY);
-				vUserSettings.addElement(EDITXML_KEY);			
+				vUserSettings.addElement(EDITXML_KEY);
 			}
 		} catch(Exception e){
 			logger.error("EXCEPCIO inicialitzant les opcions especifiques de l'usuari '"+getUserId()+"' -> e="+e);
 		}
     }
-    
+
 	public String getSetting(String sKey){
 		return getSetting(sKey, false);
 	}
@@ -376,7 +376,7 @@ public class QVBean implements QVConstants{
 		String sProperty = null;
 		try{
 			if (!bOnlySystem && getUserSettings()!=null && getUserSettings().containsKey(sKey)){
-				sProperty = getUserSettings().getProperty(sKey);				
+				sProperty = getUserSettings().getProperty(sKey);
 			}else{
 				sProperty = settings.getProperty(sKey);
 			}
@@ -385,7 +385,7 @@ public class QVBean implements QVConstants{
 		}
 		return sProperty;
 	}
-        
+
 	public boolean getBooleanSetting(String sKey, boolean bDefaultValue){
 		return getBooleanSetting(sKey, bDefaultValue, false);
 	}
@@ -400,7 +400,7 @@ public class QVBean implements QVConstants{
 		}
 		return bProperty;
 	}
-        
+
 	/**
 	 * Si no troba la propietat, retorna el valor per defecte indicat
 	 * @param sKey
@@ -411,7 +411,7 @@ public class QVBean implements QVConstants{
 		String sProperty = sDefaultValue;
 		try{
 			if (getUserSettings()!=null && getUserSettings().containsKey(sKey)){
-				sProperty = getUserSettings().getProperty(sKey, sDefaultValue);				
+				sProperty = getUserSettings().getProperty(sKey, sDefaultValue);
 			}else{
 				sProperty = settings.getProperty(sKey, sDefaultValue);
 			}
@@ -420,11 +420,11 @@ public class QVBean implements QVConstants{
 		}
 		return sProperty;
 	}
-	
+
 	public void setSetting(String sKey, String sValue){
 		try{
 			if (getUserSettings()!=null && getUserSettings().containsKey(sKey)){
-				getUserSettings().setProperty(sKey, sValue);				
+				getUserSettings().setProperty(sKey, sValue);
 			}else{
 				settings.setProperty(sKey, sValue);
 			}
@@ -432,7 +432,7 @@ public class QVBean implements QVConstants{
 			logger.error("EXCEPCIO modificant la propietat '"+sKey+"' amb el valor '"+sValue+"' --> "+e);
 		}
 	}
-	
+
 	public void saveSettings(){
 		try{
 			String sPath = getUserLocalURL();
@@ -453,9 +453,9 @@ public class QVBean implements QVConstants{
 		} catch (Exception e){
 			logger.error("EXCEPCIO guardant les properties de l'usuari '"+getUserId()+"' --> "+e);
 			e.printStackTrace();
-		}		
+		}
 	}
-	
+
 /*
 	protected Properties getUserSettings(){
 		Properties userSettings = new Properties();
@@ -465,30 +465,30 @@ public class QVBean implements QVConstants{
 				String sKey = (String)enumUserSettings.nextElement();
 				String sValue = getSetting(sKey);
 				if (sValue!=null){
-					userSettings.setProperty(sKey, sValue); 
+					userSettings.setProperty(sKey, sValue);
 				}
 			}
 		}
 		return userSettings;
 	}
 */
-	
-//	***************************	
+
+//	***************************
 //	* Cache
 //	***************************
 	public void writeCacheInfo(){
 		if(isNoCache() && !response.isCommitted()){
 			response.setHeader("Pragma", "no-cache");
 			response.setHeader("Cache-Control", "no-cache");
-			response.setDateHeader("Expires", 0);        
-		}        
+			response.setDateHeader("Expires", 0);
+		}
 	}
-    
+
 	protected boolean isNoCache(){
 		return true;
-	}    	
+	}
 
-//	***************************	
+//	***************************
 //	* Validacio usuari
 //	***************************
 	public boolean isLogout(){
@@ -500,7 +500,7 @@ public class QVBean implements QVConstants{
 		}
 		return false;
 	}
-	
+
 	public void logout(){
 		if(request!=null){
 			String sType = getSetting("validation.type", true);
@@ -517,75 +517,91 @@ public class QVBean implements QVConstants{
 				c.setMaxAge(0);
 				response.addCookie(c);
 			}
-			sUserId = null;				
+			sUserId = null;
 		}
 	}
-	
-	public String getUserId(){
-		if(!isLogout() && sUserId==null && request!=null){
-			// non sso users (specified in validation.users config parameter)
-			String sUser = getAuthenticatedUser();
-			if (sUser!=null && getSetting("validation.users.admin", true).indexOf("$$"+sUser+"$$")>=0){
-				Object o=session.getAttribute("userid");
-				if(o!=null) {
-					sUserId=o.toString();
-				} else{
-					String sUsername = getParameter(request, "userid");
-					String sUserpwd = getParameter(request, "userpwd");
-					if (sUsername!=null && sUserpwd!=null){
-						String sUsers = getSetting("validation.users", true);
-						if (sUsers!=null){
-							StringTokenizer stUsers = new StringTokenizer(sUsers, "$$");
-							while (stUsers.hasMoreTokens()){
-								String sName = stUsers.nextToken();
-								if (stUsers.hasMoreTokens()) {
-									String sPassword = stUsers.nextToken(); 
-									if (sUsername.equals(sName)){
-										if (sUserpwd.equalsIgnoreCase(sPassword)) {
-											sUserId=sName;
-											session.setAttribute("userid", sUserId);
-										}
-										break;
-									}
-								}
+
+	public String getUserId() {
+		if(isLogout() || sUserId != null || request == null) {
+			return sUserId;
+		}
+
+		// non sso users (specified in validation.users config parameter)
+		String sUser = getAuthenticatedUser();
+		if (sUser == null) {
+			sUserId = null;
+			return null;
+		}
+
+
+		String sAdmins = getSetting("validation.users.admin", true);
+		if (sAdmins == null || sAdmins.length() <= 0 || sAdmins.indexOf("$$"+sUser+"$$") < 0) {
+			// sUsers not found in sAdmins
+			sUserId = sUser;
+			return sUserId;
+		}
+
+
+		Object o = session.getAttribute("userid");
+		if (o != null) {
+			// Get from Session
+			sUserId = o.toString();
+			return sUserId;
+		}
+
+		String sUsername = getParameter(request, "userid");
+		String sUserpwd = getParameter(request, "userpwd");
+		if (sUsername != null && sUserpwd != null) {
+			String sUsers = getSetting("validation.users", true);
+			if (sUsers != null){
+				StringTokenizer stUsers = new StringTokenizer(sUsers, "$$");
+				while (stUsers.hasMoreTokens()){
+					String sName = stUsers.nextToken();
+					if (stUsers.hasMoreTokens()) {
+						String sPassword = stUsers.nextToken();
+						if (sUsername.equals(sName)){
+							if (sUserpwd.equalsIgnoreCase(sPassword)) {
+								sUserId = sName;
+								session.setAttribute("userid", sUserId);
 							}
+							break;
 						}
-					}					
-				}
-			}
-			
-			if (sUserId==null){
-				sUserId = sUser;
-			}
-		}
-		return sUserId;
-	}
-	
-	protected String getAuthenticatedUser(){
-		String sUser = null;
-		String sType = getSetting("validation.type", true);
-		if ("sso".equalsIgnoreCase(sType)){
-			if (request.getRemoteUser()!=null){
-				sUser=request.getRemoteUser().toLowerCase();
-			}
-		}else {
-			Cookie[] cookies=request.getCookies();
-			if(cookies!=null){
-				for(int i=0; i<cookies.length; i++){
-					Cookie c=cookies[i];
-					if(c.getName().equals(USER_KEY) && c.getValue()!=null){
-						sUser=c.getValue().trim();
-						break;
 					}
 				}
-			}				
+			}
 		}
-		return sUser;
+
+		sUserId = sUser;
+		return sUserId;
 	}
-	    
+
+	protected String getAuthenticatedUser() {
+
+		String sType = getSetting("validation.type", true);
+
+		if ("sso".equalsIgnoreCase(sType)){
+			// SSO LOGIN
+			if (request.getRemoteUser() != null) {
+				return request.getRemoteUser().toLowerCase();
+			}
+		} else {
+			// COOKIES LOGIN
+			Cookie[] cookies=request.getCookies();
+			if (cookies!=null) {
+				for (int i = 0; i < cookies.length; i++) {
+					Cookie c = cookies[i];
+					if (c.getName().equals(USER_KEY) && c.getValue()!=null) {
+						return c.getValue().trim();
+					}
+				}
+			}
+		}
+		return null;
+	}
+
 	public boolean isTeacher(){
 		return true;
-		
+
 //		boolean bIsTeacher = false;
 //		if(request!=null){
 //			Cookie[] cookies=request.getCookies();
@@ -601,11 +617,11 @@ public class QVBean implements QVConstants{
 //		}
 //		return bIsTeacher;
 	}
-	
+
 	public boolean isValidated(){
 		return (getUserId()!=null && getUserId().length()>0 && !getUserId().equalsIgnoreCase(NULL));
 	}
-	
+
 	public boolean needValidation(){
 		boolean bValidation = getBooleanSetting("validation.needed", true, true);
 		if (!bValidation) sUserId=getSetting("validation.type.none.defaultUser", true);
@@ -615,20 +631,20 @@ public class QVBean implements QVConstants{
 
 	public void redirectToValidation(){
 		redirectToValidation(getTranslatedPath(JSP_INDEX, JSP_INDEX));
-	}    
-	
+	}
+
 	public void redirectToValidation(String returnPage){
 		redirectResponse(getValidateURL(returnPage));
-	}    
-	
+	}
+
 	public void redirectToValidation(String sUsername, String sPassword){
 		redirectResponse(getValidateURL(getTranslatedPath(JSP_INDEX, JSP_INDEX), sUsername, sPassword));
-	}    
-	
-	public void redirectResponse(String sRedirectPage){
-		redirectResponse(sRedirectPage, false);       
 	}
-	
+
+	public void redirectResponse(String sRedirectPage){
+		redirectResponse(sRedirectPage, false);
+	}
+
 	public void redirectResponse(String sRedirectPage, boolean bAddQueryString){
 		try{
 			if (sRedirectPage!=null && sRedirectPage.startsWith("null")) sRedirectPage=sRedirectPage.substring(4);
@@ -647,9 +663,9 @@ public class QVBean implements QVConstants{
 		}
 		catch (Exception e){
 			logger.error("Error redirigint la resposta a "+sRedirectPage+" --> "+e);
-		}        
+		}
 	}
-	
+
 	private String getQueryString(){
 		String sQueryString = "";
 		Enumeration enumParameters= request.getParameterNames();
@@ -658,25 +674,26 @@ public class QVBean implements QVConstants{
 			String sParamValue = getParameter(sParamName);
 			sQueryString += "&"+sParamName+"="+sParamValue;
 		}
-		return sQueryString;		
+		return sQueryString;
 	}
-    
+
 	private String getValidateURL(String redirectPage){
 		return getValidateURL(redirectPage, "", "");
 	}
 
 	private String getValidateURL(String redirectPage, String sUsername, String sPassword){
-		String s=getSetting(CHECK_IDENT_URL_KEY)+"?p_username="+sUsername+"&p_password="+sPassword+"&p_url="+getServerBaseUrl()+"/"+redirectPage;
+		String s = getServerBaseUrl() + "/login.jsp";
+		s += "?p_username="+sUsername+"&p_password="+sPassword+"&p_url="+getServerBaseUrl()+"/"+redirectPage;
 		return s;
 	}
-	
-//	***************************	
+
+//	***************************
 //	* Parametres actuals
 //	***************************
 	public String getIdQuadern(){
 		return getSessionParameter(ID_QUADERN_PARAM);
 	}
-	
+
 	public String getIdFull(){
 		String sIdFull = getSessionParameter(IDENT_FULL_PARAM);
 		//Object oIdFull = session.getAttribute(IDENT_FULL_PARAM);
@@ -685,11 +702,11 @@ public class QVBean implements QVConstants{
 		//}
 		return sIdFull;
 	}
-	
+
 	/**
 	 * Actualitza el full actual
 	 * @param sIdFull identificador del nou full actual
-	 * @return true si es modifica correctament el full actual; false en cas que 
+	 * @return true si es modifica correctament el full actual; false en cas que
 	 * no es pugui canviar
 	 */
 	public boolean setFull(String sIdFull){
@@ -702,7 +719,7 @@ public class QVBean implements QVConstants{
 		setPregunta(null);
 		return bOk;
 	}
-	
+
 	public String getIdPregunta(){
 		String sIdPregunta = getSessionParameter(IDENT_PREGUNTA_PARAM);
 		//Object oIdPregunta = session.getAttribute(IDENT_PREGUNTA_PARAM);
@@ -711,11 +728,11 @@ public class QVBean implements QVConstants{
 		//}
 		return sIdPregunta;
 	}
-	
+
 	/**
 	 * Actualitza la pregunta actual. Si es passa un id null, s'esborra la pregunta
 	 * @param sIdFull identificador de la nova pregunta actual
-	 * @return true si es modifica correctament la pregunta actual; false en cas que 
+	 * @return true si es modifica correctament la pregunta actual; false en cas que
 	 * no es pugui canviar
 	 */
 	public boolean setPregunta(String sIdPregunta){
@@ -735,11 +752,11 @@ public class QVBean implements QVConstants{
 		}
 		return bOk;
 	}
-	
+
 	public double getEspaiQuadern(String sNomQuadern){
 		return FileUtil.getDiskSpace(getQuadernLocalDirectory(sNomQuadern));
 	}
-	
+
 	/**
 	 * Retorna l'espai total ocupat per l'usuari actual
 	 * @return
@@ -747,15 +764,15 @@ public class QVBean implements QVConstants{
 	public long getEspaiOcupat(){
 		return FileUtil.getDiskSpace(getUserLocalURL());
 	}
-	
+
 	public int getPercentatgeOcupat(){
 		return (int)((double)getEspaiOcupat()/(double)getMaxEspai()*100);
 	}
-	
+
 	public int getPercentatgeOcupatQuadern(){
 		return getPercentatgeOcupatQuadern(getIdQuadern());
 	}
-	
+
 	protected int getPercentatgeOcupatQuadern(String sNomQuadern){
 		int iPercentatge = (int)((double)getEspaiQuadern(sNomQuadern)/(double)getMaxEspai()*100);
 		if (iPercentatge==0){
@@ -763,9 +780,9 @@ public class QVBean implements QVConstants{
 		}
 		return iPercentatge;
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @return espai disponible que encara pot ocupar l'usuari actual
 	 */
 	public long getEspaiLliure(){
@@ -775,9 +792,9 @@ public class QVBean implements QVConstants{
 		}
 		return lEspai;
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @return quota maxima que l'usuari pot ocupar
 	 */
 	public long getMaxEspai(){
@@ -789,29 +806,29 @@ public class QVBean implements QVConstants{
 		}
 		return lQuota;
 	}
-	
+
 	/**
 	 * @return Nom del driver del parser XML
 	 */
 	public String getParserDriver(){
 		return getSetting(XML_PARSER_DRIVER);
 	}
-	
+
 	/**
 	 * @return URL de l'schema amb que validar el quadern
 	 */
 	public String getSchemaQTI(){
 		return getSetting(XML_SCHEMA_QTI_KEY);
 	}
-	
+
 	public boolean isEditableXML(){
 		return (getSetting(EDITXML_KEY)!=null) && (getSetting(EDITXML_KEY).equalsIgnoreCase("true"));
 	}
-	
+
 	public String getDefaultSkin(){
 		return getSetting(DEFAULT_SKIN_KEY);
 	}
-	
+
 	public Vector getSkins(){
 		Vector vSkins = new Vector();
 		String sSkins = getSetting(PUBLIC_SKINS_KEY);
@@ -823,28 +840,28 @@ public class QVBean implements QVConstants{
 		}
 		return vSkins;
 	}
-	
+
 	public String getEditionMode(){
 		String sEditionMode = getSessionParameter("edition_mode");
 		if (sEditionMode==null || sEditionMode.trim().length()<=0){
 			sEditionMode = VISUAL_EDITION_MODE;
 		}
-		return sEditionMode;		
+		return sEditionMode;
 	}
 
 	public boolean showEditXML(){
 //		String sAccio = getSessionParameter(ACTION_PARAM);
-//		return (sAccio!=null && sAccio.equalsIgnoreCase("editXML")) ||  
+//		return (sAccio!=null && sAccio.equalsIgnoreCase("editXML")) ||
 //			(getEditionMode().equalsIgnoreCase(TEXT_EDITION_MODE));
 		return (getEditionMode().equalsIgnoreCase(TEXT_EDITION_MODE));
 	}
-	
+
 	public boolean showHelp(){
 		return (getSetting(HELP_KEY)!=null) && (getSetting(HELP_KEY).equalsIgnoreCase("true"));
 	}
-	
 
-//	***************************	
+
+//	***************************
 //	* Parameter
 //	***************************
 	/**
@@ -866,7 +883,7 @@ public class QVBean implements QVConstants{
 			logger.debug("EXCEPCIO obtenint el parametre '"+sParam+"' -->"+e);
 		}
 		return sValue;
-	}	
+	}
 
 	/**
 	 * Retorna el parametre; si no el troba retorna el valor per defecte
@@ -887,7 +904,7 @@ public class QVBean implements QVConstants{
 		}
 		return sResult;
 	}
-	
+
 	/**
 	 * Si al request existeix un parametre amb nom='sParam' l'afegeix a la sessio i el
 	 * retorna; Si no existeix, el busca a la sessio
@@ -900,7 +917,7 @@ public class QVBean implements QVConstants{
 			if(o!=null)
 				result=o.toString();
 		}
-		else 
+		else
 			session.setAttribute(sParam, result);
 		return result;
 	}
@@ -912,7 +929,7 @@ public class QVBean implements QVConstants{
 	 * @return
 	 */
 	public int getIntParameter(String sParam, int iDefault){
-		return getIntParameter(request, sParam, iDefault);		
+		return getIntParameter(request, sParam, iDefault);
 	}
 	/**
 	 * Retorna un parametre enter. Veure 'getParameter'.
@@ -954,7 +971,7 @@ public class QVBean implements QVConstants{
 	}
 
 	/**
-	 * Retorna un parametre boolea. Veure 'getParameter' 
+	 * Retorna un parametre boolea. Veure 'getParameter'
 	 * @param sParam
 	 * @param bDefault
 	 * @return
@@ -964,7 +981,7 @@ public class QVBean implements QVConstants{
 		try{
 			String s=getParameter(sParam);
 			if (s!=null)
-				result=s.trim().equalsIgnoreCase(SI) || s.trim().equalsIgnoreCase(Boolean.TRUE.toString());            
+				result=s.trim().equalsIgnoreCase(SI) || s.trim().equalsIgnoreCase(Boolean.TRUE.toString());
 		}
 		catch (Exception e){
 			logger.debug("EXCEPCIO obtenint el parametre '"+sParam+"' -->"+e);
@@ -986,9 +1003,9 @@ public class QVBean implements QVConstants{
 		return sValues;
 	}
 
-//	***************************	
+//	***************************
 //	* Language
-//	***************************	
+//	***************************
 	protected void initLanguage() throws Exception{
 		String lang = getLanguage();
 		Object[] obj=(Object[])localeObjects.get(lang);
@@ -1009,21 +1026,21 @@ public class QVBean implements QVConstants{
 			obj=new Object[]{bundle, shortDateFormat};
 			localeObjects.put(lang, obj);
 		}
-        
+
 	}
-	
+
 	public String getStartToken(){
 		if (sStartToken==null){
 			sStartToken = getSetting(START_TOKEN_KEY, DEFAULT_START_TOKEN);
 		}
-		return sStartToken;     
+		return sStartToken;
 	}
-    
+
 	public String getEndToken(){
 		if (sEndToken==null){
 			sEndToken = getSetting(END_TOKEN_KEY, DEFAULT_END_TOKEN);
 		}
-		return sEndToken;     
+		return sEndToken;
 	}
 
 	public String getLanguage(){
@@ -1033,9 +1050,9 @@ public class QVBean implements QVConstants{
 		}else{
 			lang=lang.toLowerCase();
 		}
-		return lang;     
+		return lang;
 	}
-    
+
 	public String getMsg(String sKey){
 		String sMessage = "";
 		try{
@@ -1047,7 +1064,7 @@ public class QVBean implements QVConstants{
 		}
 		return sMessage;
 	}
-	
+
 	public String getMsg(String sKey, Vector vValues){
 		String sMessage = "";
 		try{
@@ -1063,7 +1080,7 @@ public class QVBean implements QVConstants{
 		}
 		return sMessage;
 	}
-	
+
 	public static String filter(String input){
 		String result=(input==null ? "" : input);
 		if(input!=null && input.length()>0){
@@ -1095,9 +1112,9 @@ public class QVBean implements QVConstants{
 		}
 		return result;
 	}
-    
-//	***************************	
-//	* QTI 
+
+//	***************************
+//	* QTI
 //	***************************
 	public Assessment getQuadern(){
 		if (oQuadern==null){
@@ -1105,7 +1122,7 @@ public class QVBean implements QVConstants{
 		}
 		return oQuadern;
 	}
-	
+
 	public Vector getFullsQuadern(){
 		return QTIUtil.getFullsQuadern(getQuadern());
 	}
@@ -1117,7 +1134,7 @@ public class QVBean implements QVConstants{
 		}
 		return oFull;
 	}
-	
+
 	public Item getPregunta(){
 		Item oPregunta = null;
 		if (getFull()!=null && getIdPregunta()!=null){
@@ -1125,7 +1142,7 @@ public class QVBean implements QVConstants{
 		}
 		return oPregunta;
 	}
-	
+
 	/**
 	 * @return arrel del document QTI (questesinterop)
 	 */
@@ -1145,11 +1162,11 @@ public class QVBean implements QVConstants{
 	public void saveQuadern(){
 		if (session.getAttribute(ID_QUADERN_PARAM)!=null) {
 			if (QTIUtil.saveQuadern(getQuadernLocalFile(), getQTIObject())){
-				//logger.debug("S'ha guardat correctament el quadern '"+getIdQuadern()+"' de l'usuari '"+getUserId()+"'");				
+				//logger.debug("S'ha guardat correctament el quadern '"+getIdQuadern()+"' de l'usuari '"+getUserId()+"'");
 			}
 		}
 	}
-	
+
 	public String getTitle(QTIObject oQTI){
 		String sTitle = null;
 		if (oQTI!=null){
@@ -1157,7 +1174,7 @@ public class QVBean implements QVConstants{
 		}
 		return sTitle;
 	}
-	    
+
 	public String getShowName(QTIObject oQTI){
 		return getShowName(oQTI, -1);
 	}
@@ -1177,11 +1194,11 @@ public class QVBean implements QVConstants{
 		}
 		return sName;
 	}
-	    
-//	********************************************	
+
+//	********************************************
 //	* Recursos: imatges, audio, video, ...
 //	********************************************
-	
+
 	/**
 	 * Obte el nom dels recursos del tipus especificat (imatge, audio, ...) que conte el quadern actual
 	 */
@@ -1212,7 +1229,7 @@ public class QVBean implements QVConstants{
 		}
 		return files;
 	}
-	    
+
 	/**
 	 * Obte el nom de totes les imatges que conte el quadern indicat
 	 */
@@ -1220,7 +1237,7 @@ public class QVBean implements QVConstants{
 		String[] files = FileUtil.getImageFiles(getQuadernLocalDirectory(sAssessmentName));
 		return files;
 	}
-    
+
 	/**
 	 * Obte el nom de totes les pel.licules flash que conte el quadern indicat
 	 */
@@ -1228,7 +1245,7 @@ public class QVBean implements QVConstants{
 		String[] files = FileUtil.getFlashFiles(getQuadernLocalDirectory(sAssessmentName));
 		return files;
 	}
-    
+
 	/**
 	 * Obte el nom de tots els fitxers de so que conte el quadern indicat
 	 */
@@ -1236,7 +1253,7 @@ public class QVBean implements QVConstants{
 		String[] files = FileUtil.getAudioFiles(getQuadernLocalDirectory(sAssessmentName));
 		return files;
 	}
-    
+
 	/**
 	 * Obte el nom de tots els fitxers de video que conte el quadern indicat
 	 */
@@ -1244,7 +1261,7 @@ public class QVBean implements QVConstants{
 		String[] files = FileUtil.getVideoFiles(getQuadernLocalDirectory(sAssessmentName));
 		return files;
 	}
-    
+
 	/**
 	 * Obte el nom de tots els fitxers de video que conte el quadern indicat
 	 */
@@ -1252,7 +1269,7 @@ public class QVBean implements QVConstants{
 		String[] files = FileUtil.getJClicFiles(getQuadernLocalDirectory(sAssessmentName));
 		return files;
 	}
-	
+
 	/**
 	 * Obté el nom de tots els fitxers d'aplicacions que conté el quadern indicat
 	 */
@@ -1260,7 +1277,7 @@ public class QVBean implements QVConstants{
 		String[] files = FileUtil.getApplicationFiles(getQuadernLocalDirectory(sAssessmentName));
 		return files;
 	}
-    
+
 	/**
 	 * Obte el nom de la resta de fitxers
 	 */
@@ -1268,14 +1285,14 @@ public class QVBean implements QVConstants{
 		String[] files = FileUtil.getOtherFiles(getQuadernLocalDirectory(sAssessmentName));
 		return files;
 	}
-    
+
 	/**
 	 * Obte el nom de tots els recursos (imatges, so, ...) que conte el quadern actual
 	 */
 	public String[] getRecursosQuadern(){
 		return getRecursosQuadern(getIdQuadern());
 	}
-	    
+
 	/**
 	 * Obte el nom de tots els recursos (imatges, so, ...) que conte el quadern indicat
 	 */
@@ -1283,13 +1300,13 @@ public class QVBean implements QVConstants{
 		String[] files = FileUtil.getMultimediaFiles(getQuadernLocalDirectory(sNomQuadern));
 		return files;
 	}
-    
 
-//	***************************	
+
+//	***************************
 //	* Utils
 //	***************************
 	public String getServerBaseUrl(){
-		if(serverBaseUrl==null){        
+		if(serverBaseUrl==null){
 			// VERSIO AMB SERVLETS ANTICS:
 			// serverBaseUrl=getSetting("SERVLET_BASE_URL");
 
@@ -1316,32 +1333,32 @@ public class QVBean implements QVConstants{
 			catch(Exception e){
 				logger.debug("Error corregint el URL "+serverBaseUrl+"--> "+e);
 			}
-		}        
+		}
 		return serverBaseUrl;
 	}
-	
+
 	public String getRepositoryPath(){
 		return getSetting(QVSTORE_REPOSITORY_PATH_KEY);
 	}
-	
+
 	public String getUserLocalURL(){
 		return getSetting(QVSTORE_LOCAL_URL_KEY)+getUserId();
 	}
-	
+
 	/**
 	 * Obte el directori local on es troba el quadern actual
 	 * @return
 	 */
 	protected String getQuadernLocalDirectory(){
-		String sDirectori = null; 
+		String sDirectori = null;
 		if (getIdQuadern()!=null){
-			sDirectori = getQuadernLocalDirectory(getIdQuadern()); 
+			sDirectori = getQuadernLocalDirectory(getIdQuadern());
 		} else{
 			logger.error("No hi ha cap quadern seleccionat");
 		}
 		return sDirectori;
 	}
-    
+
 	/**
 	 * Obte el directori local on es troba el quadern indicat
 	 * @param sNomQuadern
@@ -1354,7 +1371,7 @@ public class QVBean implements QVConstants{
 		}
 		return sDirectori;
 	}
-    
+
 	/**
 	 * Obte el path del fitxer XML que conte el quadern actual
 	 * @param sNomQuadern
@@ -1363,7 +1380,7 @@ public class QVBean implements QVConstants{
 	protected String getQuadernLocalFile(){
 		return getQuadernLocalFile(getIdQuadern());
 	}
-    
+
 	/**
 	 * Obte el path del fitxer XML que conte el quadern indicat
 	 * @param sNomQuadern
@@ -1376,11 +1393,11 @@ public class QVBean implements QVConstants{
 		}
 		return sFile;
 	}
-    
+
 	protected String getUserRemoteURL(){
 		return getSetting(QVSTORE_REMOTE_URL_KEY)+getUserId();
 	}
-	
+
 	/**
 	 * Obte la URL del fitxer XML que conte el quadern actual
 	 * @return
@@ -1388,7 +1405,7 @@ public class QVBean implements QVConstants{
 	public String getQuadernRemoteURL(){
 		return getQuadernRemoteURL(getIdQuadern());
 	}
-	
+
 	/**
 	 * Obte la URL del fitxer XML que conte el quadern indicat
 	 * @param sNomQuadern nom del quadern
@@ -1397,22 +1414,22 @@ public class QVBean implements QVConstants{
 	protected String getQuadernRemoteURL(String sNomQuadern){
 		return getUserRemoteURL()+URL_PATH_SEPARATOR+sNomQuadern;
 	}
-	
+
 	public String getQuadernResourcesURL(){
 		return getQuadernResourcesURL(getIdQuadern());
 	}
-    
+
 	public String getQuadernResourcesURL(String sQuadern){
 		return getSetting("store.resources.remoteURL", true)+getUserId()+URL_PATH_SEPARATOR+sQuadern;
 	}
-	
+
 	/**
 	 * Obte la URL del fitxer XML que conte el quadern actual
 	 * @return
 	 */
 	public String getQuadernRemoteFile(){
 		return getQuadernRemoteFile(getIdQuadern());
-	}    
+	}
 
 	/**
 	 * Obte la URL del fitxer XML que conte el quadern indicat
@@ -1421,11 +1438,11 @@ public class QVBean implements QVConstants{
 	 */
 	protected String getQuadernRemoteFile(String sNomQuadern){
 		return getUserRemoteURL()+URL_PATH_SEPARATOR+sNomQuadern+URL_PATH_SEPARATOR+sNomQuadern+".xml";
-	}    
+	}
 
 	public String getQuadernPublicURL(){
 		return getQuadernPublicURL(getIdQuadern());
-	}    
+	}
 
 	/**
 	 * Obte la URL que permet obrir el Quadern indicat
@@ -1435,15 +1452,15 @@ public class QVBean implements QVConstants{
 	protected String getQuadernPublicURL(String sName){
 		return getUserRemoteURL()+URL_PATH_SEPARATOR+sName+URL_PATH_SEPARATOR;
 	}
-	
+
 	public String getPreviewURL(){
 		return getPreviewURL(getIdQuadern(), getIdFull(), getIdPregunta());
 	}
-    
+
 	public String getPreviewURL(String sIdQuadern){
 		return getPreviewURL(sIdQuadern, null, null);
 	}
-    
+
 	protected String getPreviewURL(String sIdQuadern, String sIdFull, String sIdPregunta){
 		String sPreviewURL = null;
 		//String sBase = getSetting(HOME_QV_URL_KEY)+getSetting(QUADERN_QV_URL_KEY);
@@ -1455,22 +1472,22 @@ public class QVBean implements QVConstants{
 		sBase+="&skin="+getDefaultSkin()+"&nocache=true";
 		//sBase+="&user="+getUserId()+"&assessment="+sIdQuadern+"&skin="+getDefaultSkin()+"&nocache=true";
 		if (sIdPregunta!=null && sIdPregunta.trim().length()>0){
-			//sPreviewURL = getSetting(HOME_QV_URL_KEY)+getSetting(QUADERN_QV_URL_KEY)+getQuadernRemoteFile(sIdQuadern)+"&quadernXSL="+getDefaultSkin()+"&full="+(getQuadern().getSectionPosition(sIdFull)+1)+"&nocache=true"+"#item_"+sIdPregunta;			
-			sPreviewURL = sBase+"&section="+(getQuadern().getSectionPosition(sIdFull)+1)+"#item_"+sIdPregunta;			
+			//sPreviewURL = getSetting(HOME_QV_URL_KEY)+getSetting(QUADERN_QV_URL_KEY)+getQuadernRemoteFile(sIdQuadern)+"&quadernXSL="+getDefaultSkin()+"&full="+(getQuadern().getSectionPosition(sIdFull)+1)+"&nocache=true"+"#item_"+sIdPregunta;
+			sPreviewURL = sBase+"&section="+(getQuadern().getSectionPosition(sIdFull)+1)+"#item_"+sIdPregunta;
 		} else if (sIdFull!=null && sIdFull.trim().length()>0){
 			//sPreviewURL = getSetting(HOME_QV_URL_KEY)+getSetting(QUADERN_QV_URL_KEY)+getQuadernRemoteFile(sIdQuadern)+"&quadernXSL="+getDefaultSkin()+"&full="+(getQuadern().getSectionPosition(sIdFull)+1)+"&nocache=true";
-			sPreviewURL = sBase+"&section="+(getQuadern().getSectionPosition(sIdFull)+1);			
+			sPreviewURL = sBase+"&section="+(getQuadern().getSectionPosition(sIdFull)+1);
 		}else{
 			//sPreviewURL = getSetting(HOME_QV_URL_KEY)+getSetting(ASSIGNACIONS_QV_URL_KEY)+getQuadernRemoteFile(sIdQuadern)+"&quadernXSL="+getDefaultSkin()+"&nocache=true";
-			sPreviewURL = sBase+"&section=0";			
+			sPreviewURL = sBase+"&section=0";
 		}
 		return sPreviewURL;
 	}
-	
+
 	public boolean isMultipartContent(){
 		return DiskFileUpload.isMultipartContent(request);
 	}
-	
+
 	public String getTranslatedPath(String sPage){
 		return getTranslatedPath(JSP_EDIT, sPage);
 	}
@@ -1479,7 +1496,7 @@ public class QVBean implements QVConstants{
 		String sPath = sMainPage+".jsp?"+PAGE_PARAM+"="+sPage;
 		return sPath;
 	}
-	
+
 	public int getImageWidth(String sImageURL){
 		int iWidth = -1;
 		try{
@@ -1489,7 +1506,7 @@ public class QVBean implements QVConstants{
 		}
 		return iWidth;
 	}
-	
+
 	public int getImageHeight(String sImageURL){
 		int iHeight = -1;
 		try{
@@ -1499,7 +1516,7 @@ public class QVBean implements QVConstants{
 		}
 		return iHeight;
 	}
-	
+
 	public Dimension getImageSize(String sImageURL){
 		Dimension dSize = new Dimension(-1, -1);
 		try{
@@ -1514,7 +1531,7 @@ public class QVBean implements QVConstants{
 		}
 		return dSize;
 	}
-	
+
 	public Dimension getProportionalImageSize(int iWidth, int iHeight, int iMaxWidth, int iMaxHeight){
 		int iProportionalWidth = -1;
 		int iProportionalHeight = -1;
@@ -1532,7 +1549,7 @@ public class QVBean implements QVConstants{
 		//logger.debug("real ["+iWidth+","+iHeight+"]  max["+iMaxWidth+","+iMaxHeight+"]  prop["+iProportionalWidth+","+iProportionalHeight+"]");
 		return new Dimension(iProportionalWidth, iProportionalHeight);
 	}
-	
+
 	protected ImageIcon getImage(String sImageURL){
 		ImageIcon iImage = null;
 		try{
@@ -1550,7 +1567,7 @@ public class QVBean implements QVConstants{
 		}
 		return iImage;
 	}
-	
+
 	protected String textToHTML(String sText){
 		String sHTML = "";
 		if (sText!=null){
@@ -1589,26 +1606,26 @@ public class QVBean implements QVConstants{
 		}
 		return sText;
 	}
-	
-	
+
+
 	public double toMB(double d){
 		return round((double)d/(double)1000000, 2);
 	}
 	/**
-	 * 
+	 *
 	 * @param d double
 	 * @param i scale (number of decimals to show)
 	 * @return
 	 */
 	public double round(double d, int i){
-		d = d + Math.pow(5*10,(-i - 1));  
-		d = d * Math.pow(10,i); 
-		d = (int)d;  
+		d = d + Math.pow(5*10,(-i - 1));
+		d = d * Math.pow(10,i);
+		d = (int)d;
 		d = d / Math.pow(10,i);
 		return d;
 	}
 
-//	***************************	
+//	***************************
 //	* Database
 //	***************************
 	public LOMDatabase getLOMDatabase(){
@@ -1619,16 +1636,16 @@ public class QVBean implements QVConstants{
 		}
 		return oLOMDB;
 	}
-	
+
 	public UserDatabase getUserDatabase(){
 		if (oUserDB==null){
 			oUserDB = new UserDatabase();
 		}
 		return oUserDB;
 	}
-	
+
 	public QVCPDocument getQVCPDocument(){
-		return getQVCPDocument(getIdQuadern());		
+		return getQVCPDocument(getIdQuadern());
 	}
 
 	public QVCPDocument getQVCPDocument(String sQV){
@@ -1636,13 +1653,13 @@ public class QVBean implements QVConstants{
 			oCPDoc = new QVCPDocument(getUserId(), sQV, getQuadernLocalDirectory(sQV), getQuadernRemoteURL(sQV));
 		}
 		return oCPDoc;
-		
+
 	}
-	
+
 	public void saveQVCPDocument(){
 		saveQVCPDocument(getQVCPDocument());
 	}
-	
+
 	public void saveQVCPDocument(QVCPDocument oCP){
 		if (oCP!=null){
 			try{
@@ -1657,5 +1674,5 @@ public class QVBean implements QVConstants{
 			}
 		}
 	}
-	
+
 }

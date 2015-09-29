@@ -1,8 +1,9 @@
+</div>
 <script type="text/javascript">
-  if (xinha_editors) {
+  if (xinha_editors != undefined && xinha_editors) {
 	  xinha_init(xinha_editors);
   }
 </script>
 
-</BODY>
-</HTML>
+</body>
+</html>

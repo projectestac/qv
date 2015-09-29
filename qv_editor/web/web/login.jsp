@@ -1,22 +1,40 @@
 <%@page contentType="text/html; charset=ISO-8859-1" errorPage="error.html" %>
-<jsp:useBean id="qvb" class="edu.xtec.qv.editor.beans.QVBean" scope="request" /><%
-if(!qvb.init(request, session, response)){%><jsp:forward page="redirect.jsp"/><%}
-edu.xtec.qv.editor.beans.QVLoginBean qvsb=(edu.xtec.qv.editor.beans.QVLoginBean)qvb.getSpecificBean();
+<jsp:useBean id="qvb" class="edu.xtec.qv.editor.beans.QVBean" scope="request" />
 
-if (!qvb.isHeaderLoaded()){
-%>
+<%
+if(!qvb.init(request, session, response)){%>
+  <jsp:forward page="redirect.jsp"/><%
+}
+edu.xtec.qv.editor.beans.QVLoginBean qvsb = (edu.xtec.qv.editor.beans.QVLoginBean)qvb.getSpecificBean();
+
+if (!qvb.isHeaderLoaded()){%>
 <jsp:include page="header.jsp" flush="true" />
-<%}%>	
+<%}%>
+<link rel="stylesheet" href="thirdparty/bootstrap/css/bootstrap.min.css">
+<header><h1><%=qvb.getMsg("index.title")%></h1></header>
 
-<FORM name="loginForm" method="POST" action="login.jsp">
-<INPUT type="hidden" name="page" value="index"/>
-<INPUT type="hidden" name="action"/>
+<%
+if (qvsb.isLoginIncorrect()) {
+%><div class="alert alert-danger" role="alert"><%=qvb.getMsg("login.passworderror")%></div><%
+}
+%>
+<div class="panel panel-info">
+<div class="panel-body bg-info">
 
-Nom d'usuari/ària: <INPUT type="text" name="p_username">
-<br>
-Contrasenya: <INPUT type="password" name="p_password">
-<br>
-<A href="javascript:enviar('login',this.document.loginForm);">Envia</A>
-</FORM>
+    <form name="loginForm" method="POST" action="login.jsp">
+      <input type="hidden" name="page" value="index">
+      <input type="hidden" name="action" value="login">
+      <div class="form-group">
+        <label for="p_username">Nom d'usuari</label>
+        <input type="text" class="form-control" id="p_username" name="p_username" placeholder="Usuari">
+      </div>
+      <div class="form-group">
+        <label for="p_password">Contrasenya</label>
+        <input type="password" class="form-control" id="p_password" placeholder="Contrasenya" name="p_password">
+      </div>
+      <button type="submit" class="btn btn-default">Envia</button>
+    </form>
+</div>
+</div>
 <jsp:include page="footer.jsp" flush="true" />
 

@@ -1,6 +1,6 @@
 /*
  * QVConstants.java
- * 
+ *
  * Created on 11/febrer/2004
  */
 package edu.xtec.qv.editor.util;
@@ -9,7 +9,7 @@ package edu.xtec.qv.editor.util;
  * @author sarjona
  */
 public interface QVConstants {
-	
+
 	public static final String URL_PATH_SEPARATOR = "/";
 	public static final String LANG = "lang";
 	public final String DEFAULT_START_TOKEN = "'{";
@@ -21,7 +21,6 @@ public interface QVConstants {
 	public static final String SETTINGS_FILE_USER="editorQV.properties";
 	public static final String SETTINGS_FILE="qv_editor.properties";
 	public static final String DEFAULT_BASE_NAME_BUNDLE="edu.xtec.resources.messages.editorQVMessages";
-	public static final String CHECK_IDENT_URL_KEY="validation.URL";
 	public static final String QVSTORE_LOCAL_URL_KEY="store.localURL";
 	public static final String QVSTORE_REMOTE_URL_KEY="store.remoteURL";
 	public static final String QVSTORE_REPOSITORY_PATH_KEY = "store.repositoryPath";
@@ -94,14 +93,14 @@ public interface QVConstants {
 	public static final String DEL_ACTION_PARAM = "del";
 	public static final String PREVIEW_ACTION_PARAM = "preview";
 	public static final String LOGOUT_ACTION_PARAM = "logout";
-	
-	
+
+
 	public static final String TITLE_PARAM = "title";
 	public static final String SCOREMODEL_PARAM = "scoremodel";
 	public static final String SECTION_ORDER_PARAM = "ordre_full";//Albert
 	public static final String ITEM_ORDER_PARAM = "ordre_pregunta";//Albert
-	
-	
+
+
 	// Parametres sessio
 	public static final String QTI_OBJECT_SESSION = "qti_object";
 	public static final String REDIRECT_PAGE_SESSION = "redirect";
@@ -119,10 +118,10 @@ public interface QVConstants {
 	public static final String OPTION_HOTSPOT_TYPE = "hotspot.option";
 	public static final String DOT_HOTSPOT_TYPE = "hotspot.dot";
 	public static final String FREE_HOTSPOT_TYPE = "hotspot.free";
-	
+
 	public static final String NO = "No";
 	public static final String YES = "Yes";
-		
+
 	// Tipus de recursos
 	public final String IMAGE_RESOURCE = "image";
 	public final String FLASH_RESOURCE = "flash";
@@ -135,6 +134,6 @@ public interface QVConstants {
 	// Mode d'edició
 	public final String VISUAL_EDITION_MODE = "visual";
 	public final String TEXT_EDITION_MODE = "text";
-	
-	
+
+
 }
