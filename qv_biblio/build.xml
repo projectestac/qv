@@ -16,7 +16,7 @@
     <property name="name"           value="Biblioteca de Quaderns Virtuals" />
     <property name="year"           value="2005" />
 
-  	<property name="dist.name"      value="e13_qv_biblio" />
+  	<property name="dist.name"      value="qv_biblio" />
 
     <!-- QV is currently targeted to JVM 1.4 -->
     <property name="ant.build.javac.source" value="1.7"/>
