@@ -5,6 +5,7 @@
 *.bak
 *~
 *.log
+*.ear
 
 # Build and doc directories #
 **/build/
