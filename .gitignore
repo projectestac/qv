@@ -20,6 +20,7 @@ netbeans
 **/.settings
 **/.idea
 
+qv_editor/web/quaderns/biblioteca/**/html/
 qv_applets/bin
 qv_applets/dist
 
