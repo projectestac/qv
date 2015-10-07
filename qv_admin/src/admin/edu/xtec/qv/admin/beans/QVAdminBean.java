@@ -1,6 +1,6 @@
 /*
  * QVHTMLBean.java
- * 
+ *
  * Created on 10/juny/2005
  */
 package edu.xtec.qv.admin.beans;
@@ -27,16 +27,18 @@ import edu.xtec.qv.admin.db.AdminDatabase;
 
 public abstract class QVAdminBean {
 
-	protected static Logger logger = Logger.getRootLogger();	
+	protected static Logger logger = Logger.getRootLogger();
 	private static Properties settings;
 	public static final String SETTINGS_PATH="/edu/xtec/resources/properties/";
 	public static final String SETTINGS_FILE="qv_admin.properties";
 	public static final String FORMAT_DATE = "dd/MM/yyyy";
 
 	public static final String USER_KEY="usuari-edu365";
+	protected static final String ACTION_PARAM="action";
+	protected static final String LOGOUT_ACTION_PARAM="logout";
 
 	private String serverBaseUrl;
-	
+
 	protected String sUserId;
 	protected String sUsername;
 	protected User oUser;
@@ -50,7 +52,7 @@ public abstract class QVAdminBean {
 	// Parametres
 	public final String P_USERNAME = "p_username";
 
-	
+
 	public boolean init(HttpServletRequest request, HttpSession session, HttpServletResponse response){
 		boolean bOk = bInitiated;
 		this.request=request;
@@ -66,13 +68,15 @@ public abstract class QVAdminBean {
 				writeCacheInfo();
 				if (needValidation()){
 					if (!isValidated()){
-						redirectoToValidation();
+						redirectToValidation();
+					} else if (isLogout()){
+						logout();
 					}
 				}
 				if (getAdminDatabase()==null){
 					logger.error("ERROR: could not initialitze database");
 					return false;
-				}				
+				}
 				bOk = start();
 			} catch (Exception e){
 				logger.fatal("EXCEPCIO inicialitzant bean --> "+e);
@@ -81,25 +85,25 @@ public abstract class QVAdminBean {
 		}
 		return bOk;
 	}
-	
+
 	protected abstract boolean start();
-	
-//	***************************	
+
+//	***************************
 //	* Cache
 //	***************************
 	public void writeCacheInfo(){
 		if(isNoCache() && !response.isCommitted()){
 			response.setHeader("Pragma", "no-cache");
 			response.setHeader("Cache-Control", "no-cache");
-			response.setDateHeader("Expires", 0);        
-		}        
+			response.setDateHeader("Expires", 0);
+		}
 	}
-    
+
 	protected boolean isNoCache(){
 		return true;
-	}    	
+	}
 
-//	***************************	
+//	***************************
 //	* Validation
 //	***************************
 	public boolean needValidation(){
@@ -112,7 +116,7 @@ public abstract class QVAdminBean {
 	public boolean isValidated(){
 		return (getUserId()!=null && getUserId().length()>0 && !getUserId().equalsIgnoreCase("null"));
 	}
-	
+
 	public String getUserId(){
 		if(sUserId==null && request!=null){
 			sUserId = getAuthenticatedUser();
@@ -137,17 +141,61 @@ public abstract class QVAdminBean {
 						break;
 					}
 				}
-			}				
+			}
 		}
 		return sUser;
 	}
-	
-	
-	protected void redirectoToValidation(){
+
+	protected void redirectToValidation(){
 		try {
-			response.sendRedirect(getSetting("validation.URL")+"?p_username=&p_password=&p_url="+getServerBaseUrl());
+			response.sendRedirect(getValidateURL("", ""));
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+	}
+
+	private String getValidateURL(String sUsername, String sPassword){
+		String s = getServerBaseUrl() + "/login.jsp";
+		s += "?p_username="+sUsername+"&p_password="+sPassword+"&p_url="+getServerBaseUrl();
+		return s;
+	}
+
+	//	***************************
+	//	* Validacio usuari
+	//	***************************
+	public boolean isLogout() {
+		String sAction = getParameter(ACTION_PARAM);
+		if (sAction!=null) {
+			if (sAction.equalsIgnoreCase(LOGOUT_ACTION_PARAM)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public void logout() {
+		if (request != null) {
+			String sType = getSetting("validation.type");
+			if ("sso".equalsIgnoreCase(sType)){
+				try {
+					logger.debug("logout SSO");
+					response.setHeader("Osso-Return-Url", getSetting("sso.return_url"));
+					response.sendError(470, "Oracle SSO");
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			} else {
+				Cookie c = new Cookie(USER_KEY, "");
+				c.setMaxAge(0);
+				response.addCookie(c);
+				try{
+					response.sendRedirect("index.jsp");
+				} catch (Exception e){
+					logger.error("EXCEPCIO fent logout --> "+e);
+					e.printStackTrace();
+				}
+			}
+			sUserId = null;
 		}
 	}
 
@@ -157,7 +205,7 @@ public abstract class QVAdminBean {
 		}
 		return oUser;
 	}
-	    	
+
 	public boolean isTeacher(){
 		return getUser()!=null && getUser().isRole(Role.TEACHER_ROLE);
 	}
@@ -170,7 +218,7 @@ public abstract class QVAdminBean {
 		return getUser()!=null && getUser().isRole(Role.VALIDATOR_ROLE);
 	}
 
-//	***************************	
+//	***************************
 //	* Database
 //	***************************
 	public AdminDatabase getAdminDatabase(){
@@ -179,8 +227,8 @@ public abstract class QVAdminBean {
 		}
 		return oAdminDB;
 	}
-		
-//	***************************	
+
+//	***************************
 //	* Utils
 //	***************************
 
@@ -189,7 +237,7 @@ public abstract class QVAdminBean {
 	}
 
 	/*
-	 * @param sURL 
+	 * @param sURL
 	 * @param bFirst Indica si s'ha de saltar el primer o no
 	 */
 	protected Vector executeServlet(String sURL, boolean bFirst){
@@ -233,9 +281,9 @@ public abstract class QVAdminBean {
 		}
 		return vResponse;
 	}
-	
+
 	protected String getServerBaseUrl(){
-		if(serverBaseUrl==null){        
+		if(serverBaseUrl==null){
 			// VERSIO AMB SERVLETS ANTICS:
 			// serverBaseUrl=getSetting("SERVLET_BASE_URL");
 
@@ -262,11 +310,11 @@ public abstract class QVAdminBean {
 			catch(Exception e){
 				logger.debug("Error corregint la URL "+serverBaseUrl+"--> "+e);
 			}
-		}        
+		}
 		return serverBaseUrl;
 	}
-	
-	
+
+
 	static{
 		settings=new Properties();
 		try{
@@ -281,8 +329,8 @@ public abstract class QVAdminBean {
 			logger.fatal("ERROR FATAL!: No s'ha pogut llegir el fitxer "+SETTINGS_PATH+SETTINGS_FILE);
 			e.printStackTrace(System.err);
 		}
-	}	
-	
+	}
+
 	public static String getSetting(String sKey){
 		String sProperty = null;
 		try{
@@ -292,11 +340,11 @@ public abstract class QVAdminBean {
 		}
 		return sProperty;
 	}
-	
+
 	protected Properties getSettings(){
 		return settings;
 	}
-	
+
 	public boolean getBooleanSetting(String sKey, boolean bDefaultValue){
 		boolean bProperty = bDefaultValue;
 		try{
@@ -308,9 +356,9 @@ public abstract class QVAdminBean {
 		}
 		return bProperty;
 	}
-        
-	
-//	***************************	
+
+
+//	***************************
 //	* Parameter
 //	***************************
 	/**
@@ -349,7 +397,7 @@ public abstract class QVAdminBean {
 		}
 		return sResult;
 	}
-		
+
 	/**
 	 * @param sParam parameter name
 	 * @return integer parameter value or -1 if it doesn't exist
@@ -373,7 +421,7 @@ public abstract class QVAdminBean {
 		}
 		return iResult;
 	}
-	
+
 	public Date getDateParameter(String sParam){
 		Date dResult = null;
 		try{
@@ -383,19 +431,19 @@ public abstract class QVAdminBean {
 				dResult = sdf.parse(sDate);
 			}
 		}catch (Exception e){
-			logger.debug("EXCEPCIO obtenint el parametre '"+sParam+"' de tipus Date -->"+e);			
+			logger.debug("EXCEPCIO obtenint el parametre '"+sParam+"' de tipus Date -->"+e);
 		}
 		return dResult;
 	}
-	
+
 	public String getLanguage(){
 		return "ca";
 	}
-	
-//	***************************	
+
+//	***************************
 //	* Util
 //	***************************
-	
+
 	/**
 	 * @param d date to format
 	 * @return formated date to string
@@ -408,7 +456,7 @@ public abstract class QVAdminBean {
 		}
 		return sDate;
 	}
-	
+
 	public String getUsername(){
 		return getUsername(true);
 	}
@@ -425,7 +473,7 @@ public abstract class QVAdminBean {
 		if (sUsername==null) sUsername="";
 		return sUsername;
 	}
-	
+
 
 	public static long getDiskSpace(String sFile){
 		long lEspai = 0;
@@ -434,7 +482,7 @@ public abstract class QVAdminBean {
 		}
 		return lEspai;
 	}
-	
+
 	/**
 	 * Get used space of the file or directory specified
 	 * @param fFile
@@ -455,7 +503,7 @@ public abstract class QVAdminBean {
 		}
 		return lQuote;
 	}
-	
+
 	public static int parsetoMB(double d){
 		return (new Double(Math.round(d)/1000000)).intValue();
 		//return round((double)d/(double)1000000, 2);
@@ -465,19 +513,19 @@ public abstract class QVAdminBean {
 		//return round((double)d/(double)1000000, 2);
 	}
 	/**
-	 * 
+	 *
 	 * @param d double
 	 * @param i scale (number of decimals to show)
 	 * @return
 	 */
 	public static double round(double d, int i){
-		d = d + Math.pow(5*10,(-i - 1));  
-		d = d * Math.pow(10,i); 
-		d = (int)d;  
+		d = d + Math.pow(5*10,(-i - 1));
+		d = d * Math.pow(10,i);
+		d = (int)d;
 		d = d / Math.pow(10,i);
 		return d;
 	}
-	
-	
+
+
 
 }

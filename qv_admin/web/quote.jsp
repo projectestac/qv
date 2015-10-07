@@ -22,7 +22,7 @@ if(!qvb.init(request, session, response)){%>
 	<%} else {%>
 			<input type="hidden" name="p_username" value="<%=qvb.getUserId()%>"/><b><%=qvb.getUserId()%></b>
 	<%} %>
-</li>	
+</li>
 <li>
 	Espai en ús&nbsp;&nbsp;&nbsp;&nbsp;
 	<%if (qvb.isAdmin()){ %>
@@ -41,11 +41,12 @@ if(!qvb.init(request, session, response)){%>
 	<%} %>
 	MB
 </li>
-</ul>	
+</ul>
 <input type="submit" name="p_save" value="desa"/>
 <input type="reset" name="p_reset" value="restaura"/>
 <input type="button" name="p_back" value="torna" onclick="document.location='index.jsp'"/>
 </form>
+<a href="?action=logout" title="Surt" class="index-link">Surt</a>
 </body>
 <%@page import="java.util.Enumeration"%>
 </html>

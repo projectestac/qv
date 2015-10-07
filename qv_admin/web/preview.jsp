@@ -24,7 +24,7 @@ function visualitza(){
 	if (pars.length>0){
 		//launchQV(pars);
 		var qvURL = getQVURL(pars);
-		openWindow(qvURL); 
+		openWindow(qvURL);
 	}
 }
 
@@ -44,7 +44,7 @@ function openWindow(url){
       leftPos = (w-popW)/2;
       topPos = (h-popH)/2;
     }
-    
+
     if (url!=null){
 	    window.open(url,'QuadernVirtual','scrollbars=yes,resizable=yes,width='+ popW +',height=' + popH + ',top=' + topPos + ',left=' + leftPos+ ',screenY=' + topPos + ',screenX=' + leftPos);
     }
@@ -71,15 +71,15 @@ function getParameters(){
 		}
 	}else {
 		if (form.p_username.value.length>0){
-			if (pars.length>0) pars+=","; 
+			if (pars.length>0) pars+=",";
 			pars +="user="+form.p_username.value;
 		}
 		if (form.p_quadern.value.length>0){
-			if (pars.length>0) pars+=","; 
+			if (pars.length>0) pars+=",";
 			pars +="quadern="+form.p_quadern.value;
 		}
 		if (form.p_xml.value.length>0){
-			if (pars.length>0) pars+=","; 
+			if (pars.length>0) pars+=",";
 			pars +="xml="+form.p_xml.value;
 		}
 	}
@@ -171,11 +171,11 @@ function getParameterValue(args, param){
 
 function getQVURL(args){
     var url = null;
-    args = new String(args);    
+    args = new String(args);
     idAssignacio=getParameterValue(args, 'id');
 	if (idAssignacio==null || idAssignacio.length==0){
 		quadernURL=getParameterValue(args, 'xml');
-		if (quadernURL==null || quadernURL.length==0){     
+		if (quadernURL==null || quadernURL.length==0){
 		  quadern=getParameterValue(args, 'quadern');
 		  if (quadern.length>0){
 			  user=getParameterValue(args, 'user');
@@ -206,11 +206,11 @@ function getQVURL(args){
       url+="&page="+page;
       teacher=getParameterValue(args, 'teacher');
       if (teacher!=null && teacher=="true") url+="&teacher=true";
-	  if (idAssignacio!=null && idAssignacio.length>0) url+='&assignment='+idAssignacio;      
+	  if (idAssignacio!=null && idAssignacio.length>0) url+='&assignment='+idAssignacio;
     }
     return url;
 }
-	
+
 </script>
 <%
 boolean bSelectQV = request.getParameter("p_select_qv")==null  || !request.getParameter("p_select_qv").equals("false");
@@ -237,7 +237,7 @@ String sHTMLCode = request.getParameter("p_html_code")!=null?request.getParamete
 <!--  PARAMETRES DEL QUADERN -->
 
 <!--  URL DEL QUADERN -->
-<% if (bSelectQV){ 
+<% if (bSelectQV){
 
 %>
 <tr>
@@ -267,7 +267,7 @@ String sHTMLCode = request.getParameter("p_html_code")!=null?request.getParamete
 	if (qvb.isAdmin() || qvb.isTeacher()) vQuaderns = qvb.getQuaderns();
 	else vQuaderns = qvb.getQuaderns(qvb.getUserId());
 	java.util.Enumeration enumQuaderns = vQuaderns.elements();
-%>					
+%>
 					<option value=""><%=enumQuaderns.hasMoreElements()?"&lt;Tria un quadern&gt;":""
 
 %></option>
@@ -282,13 +282,13 @@ String sHTMLCode = request.getParameter("p_html_code")!=null?request.getParamete
 
 
 %></OPTION>
-<%			
+<%
 	}
 
 
 
-%>	
-					
+%>
+
 				</select>
 			</td>
 		</tr>
@@ -331,14 +331,14 @@ String sHTMLCode = request.getParameter("p_html_code")!=null?request.getParamete
 		</table>
 	</td>
 </tr>
-<%} else{ 
+<%} else{
 
 %>
 	<input type="hidden" name="tipus_qv"/>
 	<input type="hidden" name="p_username" value="<%=qvb.getUsername()!=null?qvb.getUsername():""%>"/>
 	<input type="hidden" name="p_quadern" value="<%=qvb.getQuadern()!=null?qvb.getQuadern():""%>"/>
 	<input type="hidden" name="p_xml" value="<%=qvb.getXML()!=null?qvb.getXML():""%>"/>
-<%} 
+<%}
 
 %>
 <tr>
@@ -360,7 +360,7 @@ String sHTMLCode = request.getParameter("p_html_code")!=null?request.getParamete
 	java.util.Enumeration enumAparences = vAparences.elements();
 
 
-%>					
+%>
 					<option value=""><%=enumAparences.hasMoreElements()?"&lt;Tria una aparença&gt;":""
 
 %></option>
@@ -371,9 +371,9 @@ String sHTMLCode = request.getParameter("p_html_code")!=null?request.getParamete
 
 %>
 					<OPTION value="<%=oOption.getText()%>" <%=oOption.getText().equals(request.getParameter("p_skin"))?"selected":""%>><%=oOption.getValue()%></OPTION>
-<%			
+<%
 	}
-%>				
+%>
 				</select>
 			</td>
 			<td width="20px"></td>
@@ -384,7 +384,7 @@ String sHTMLCode = request.getParameter("p_html_code")!=null?request.getParamete
 				&nbsp;<a href="javascript:;" onclick="if(document.qv_form.p_username.value!='' && document.qv_form.p_quadern.value!='') {document.location='<%=qvb.getSetting("qv.zipServlet")%>path=<%=qvb.getSetting("store.localURL")%>'+document.qv_form.p_username.value+'&folder='+document.qv_form.p_quadern.value+'&fname='+document.qv_form.p_username.value+'_'+document.qv_form.p_quadern.value+'&includeall=false';}">Descarrega només QV</a>  |
 				&nbsp;<a href="javascript:;" onclick="if(document.qv_form.p_username.value!='' && document.qv_form.p_quadern.value!='') {document.location='<%=qvb.getSetting("qv.zipServlet")%>path=<%=qvb.getSetting("store.localURL")%>'+document.qv_form.p_username.value+'&folder='+document.qv_form.p_quadern.value+'&fname='+document.qv_form.p_username.value+'_'+document.qv_form.p_quadern.value;}">Descarrega QV - fora de línia</a>  &nbsp;
 				<!-- &nbsp;<a href="javascript:;" onclick="if(document.qv_form.p_username.value!='' && document.qv_form.p_quadern.value!='') {document.location='../qv_viewer/zip?path=D:/dev/qv/qv_editor/src/webapp/quaderns/'+document.qv_form.p_username.value+'&folder='+document.qv_form.p_quadern.value+'&fname='+document.qv_form.p_username.value+'_'+document.qv_form.p_quadern.value;}">Descarrega</a-->
-				
+
 			</td>
 		</tr>
 		</table>
@@ -452,5 +452,6 @@ String sHTMLCode = request.getParameter("p_html_code")!=null?request.getParamete
 </tr>
 </table>
 </form>
+<a href="?action=logout" title="Surt" class="index-link">Surt</a>
 </body>
 </html>
