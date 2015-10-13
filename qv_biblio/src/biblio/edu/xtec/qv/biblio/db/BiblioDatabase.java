@@ -34,25 +34,25 @@ public class BiblioDatabase {
 	private static ConnectionBeanProvider broker;
 	private ConnectionBean c;
 	private static Properties pDB;
-	
+
 	private static final Logger logger = Logger.getRootLogger();
 	private static final Hashtable hActivities = new Hashtable();
-	
+
 	public BiblioDatabase() {
 		getConnection();
 		freeConnection();
 	}
-	
 
 
-//	************************************	
+
+//	************************************
 //	* Database access
 //	************************************
 
 	public Vector getActivities(String sLang, String sArea, String sLanguage, String sLevel, String sAuthor, String sTitle, String sDescription, String sRevisionDate, boolean bCache){
 		return getActivities(sLang, sArea, sLanguage, sLevel, sAuthor, sTitle, sDescription, sRevisionDate, "public", bCache, false);
 	}
-	
+
 	public Vector getActivities(String sLang, String sArea, String sLanguage, String sLevel, String sAuthor, String sTitle, String sDescription, String sRevisionDate, boolean bCache, boolean bAllInfo){
 		return getActivities(sLang, sArea, sLanguage, sLevel, sAuthor, sTitle, sDescription, sRevisionDate, "public", bCache, bAllInfo);
 	}
@@ -60,7 +60,7 @@ public class BiblioDatabase {
 		return getActivities(sLang, sArea, sLanguage, sLevel, sAuthor, sTitle, sDescription, sRevisionDate, sState, bCache, false);
 	}
     /**
-     * @param sLang 
+     * @param sLang
      * Return Vector with all activities
      */
 	public Vector getActivities(String sLang, String sArea, String sLanguage, String sLevel, String sAuthor, String sTitle, String sDescription, String sRevisionDate, String sState, boolean bCache, boolean bAllInfo){
@@ -125,12 +125,12 @@ public class BiblioDatabase {
 				}
 				if (bAll) hActivities.put(sLang, vActivities);
 				rs.close();
-				getConnection().closeStatement(pstmt);				
+				getConnection().closeStatement(pstmt);
 			}
 			catch (SQLException e) {
 				logger.error("EXCEPTION getting activity versions --> "+e);
 			}finally{
-				freeConnection();				
+				freeConnection();
 			}
 		}
 		return vActivities;
@@ -138,7 +138,7 @@ public class BiblioDatabase {
 
     /**
      * @param iActivityId activity identifier
-     * Return Activity width specified identifier 
+     * Return Activity width specified identifier
      */
 	public Activity getActivity(int iActivityId, String sLang){
 		Activity oActivity = null;
@@ -171,7 +171,7 @@ public class BiblioDatabase {
 			catch (SQLException e) {
 				logger.error("EXCEPTION getting activity --> "+e);
 			}finally{
-				freeConnection();				
+				freeConnection();
 			}
 		}
 		return oActivity;
@@ -201,9 +201,9 @@ public class BiblioDatabase {
 			catch (SQLException e) {
 				logger.error("EXCEPTION getting activity date --> "+e);
 			}finally{
-				freeConnection();				
+				freeConnection();
 			}
-			
+
 		}
 		return dDate;
 	}
@@ -232,7 +232,7 @@ public class BiblioDatabase {
 			catch (SQLException e) {
 				logger.error("EXCEPTION getting activity image --> "+e);
 			}finally{
-				freeConnection();				
+				freeConnection();
 			}
 		}
 		return sImage;
@@ -262,7 +262,7 @@ public class BiblioDatabase {
 			catch (SQLException e) {
 				logger.error("EXCEPTION getting activity license --> "+e);
 			}finally{
-				freeConnection();				
+				freeConnection();
 			}
 		}
 		return sLicense;
@@ -295,7 +295,7 @@ public class BiblioDatabase {
 			catch (SQLException e) {
 				logger.error("EXCEPTION getting activity title --> "+e);
 			}finally{
-				freeConnection();				
+				freeConnection();
 			}
 		}
 		return sTitle;
@@ -327,7 +327,7 @@ public class BiblioDatabase {
 			catch (SQLException e) {
 				logger.error("EXCEPTION getting activity description --> "+e);
 			}finally{
-				freeConnection();				
+				freeConnection();
 			}
 		}
 		return sDescription;
@@ -359,7 +359,7 @@ public class BiblioDatabase {
 			catch (SQLException e) {
 				logger.error("EXCEPTION getting activity area --> "+e);
 			}finally{
-				freeConnection();				
+				freeConnection();
 			}
 		}
 		return sArea;
@@ -389,7 +389,7 @@ public class BiblioDatabase {
 			catch (SQLException e) {
 				logger.error("EXCEPTION getting activity areas --> "+e);
 			}finally{
-				freeConnection();				
+				freeConnection();
 			}
 		}
 		return vAreas;
@@ -422,7 +422,7 @@ public class BiblioDatabase {
 			catch (SQLException e) {
 				logger.error("EXCEPTION getting activity educational level for activity '"+iActivityId+"' --> "+e);
 			}finally{
-				freeConnection();				
+				freeConnection();
 			}
 		}
 		return vLevel;
@@ -453,13 +453,13 @@ public class BiblioDatabase {
 			catch (SQLException e) {
 				logger.error("EXCEPTION getting activity educational level for activity '"+iActivityId+"' --> "+e);
 			}finally{
-				freeConnection();				
+				freeConnection();
 			}
 		}
 		return vLevel;
 	}
 
-	
+
     /**
      * @param iActivityId activity identifier
      * Return Vector with all activity versions
@@ -498,7 +498,7 @@ public class BiblioDatabase {
 			catch (SQLException e) {
 				logger.error("EXCEPTION getting activity versions --> "+e);
 			}finally{
-				freeConnection();				
+				freeConnection();
 			}
 		}
 		return vVersions;
@@ -542,12 +542,12 @@ public class BiblioDatabase {
 			catch (SQLException e) {
 				logger.error("EXCEPTION getting activity authors --> "+e);
 			}finally{
-				freeConnection();				
+				freeConnection();
 			}
 		}
 		return hAuthors;
 	}
-	
+
     /**
      * @param iVersionId version identifier
      * Return Hashtable with all version authors ('id_rol', Vector Author)
@@ -586,7 +586,7 @@ public class BiblioDatabase {
 			catch (SQLException e) {
 				logger.error("EXCEPTION getting version authors --> "+e);
 			}finally{
-				freeConnection();				
+				freeConnection();
 			}
 		}
 		return hAuthors;
@@ -621,7 +621,7 @@ public class BiblioDatabase {
 			catch (SQLException e) {
 				logger.error("EXCEPTION getting activity educational institutions --> "+e);
 			}finally{
-				freeConnection();				
+				freeConnection();
 			}
 		}
 		return vEduInst;
@@ -653,7 +653,7 @@ public class BiblioDatabase {
 			catch (SQLException e) {
 				logger.error("EXCEPTION getting language text --> "+e);
 			}finally{
-				freeConnection();				
+				freeConnection();
 			}
 		}
 		return sText;
@@ -717,18 +717,18 @@ public class BiblioDatabase {
 			catch (SQLException e) {
 				logger.error("EXCEPTION getting language text --> "+e);
 			}finally{
-				freeConnection();				
+				freeConnection();
 			}
 		}
 		return sText;
 	}
 
-	
-	
-//	************************************	
+
+
+//	************************************
 //	* Database connection
 //	************************************
-	
+
 	public ConnectionBeanProvider getConnectionBeanProvider(){
 		try{
 			if(broker == null) { // Only created by first servlet to call
@@ -740,14 +740,14 @@ public class BiblioDatabase {
 		}
 		return broker;
 	}
-	
+
 	public ConnectionBean getConnection(){
 		if (c==null){
 			try{
 				c = getConnectionBeanProvider().getConnectionBean();
 				c.getConnection().setAutoCommit(true);
 			}catch (Exception e){
-				logger.error("EXCEPTION getting connection -> "+e);				
+				logger.error("EXCEPTION getting connection -> "+e);
 			}
 		}
 		return c;
@@ -759,12 +759,12 @@ public class BiblioDatabase {
 			c=null;
 		}
 	}
-	
-	
-//	************************************	
+
+
+//	************************************
 //	* Properties
 //	************************************
-	
+
 /*	public static Properties getDBProperties() throws Exception{
 		if (pDB==null){
 			pDB = new Properties();
@@ -786,11 +786,11 @@ public class BiblioDatabase {
 		}
 		return pDB;
 	}*/
-	
+
 	public static Properties getDBProperties() throws Exception{
 		return loadProperties(PROPERTIES_PATH, DBCONF_FILE);
 	}
-	
+
 	private static Properties loadProperties (String sPath, String sFile) throws Exception{
 		Properties p = new Properties();
 		try{
@@ -806,8 +806,8 @@ public class BiblioDatabase {
 		} catch (IOException e) {
 			logger.error(e);
 		}
-		return p;    	
+		return p;
 	}
-	
+
 
 }

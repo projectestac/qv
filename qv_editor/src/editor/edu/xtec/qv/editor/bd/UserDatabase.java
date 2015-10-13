@@ -76,7 +76,7 @@ public class UserDatabase {
                 if ("JNDI".equalsIgnoreCase(sDriver)){
                     InitialContext ctx = new InitialContext();
                     String sDbContext = prop.getProperty("dbContext");
-                    String sURL = (sDbContext.length() > 0?sDbContext+"/":"")+prop.getProperty("dbServer");
+                    String sURL = (sDbContext != null && sDbContext.length() > 0 ? sDbContext + "/" : "")+prop.getProperty("dbServer");
                     DataSource ds = (DataSource)ctx.lookup(sURL);
                     conn = ds.getConnection();
                 }else{
@@ -109,14 +109,10 @@ public class UserDatabase {
 		if (pDB == null) {
 			pDB = new Properties();
 			try{
-				/*InputStream isl = LOMDatabase.class.getResourceAsStream(DBCONF_PATH+DBCONF_FILE);
-				if (isl!=null){
-					pDB.load(isl);
-				}
-				isl.close();*/
+				pDB.load(UserDatabase.class.getResourceAsStream(DBCONF_PATH+DBCONF_FILE));
 				File f = new File(System.getProperty("user.home"), DBCONF_FILE);
 				if(f.exists()){
-					FileInputStream is=new FileInputStream(f);
+					FileInputStream is = new FileInputStream(f);
 					pDB.load(is);
 					is.close();
 				}
