@@ -232,6 +232,9 @@
 			</patternset>
 		</zipfileset>
 		<zipfileset dir="web/components" prefix="components"/>
+    <zipfileset dir="${server.config}" prefix="WEB-INF">
+      <patternset includes="weblogic.xml"/>
+    </zipfileset>
 		<zipfileset dir="web/WEB-INF" prefix="WEB-INF">
 			<patternset includes="CWHTM.tld"/>
 		</zipfileset>
