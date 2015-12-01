@@ -15,7 +15,7 @@
     <property name="name"           value="Eina d'administracio de Quaderns Virtuals" />
     <property name="year"           value="2005" />
 
-  	<property name="dist.name"      value="e13_qv_admin" />
+  	<property name="dist.name"      value="qv_admin" />
 
     <!-- QV is currently targeted to JVM 1.4 -->
     <property name="ant.build.javac.source" value="1.7"/>
