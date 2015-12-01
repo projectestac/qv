@@ -7,8 +7,8 @@
 
   <module>
     <web>
-      <web-uri>e13_qv.war</web-uri>
-      <context-root>/e13_qv</context-root>
+      <web-uri>qv.war</web-uri>
+      <context-root>/qv</context-root>
     </web>
   </module>
 

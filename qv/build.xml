@@ -267,7 +267,7 @@
 	  <target name="deploy" depends="dist">
 	  	<mkdir dir="${dist.dir}/${server.name}"/>
 	    <ear destfile="${dist.dir}/${server.name}/${dist.name}.ear" 
-	         appxml="${server.config}/application.xml">
+	         appxml="${web.dir}/WEB-INF/application.xml">
 	         <manifest>
 	           <attribute name="Built-By" 
 	                      value="${user.name}"/>
