@@ -1,0 +1,146 @@
+body {
+	font-family: Verdana, Arial, helvetica, sans-serif;
+	font-size: 11px;
+	width: 610px;
+	
+	background-color: #FFFFFF;
+	vertical-align: top;
+	color: #000000;
+	margin:0px 0px 0px 0px;
+	padding:0px 0px 0px 0px;
+	
+}
+
+p {
+	font-size: 11px;
+}
+
+h1 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #306192;
+}
+.clar {
+	color: #FFFFFF;
+}
+.vermell {
+	color: #CC0000;
+	font-weight: bold;
+}
+
+.credits {
+	font-size: 10px;
+}
+
+.notes {
+	font-size: 10px;
+	color: #FF6600;
+}	
+a:link {
+	font-weight: bold;
+	color: #336699;
+	text-transform: none;
+	text-decoration: none;
+}
+a:visited {
+	font-weight: bold;
+	color: #336699;
+	text-transform: none;
+	text-decoration: none;
+}
+a:hover {
+	font-weight: bold;
+	color: #336699;
+	text-decoration: underline;
+	text-transform: none;
+}
+a:active {
+	font-weight: bold;
+	color: #990000;
+	text-transform: none;
+	text-decoration: none;
+}
+.clar a:link {
+	font-weight: bold;
+	color: #CCCCFF;
+	text-transform: none;
+	text-decoration: none;
+}
+.clar a:visited {
+	font-weight: bold;
+	color: #CCCCFF;
+	text-transform: none;
+	text-decoration: none;
+}
+.clar a:hover {
+	font-weight: bold;
+	color: #CCCFFF;
+	text-decoration: underline;
+	text-transform: none;
+}
+.clar a:active {
+	font-weight: bold;
+	color: #9999FF;
+	text-transform: none;
+	text-decoration: none;
+}
+
+#barra {
+	background-image: url(../image/edu365_650.gif);
+	background-repeat: no-repeat;
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:650px;
+	height:25px;
+    z-index:10;	
+	border: 1px none #000000;
+}
+
+#muds {
+	background-repeat: no-repeat;
+	background-image:url(../image/caixa_mud.gif);
+	position: absolute;
+	z-index: 1;
+	height: 470px;
+	width: 598px;
+	left: 5px;
+	top: 34px;
+	margin:0px 0px 0px 0px;
+	padding:0px 0px 0px 0px;
+}
+#titol {
+	position: absolute;
+	z-index: 2;
+	height: 20px;
+	width: 445px;
+	left: 10px;
+	top: 5px;
+	margin:0px 0px 0px 0px;
+	padding:0px 0px 0px 0px;
+}
+#avaluat {
+	visibility:hidden;
+}
+#practica {
+	visibility:hidden;
+}
+#contingut{
+	position: absolute;
+	z-index: 4;
+	height: 100%;
+	width: 570px;
+	left: 15px;
+	top: 45px;
+	
+}
+#icones{
+	visibility:hidden;
+}
+#credits {
+   visibility:hidden; 
+}
+ 
+ #logo {
+   visibility:hidden;  
+ }

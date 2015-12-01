@@ -1,0 +1,249 @@
+<HTML>
+<HEAD>
+  <TITLE>Test Servlets</TITLE>
+  <LINK rel="icon" type="image/x-icon" href="favicon.ico"/>
+  <LINK rel="shortcut icon" type="image/x-icon"  href="favicon.ico"/>
+</HEAD>
+<BODY>
+  <FORM method="get" action="prepareQV">
+  <TABLE cellpadding="5" border="0" cellspacing="0">
+  <TR>
+    <TD colspan="2" style="font-size:20;font-weight:bold">Creació d'assignacions</TD>
+  </TR>
+  <TR>
+    <TD>Identificador</TD>
+    <TD><INPUT type="text" name="assignacioId" size="20"/></TD>
+  </TR>
+  <TR>
+    <TD>URL Quadern</TD>
+    <TD>
+    <SELECT name="autoQuadernUrl" onChange="this.form.quadernUrl.value=this.value"> 
+        <OPTION id="" value="" selected>Manual</OPTION>
+        <OPTION id="qv001" value="http://clic.xtec.es/quaderns/biblioteca/clima/ca/clima.xml">Clima</OPTION>
+        <OPTION id="qv002" value="http://clic.xtec.es/quaderns/biblioteca/mates/ca/mates.xml">Matemàtiques</OPTION>
+        <OPTION id="qv003" value="http://clic.xtec.es/quaderns/biblioteca/living_london/en/living_london.xml">Anglès</OPTION>
+      </SELECT> 
+      &nbsp;&nbsp;
+      <INPUT type="text" size="100" name="quadernUrl"/>
+    </TD>
+  </TR>
+  <TR>
+    <TD>XSL quadern</TD>
+    <TD>
+    <SELECT name="autoQuadernXSL" onChange="this.form.quadernXSL.value=this.value"> 
+      <OPTION id="" value="" selected>Manual</OPTION>
+        <OPTION id="default" value="default">Defecte</OPTION>
+        <OPTION id="interneti" value="interneti">Internet i...</OPTION>
+        <OPTION id="qti_infantil" value="qti_infantil">Infantil</OPTION>
+      </SELECT> 
+      &nbsp;&nbsp;
+	  <INPUT size=60 value="default" name="quadernXSL">
+	 </TD>
+  </TR>
+  <TR>
+    <TD>Pàgina final</TD>
+    <TD><INPUT size=60 value=getAssignacio name=endPage></TD></TR>
+  <TR>
+    <TD>Màxim lliuraments</TD>
+    <TD><INPUT size=3 value=-1 name=max></TD></TR>
+  <TR>
+    <TD>Data finalització</TD>
+    <TD><INPUT size=20 name=endDate id=endDate></TD>
+    <script type="text/javascript">
+    <!-- 
+    	 elem = document.getElementById('endDate');
+    	 if (elem!=null){
+	    	 var now = new Date();
+	    	 elem.value=now.getTime();
+    	 }
+     --></script>
+  </TR>
+  <TR>
+    <TD>Mostrar correcció</TD>
+    <TD><SELECT name=correccio> <OPTION id=0 value=0>No</OPTION> <OPTION 
+        id=1 value=1 selected>Si</OPTION></SELECT> </TD></TR>
+  <TR>
+    <TD>Avanç automàtic</TD>
+    <TD>
+      <SELECT name=contestar> 
+        <OPTION id=0 value=0 selected>No</OPTION> 
+        <OPTION id=1 value=1>Si</OPTION>
+      </SELECT> 
+    </TD>
+  </TR>
+  <TR>
+    <TD colspan="2" align="left">
+      <INPUT type="submit">
+    </TD>
+  </TR>
+  </TABLE>
+  </FORM>
+  <BR/><P/>
+
+  <FORM method="post" action="getQuadernAlumne">
+  <TABLE cellpadding="5" border="0" cellspacing="0">
+  <TR>
+    <TD colspan="2" style="font-size:20;font-weight:bold">Visualització del Quadern</TD>
+  </TR>
+  <TR>
+    <TD>Identificador</TD>
+    <TD><INPUT type="text" name="assignacioId" size="20"/></TD>
+  </TR>
+  <TR>
+    <TD>URL Quadern</TD>
+    <TD>
+    <SELECT name="autoQuadernUrl" onChange="this.form.quadernURL.value=this.value"> 
+        <OPTION id="" value="" selected>Manual</OPTION>
+        <OPTION id="qv001" value="http://clic.xtec.es/quaderns/exemples/clima/clima.xml">Clima</OPTION>
+        <OPTION id="qv002" value="http://clic.xtec.es/quaderns/exemples/mates/mates.xml">Matemàtiques</OPTION>
+        <OPTION id="qv003" value="http://clic.xtec.es/quaderns/exemples/living_london/living_london.xml">Anglès</OPTION>
+        <OPTION id="qv004" value="http://clic.xtec.es/quaderns/interneti/dpma/practica/practica.xml">DPMA Pràctica</OPTION>
+        <OPTION id="qv005" value="http://clic.xtec.es/quaderns/interneti/dpma/exercici/exercici.xml">DPMA Exercici</OPTION>
+      </SELECT> 
+      &nbsp;&nbsp;
+      <INPUT type="text" size="100" name="quadernURL"/>
+    </TD>
+  </TR>
+  <TR>
+    <TD>XSL quadern</TD>
+    <TD>
+    <SELECT name="autoQuadernXSL" onChange="this.form.quadernXSL.value=this.value"> 
+      <OPTION id="" value="" selected>Manual</OPTION>
+        <OPTION id="default" value="default">Defecte</OPTION>
+        <OPTION id="interneti" value="interneti">Internet i...</OPTION>
+        <OPTION id="qti_infantil" value="qti_infantil">Infantil</OPTION>
+      </SELECT> 
+      &nbsp;&nbsp;
+	  <INPUT size=60 value="" name="quadernXSL">
+	 </TD>
+  </TR>
+  <TR>
+    <TD>Color</TD>
+    <TD>
+    <SELECT name="color"> 
+      <OPTION value="" selected></OPTION>
+        <OPTION value="blau">Blau</OPTION>
+        <OPTION value="rosa">Rosa</OPTION>
+        <OPTION value="verd">Verd</OPTION>
+      </SELECT> 
+	 </TD>
+  </TR>
+  <TR>
+    <TD>Full</TD>
+    <TD><INPUT type="text" name="full" size="5"/></TD>
+  </TR>
+  <TR>
+    <TD colspan="2">
+      <INPUT type="checkbox" name="view" onclick="if (this.checked){this.form.action='getAssignacionsDocent';}else{this.form.action='getAssignacio'}"/>Mostrar com a profesor
+    </TD>
+  </TR>
+  <TR>
+    <TD colspan="2" align="left">
+      <INPUT type="submit">
+    </TD>
+  </TR>
+  </TABLE>
+  </FORM>
+  <BR/><P/>
+  
+  <FORM method="post" action="delAssignacio">
+  <TABLE cellpadding="5" border="0" cellspacing="0">
+  <TR>
+    <TD colspan="2" style="font-size:20;font-weight:bold">Esborrar Assignacions</TD>
+  </TR>
+  <TR>
+    <TD>Id assignacions (separats per ';')</TD>
+    <TD><INPUT type="text" name="idAssignacions" size="100"/></TD>
+  </TR>
+  <TR>
+    <TD colspan="2" align="left">
+      <INPUT type="submit">
+    </TD>
+  </TR>
+  </TABLE>
+  </FORM>
+  <BR/><P/>
+  
+
+  <FORM method="post" action="getEstatQuadern">
+  <TABLE cellpadding="5" border="0" cellspacing="0">
+  <TR>
+    <TD colspan="2" style="font-size:20;font-weight:bold">Estats del Quadern</TD>
+  </TR>
+  <TR>
+    <TD>Id material</TD>
+    <TD><INPUT type="text" name="idMaterial" size="20"/></TD>
+  </TR>
+  <TR>
+    <TD>Id assignacions (separats per ';')</TD>
+    <TD><INPUT type="text" name="idAssignacions" size="100"/></TD>
+  </TR>
+  <TR>
+    <TD colspan="2" align="left">
+      <INPUT type="submit">
+    </TD>
+  </TR>
+  </TABLE>
+  </FORM>
+  <BR/><P/>
+  
+  <FORM method="post" action="getQuaderns">
+  <TABLE cellpadding="5" border="0" cellspacing="0">
+  <TR>
+    <TD colspan="2" style="font-size:20;font-weight:bold">Quaderns d'usuari</TD>
+  </TR>
+  <TR>
+    <TD>Username (separats per ';')</TD>
+    <TD><INPUT type="text" name="username" size="100"/></TD>
+  </TR>
+  <TR>
+    <TD colspan="2" align="left">
+      <INPUT type="submit">
+    </TD>
+  </TR>
+  </TABLE>
+  </FORM>
+  <BR/><P/>
+  
+  <FORM method="post" action="getAparences">
+  <TABLE cellpadding="5" border="0" cellspacing="0">
+  <TR>
+    <TD colspan="2" style="font-size:20;font-weight:bold">Aparences</TD>
+  </TR>
+  <TR>
+    <TD>Nom d'usuari</TD>
+    <TD><INPUT type="text" name="username" size="20"/></TD>
+  </TR>
+  <TR>
+    <TD colspan="2" align="left">
+      <INPUT type="submit">
+    </TD>
+  </TR>
+  </TABLE>
+  </FORM>
+  <BR/><P/>
+
+  <FORM method="post" action="getPuntuacions">
+  <TABLE cellpadding="5" border="0" cellspacing="0">
+  <TR>
+    <TD colspan="2" style="font-size:20;font-weight:bold">Puntuacions</TD>
+  </TR>
+  <TR>
+    <TD>Id material</TD>
+    <TD><INPUT type="text" name="idMaterial" size="20"/></TD>
+  </TR>
+  <TR>
+    <TD>Id assignacions (separats per ';')</TD>
+    <TD><INPUT type="text" name="idAssignacions" size="100"/></TD>
+  </TR>
+  <TR>
+    <TD colspan="2" align="left">
+      <INPUT type="submit">
+    </TD>
+  </TR>
+  </TABLE>
+  </FORM>
+  <BR/><P/>
+
+</BODY>
+</HTML>

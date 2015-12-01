@@ -1,0 +1,180 @@
+body {
+	background-color: #E5E5E5;
+}
+
+.assignacioText{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color : #992687;
+	font-size :10pt;
+}
+.assignacioTitol{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color : FFFFFF;
+	font-size :9pt;
+	font-weight: bold;
+}
+.fullText{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color : #992687;
+	font-size :9pt;
+	font-weight: bold;
+}
+.presentacio{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color : #FFFFFF;
+	font-size :9pt;
+	font-weight: bold;
+	background:#992687;
+}
+.fonsPresentacio{
+	background:#992687;
+}
+.preguntes{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color : #992687;
+	font-size :9pt;
+}
+.fonsRespostes{
+	background: #DEEBEF;
+}
+.feedbackOK{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size :9pt;
+	font-weight: bold;
+	color : green;
+}
+.feedbackKO{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size :9pt;
+	font-weight: bold;
+	color : red;
+}
+/*.fib{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size :9pt;
+}*/
+.response_label_list{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size :9pt;
+}
+
+/* Revisat */
+.header{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color : #FFFFFF;
+	font-size :9pt;
+	font-weight: bold;
+	background:#295A94;
+}
+.header-background{
+	background: #DEEBEF;
+}
+.header-text{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size :8pt;
+	color : #295A94;
+}
+.box{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color : #FFFFFF;
+	font-size :9pt;
+	font-weight: bold;
+	background:#295A94;
+}
+.text{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size :8pt;
+	color : #295A94;
+}
+.title{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size :9pt;
+	font-weight: bold;
+	color : #295A94;
+}
+
+.background{
+	background: #DEEBEF;
+}
+.section-additional-material{
+	background: #DEEBEF;
+	border: 1px #004080 solid;
+}
+.section-additional-material:TD{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size :9pt;
+	color : #295A94;
+}
+
+.item{
+	background: #DEEBEF;
+	border: 1px #004080 solid;
+}
+
+.item-assessment{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color : #FFFFFF;
+	font-size :9pt;
+	font-weight: bold;
+	background: #295A94;
+}
+
+.item-additional-material{
+	background: #DEEBEF;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size :9pt;
+	color : #295A94;
+	/*border: 1px #004080 solid;*/
+}
+.item-additional-material:TD{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size :9pt;
+	color : #295A94;
+}
+
+.item-response{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size :9pt;
+	color : #295A94;
+	background: #DEEBEF;
+}
+
+.item-add-interaction{
+	//background: #DEEBEF;
+	background:#295A94;
+	border: 1px #004080 solid;
+}
+.item-interaction{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color : #333333;
+	font-size : 10px;
+}
+.item-teacher-interaction{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 10px;
+	color : #333333;
+	background: #E7EFF9;
+}
+.item-candidate-interaction{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 10px;
+	color : #333333;
+	background: #FFFFFF;
+}
+
+INPUT{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color : #295A94;
+	font-size :9pt;
+}
+SELECT{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color : #295A94;
+	font-size :9pt;
+}
+
+.buttons:a:hover{
+	background-color: transparent;
+	text-decoration: none;
+	
+}

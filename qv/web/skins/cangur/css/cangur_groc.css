@@ -1,0 +1,74 @@
+body {
+	background-image: url("../image/groc/fons.gif");
+}
+a:link {text-decoration: underline;color: #A06B27;}
+a:visited {text-decoration: underline; color: #A06B27;}
+a:active {text-decoration: underline; color: #A06B27;}
+a:hover {text-decoration: underline; color: #FFFFFF; background-color:#A06B27;}
+
+.header{
+	background: #A06B27;
+}
+.header-background{
+	background: #EFEFDE;
+}
+.header-text{
+	color: #A06B27;
+}
+.box{
+	background: #A06B27;
+}
+.text{
+	color: #A06B27;
+}
+.title{
+	color: #A06B27;
+}
+
+.background{
+	background: #EFEFDE;
+}
+.section-additional-material{
+	background: #EFEFDE;
+	border-color: #A06B27;
+}
+.section-additional-material:TD{
+	color : #A06B27;
+}
+
+.item{
+	background: #EFEFDE;
+	border-color: #A06B27;
+}
+
+.item-assessment{
+	background: #A06B27;
+}
+
+.item-additional-material{
+	background: #EFEFDE;
+	color : #A06B27;
+}
+.item-additional-material:TD{
+	color : #A06B27;
+}
+
+.item-response{
+	color : #A06B27;
+	background: #EFEFDE;
+}
+
+.item-add-interaction{
+	background: #A06B27;
+	border-color: #A06B27;
+}
+.item-teacher-interaction{
+	background: #D5F4CC;
+}
+
+INPUT{
+	color : #A06B27;
+}
+SELECT{
+	color : #A06B27;
+}

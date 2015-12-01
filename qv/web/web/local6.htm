@@ -1,0 +1,120 @@
+<html>
+<head>
+</head>
+<body>
+
+<table>
+<form action="prepareQV">
+<tr>
+	<td colspan="2" align="center"><b>prepareQV</b></td>
+</tr>
+<tr>
+	<td>assignacioId</td>
+	<td><input type="text" name="assignacioId" size="10" value="prova"></td>
+</tr>
+<tr>
+	<td>quadernUrl</td>
+	<td>
+		<!-- <input type="text" name="quadernUrl" size="60" value="file:/C:\Documents%20and%20Settings\allastar\quaderns\inteligencia2\test_CI.xml"> -->
+		<select name="quadernUrl">
+			<option id="file:/C:/Documents and settings/allastar/quaderns/angles/angles.xml" value="file:/C:/Documents and settings/allastar/quaderns/angles/angles.xml">Anglès</option>
+			<option id="file:/C:/Documents and settings/allastar/quaderns/conduir/conduir.xml" value="file:/C:/Documents and settings/allastar/quaderns/conduir/conduir.xml">Conducció</option>
+			<option id="file:/C:/Documents and settings/allastar/quaderns/economia/economia.xml" value="file:/C:/Documents and settings/allastar/quaderns/economia/economia.xml">Economia</option>
+			<option id="file:/C:/Documents and settings/allastar/quaderns/infantil/infantil.xml" value="file:/C:/Documents and settings/allastar/quaderns/infantil/infantil.xml">Infantil</option>
+			<option id="file:/C:/Documents and settings/allastar/quaderns/int/IQ_test.xml" value="file:/C:/Documents and settings/allastar/quaderns/int/IQ_test.xml">Test intel·ligència (1)</option>
+			<option id="file:/C:/Documents and settings/allastar/quaderns/inteligencia2/test_CI.xml" value="file:/C:/Documents and settings/allastar/quaderns/inteligencia2/test_CI.xml">Test intel·ligència (2)</option>
+			<option id="file:/C:/Documents and settings/allastar/quaderns/inteligencia3/test_i_33_mensa.xml" value="file:/C:/Documents and settings/allastar/quaderns/inteligencia3/test_i_33_mensa.xml">Test intel·ligència (i.33 MENSA)</option>
+			<option id="file:/C:/Documents and settings/allastar/quaderns/medi_social/medi_social_junt.xml" value="file:/C:/Documents and settings/allastar/quaderns/medi_social/medi_social_junt.xml">Medi Social (CSASE)</option>
+			<option id="file:/C:/Documents and settings/allastar/quaderns/ordenar/ordenar2.xml" value="file:/C:/Documents and settings/allastar/quaderns/ordenar/ordenar2.xml">Ordenar</option>
+			<option id="file:/C:/Documents and settings/allastar/quaderns/qualitat/qualitat.xml" value="file:/C:/Documents and settings/allastar/quaderns/qualitat/qualitat.xml">Enquesta</option>
+			<option id="file:/C:/Documents and settings/allastar/quaderns/solar/solar.xml" value="file:/C:/Documents and settings/allastar/quaderns/solar/solar.xml">Solar</option>
+			<option id="file:/C:/Documents and settings/allastar/quaderns/exemples/exemples.xml" value="file:/C:/Documents and settings/allastar/quaderns/exemples/exemples.xml">Exemples</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td>quadernXSL</td>
+	<td><input type="text" name="quadernXSL" size="60" value="profesional_ext2"></td>
+</tr>
+<tr>
+	<td>endPage</td>
+	<td><input type="text" name="endPage" size="60" value="getAssignacio"></td>
+</tr>
+<tr>
+	<td>max</td>
+	<td><input type="text" name="max" size="3" value="-1"></td>
+</tr>
+<tr>
+	<td>correccio</td>
+	<td>
+		<select name="correccio">
+			<option id="0" value="0">No</option>
+			<option SELECTED id="1" value="1">Si</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td>contestar</td>
+	<td>
+		<select name="contestar">
+			<option id="0" value="0">No</option>
+			<option id="1" value="1">Si</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td>avançar</td>
+	<td>
+		<select name="autoAdvance">
+			<option id="0" value="0">No</option>
+			<option selected id="1" value="1">Si</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td colspan="2" align="center"><input type="submit" value="preparar"/></td>
+</tr>
+</form>
+
+<tr><td></td></tr>
+
+<form action="getAssignacio">
+<tr>
+	<td colspan="2" align="center"><b>Assignació Alumne</b></td>
+</tr>
+<tr>
+	<td>assignacioId</td>
+	<td><input type="text" name="assignacioId" size="10" value="prova"></td>
+</tr>
+<tr>
+	<td>full</td>
+	<td><input type="text" name="full" size="3"/></td>
+</tr>
+<tr>
+	<td colspan="2" align="center"><input type="submit" value="mostrar"/></td>
+</tr>
+</form>
+
+<tr></tr>
+
+<form action="getAssignacionsDocent">
+<tr>
+	<td colspan="2" align="center"><b>Assignació Docent</b></td>
+</tr>
+<tr>
+	<td>assignacioId</td>
+	<td><input type="text" name="assignacioId" size="10" value="prova"></td>
+</tr>
+<tr>
+	<td>full</td>
+	<td><input type="text" name="full" size="3"/></td>
+</tr>
+<tr>
+	<td colspan="2" align="center"><input type="submit" value="mostrar"/></td>
+</tr>
+</form>
+</table>
+
+
+</body>
+</html>

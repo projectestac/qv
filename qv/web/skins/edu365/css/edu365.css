@@ -1,0 +1,39 @@
+.section-title{
+	font-family: Verdana, Arial, helvetica, sans-serif;
+	font-size: 14px;
+	font-weight:bold;
+	color: #306192;
+	text-decoration:none;
+}
+.assessment-title{
+	font-family: Verdana, Arial, helvetica, sans-serif;
+	font-size: 20px; 
+	font-style: normal; 
+	color: #306192;
+}
+.item-assessment{
+	font-family: Verdana, Arial, helvetica, sans-serif;
+	font-size: 12px; 
+	font-style: normal; 
+	//color: #306192;
+	color: #FFFFFF;
+}
+.box{
+	//background-color:#94C6DE;
+	background-color:#6699FF;
+}
+.box-shadow{
+	//background-color:#4AA5C6;
+	background-color:#336699;
+}
+li {
+	list-style-image: url(../image/punt.gif);
+}
+.section{
+	font-family: Verdana, Arial, helvetica, sans-serif;
+	font-size: 14px;
+	//color: #306192;
+	color: #336699;
+	text-transform: none;
+	text-decoration: none;
+}

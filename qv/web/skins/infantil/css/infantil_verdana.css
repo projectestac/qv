@@ -1,0 +1,57 @@
+body{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+INPUT{
+	font-size :16px;
+}
+SELECT{
+	font-size :16px;
+}
+
+.header-title{
+	font-size: 19px;
+}
+.header-text{
+	font-size: 12px;
+}
+
+.section-list-title{
+	font-size: 14px; 
+}
+.sections-list-text{
+	font-size: 11px; 
+}
+.sections-list-puntuation{
+	font-size: 14px;
+	font-weight: bold;
+}
+
+
+.assessment-title{
+	font-size: 12px; 
+}
+.section-title{
+	font-size: 14px;
+}
+
+.item-assessment{
+	font-size: 16px;
+	font-weight: bold;
+}
+.item-response { 
+	font-size: 12px;
+}
+.item-feedback-ok{
+	font-size: 11px;
+}
+.item-feedback-ko{
+	font-size: 11px;
+}
+.item-candidate-interaction{
+	font-size: 11px;
+}
+.item-teacher-interaction{
+	font-size: 11px;
+}
+

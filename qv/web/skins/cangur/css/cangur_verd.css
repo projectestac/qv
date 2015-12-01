@@ -1,0 +1,74 @@
+body {
+	background-image: url("../image/verd/fons.gif");
+}
+a:link {text-decoration: underline;color: #299444;}
+a:visited {text-decoration: underline; color: #299444;}
+a:active {text-decoration: underline; color: #299444;}
+a:hover {text-decoration: underline; color: #FFFFFF; background-color:#299444;}
+
+.header{
+	background: #299444;
+}
+.header-background{
+	background: #DEEFDE;
+}
+.header-text{
+	color: #299444;
+}
+.box{
+	background: #299444;
+}
+.text{
+	color: #299444;
+}
+.title{
+	color: #299444;
+}
+
+.background{
+	background: #DEEFDE;
+}
+.section-additional-material{
+	background: #DEEFDE;
+	border-color: #299444;
+}
+.section-additional-material:TD{
+	color : #299444;
+}
+
+.item{
+	background: #DEEFDE;
+	border-color: #299444;
+}
+
+.item-assessment{
+	background: #299444;
+}
+
+.item-additional-material{
+	background: #DEEFDE;
+	color : #299444;
+}
+.item-additional-material:TD{
+	color : #299444;
+}
+
+.item-response{
+	color : #299444;
+	background: #DEEFDE;
+}
+
+.item-add-interaction{
+	background: #299444;
+	border-color: #299444;
+}
+.item-teacher-interaction{
+	background: #D5F4CC;
+}
+
+INPUT{
+	color : #299444;
+}
+SELECT{
+	color : #299444;
+}

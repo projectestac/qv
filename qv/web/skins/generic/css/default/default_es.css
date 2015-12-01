@@ -1,0 +1,6 @@
+a#correct-bt img {
+	background: url(image/es/correct_off.gif) no-repeat;
+}
+a#correct-bt:hover img {
+	background: url(image/es/correct_on.gif) no-repeat;
+}

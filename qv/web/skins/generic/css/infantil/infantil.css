@@ -1,0 +1,185 @@
+html {
+	margin: 0px;
+	padding: 0px;
+}
+body {
+	background-image: url(image/background.gif);
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	margin: 15px 10px;
+	color: #000099;
+}
+
+a:link, a:visited {  
+	color: #000099
+}
+a:hover, a:active {  
+	color: #FF9A22;
+}
+
+
+#header{
+	height: 120px;
+}
+#header-logo{
+	position: absolute; 
+	left: 35px; 
+	top: 0px; 
+	width: 300px; 
+	height: 120px;
+	background: url(image/logo.gif) no-repeat;
+}
+#header-title{
+	float: left;
+	padding: 5px;
+	position: absolute;
+	left: 320px;
+	background-color: #ffae4f;
+	width: 400px;
+}
+#header h1{
+	font-size: 19px;
+	font-weight: bold;
+	color: #FFFFFF;
+	margin: 0px;
+	margin-bottom: 15px;
+}
+#header h3{
+	font-size: 12px;
+	font-weight: 100;
+	color: #000099;
+	margin: 0px;
+}
+#header-puntuation{
+	display: none;
+}
+#header-puntuation h1{
+	display: inline;
+}
+
+#index{
+	margin: 50px 100px 50px ;
+	padding: 0px;
+	color: #000099;
+}
+#index-information-title{
+	display: none;
+}
+
+#index-information-table table{
+	width: 600px;
+	text-align: center;
+}
+#index-information-table thead{
+	background: #000099;
+	color: #FFFFFF;
+}
+#index-information-table tfoot{
+	background: #ffae4f;
+}
+#index-information-table td, th{
+	padding: 5px;
+}
+#index-footer{
+	visibility: hidden;
+}
+
+.section-title{
+	text-align:left;
+	text-indent: 30px;
+}
+
+#footer{
+	vertical-align:bottom;
+	margin-left:50px;
+	background: url(image/footer.gif) no-repeat;
+	height:108px;
+}
+
+#content{
+	padding-left: 50px;
+	width: 700px;
+}
+#item{
+	margin-top: 20px;
+}
+
+#assessment{
+	padding: 10px;
+	color: #000099;
+	font-weight:bold;
+}
+
+#responses{
+	padding: 10px;
+}
+
+input, select{
+	color: #FF7200;
+	font-weight: bold;
+}
+
+/********  NAVIGATION BAR *******/
+#bottom-navigation-bar{
+	width: 700px;
+	margin: 0px 0px 100px 50px;
+}
+#bottom-navigation-bar a{
+	text-decoration: none;
+	background: transparent;
+}
+#bottom-navigation-bar a span{
+	visibility: hidden;
+	width: 0px;
+}
+#navigation-buttons{
+	float: right;
+	text-align: center;
+}
+#action-buttons{
+	float: left;
+}
+
+a#back-bt img {
+	background: url(image/back.gif) no-repeat;
+	width: 24px; height: 55px;
+}
+a#home-bt img {
+	background: url(image/home.gif) no-repeat;
+	width: 42px; height: 55px;
+}
+a#next-bt img {
+	background: url(image/next.gif) no-repeat;
+	width: 24px; height: 55px;
+}
+a#correct-bt img {
+	background: url(image/correct.gif) no-repeat;
+	width: 55px; height: 55px;
+}
+
+#content-footer{
+	background-color: #ffae4f;
+	height: 3px;
+	width: 720px;
+	margin-left: 30px;
+	margin-top:10px;
+}
+
+/********  FEEDBACK  *******/
+.item-feedback{
+	margin-left: 20px;
+}
+
+.item-feedback-ok{
+	background: url(image/feedback_ok.gif) no-repeat;
+	color: green;
+	width: 700px; height: 50px;	
+	padding-left: 30px;
+	padding-top: 13px;
+}
+.item-feedback-ko{
+	background: url(image/feedback_ko.gif) no-repeat;
+	color: red;
+	width: 700px; height: 50px;	
+	padding-left: 30px;
+	padding-top: 20px;
+}

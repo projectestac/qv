@@ -1,0 +1,185 @@
+body{
+	background: url(../image/es/fondiqui1.gif);
+}
+
+hr{
+	color: #afb262;
+}
+
+/* === Textos normals === */
+.lectura {
+		font-size: 11pt;
+		font-family: "Times New Roman", Times, serif;
+		line-height : 20px;
+		letter-spacing : 1px;
+	}
+	
+/* === Enllaços del web === */			
+A:link {
+	text-decoration: none; color: #8F2912;
+	}
+A:visited {
+	text-decoration: none; color: #8F2912;
+	}
+A:active {
+	text-decoration: none; color: #8F2912;
+	}
+A:hover {
+	text-decoration: none; color: #8F2912;
+	}
+	
+	
+/* === Títol de la pàgina === */	
+.titol {
+	font-size: 15pt;
+	font-family: "Times New Roman", Times, serif;
+	letter-spacing : 0px;
+	font-weight : bold;
+	color : #614F00;
+    }
+
+/* === Títol de la pàgina, més petit per títols llargs === */	
+.titolpet { 
+	font-size: 14px; 
+	font-family: Times New Roman, Times, serif; 
+	letter-spacing : 0px; 
+	font-weight : bold;
+	color : #614F00; 
+	}
+	 
+/* === Text d'un poema === */		
+.poema {
+	font-size: 8pt;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	line-height : 20px;
+	color : #000000;
+   }
+	/*
+	A:link {text-decoration: underline;	color: #000000;}
+	A:visited {text-decoration: underline; color: #000000;}
+	A:active {text-decoration: underline; color: #000000;}
+	A:hover {text-decoration: none; color: #000000;}
+	*/
+
+.poemdestac {
+	font-size: 8pt;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	line-height: 20px;
+	color: #A3503D;
+	font-weight: bold;
+}	
+	
+	
+/* ===  Destacar una síl·laba === */		
+.silaba {
+	font-size: 8pt;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	line-height : 20px;
+	color : #8B0000;
+}
+	/*
+	A:link {text-decoration: underline;	color: #000000;}
+	A:visited {text-decoration: underline; color: #000000;}
+	A:active {text-decoration: underline; color: #000000;}
+	A:hover {text-decoration: none; color: #000000;}
+	*/
+
+
+.titolsilaba {
+	font-size:8pt;
+	font-family:Times New Roman, Times, serif;
+	letter-spacing:0px;
+	line-height: 20px;
+	color: #A3503D;
+	font-weight: bold;
+/*	cursor: default;
+	font-style : italic;*/
+}	
+	
+	
+/* === Números??? === */		
+.num {
+	font-size: 8pt;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	line-height : 20px;
+	color : Red;
+}
+
+
+.p {
+	font-size: 11pt;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	line-height : 20px;
+	color : #614F00;
+	font-weight : bold;
+}
+	/*
+	A:link {text-decoration: none; color: #8F2912;}
+	A:visited {text-decoration: none; color: #8F2912;}
+	A:active {text-decoration: none; color: #8F2912;}
+	A:hover {text-decoration: underline; color: #8F2912;}
+	*/
+
+
+/* === Textos explicatius peu pàgina o img === */		
+.poemaCopia {
+	font-size: 7pt;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	line-height : normal;
+	color : #000000;
+}
+
+
+
+.remarcar {
+	font-size: 12pt;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	line-height : 20px;
+	color : #8B0000;
+	font-style : normal;
+}
+	
+.p2 {
+	font-size: 8pt;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	line-height : 20px;
+	color : #8F2912;
+	font-weight : bold;
+}
+/*	A:link {text-decoration: none; color: #8F2912;}
+	A:visited {text-decoration: none; color: #8F2912;}
+	A:active {text-decoration: none; color: #8F2912;}
+	A:hover {text-decoration: underline; color: #8F2912;}*/
+
+
+/* === Enllaç per mostrar etiqueta explicativa === */
+.linketiqueta {
+	font-size:8pt;
+	font-family:Times New Roman, Times, serif;
+	letter-spacing:0px;
+   font-weight:bold;
+	color:#614F00;
+/*	cursor: default;
+	font-style : italic;*/
+}
+
+/* === Text de cel·la de l'etiqueta === */
+.cellaetiqueta{
+	font-size: 8pt;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	line-height : 20px;
+	color : #000000;
+	text-align : center;
+} 
+
+	
+/* === Etiqueta explicativa === */	
+#etiqueta{
+           position:absolute;           
+           background-color: #FAAE4F;
+           layer-background-color: #FAAE4F;
+           border:0px #FAAE4F solid;
+           visibility: hidden;           
+          }
+
+

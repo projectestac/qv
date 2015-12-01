@@ -1,0 +1,15 @@
+.item-assessment{
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	FONT-WEIGHT: bold; 
+	FONT-SIZE: 11pt;
+	FONT-STYLE: normal; 
+	COLOR: #FFFFFF;
+	BACKGROUND: #BEBEE9;
+	PADDING: 1px;
+}
+.item-response { 
+	FONT-WEIGHT: normal; 
+	FONT-SIZE: 10pt; 
+	COLOR: #000000; 
+	FONT-STYLE: normal; FONT-FAMILY: Arial, Helvetica, sans-serif 
+} 

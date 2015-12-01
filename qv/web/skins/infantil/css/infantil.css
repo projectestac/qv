@@ -1,0 +1,126 @@
+@font-face {
+  font-family: Memimas-RegularAlternate;
+  src: url(http://clic.xtec.net/qv/dist/fonts/MEMIMAS1.eot);
+}
+@font-face {
+  font-family: Memimas-Regular;
+  src: url(http://clic.xtec.net/qv/dist/fonts/MEMIMAS0.eot);
+}
+@font-face {
+  font-family: MeMima;
+  src: url(http://clic.xtec.net/qv/dist/fonts/MEMIMA0.eot);
+}
+li {
+	list-style-image: url(../image/punt.gif);
+}
+body{
+	font-family: Memimas-RegularAlternate, Memimas-Regular, MeMima, Verdana, Geneva, Arial, Helvetica, Sans-Serif;
+	font-size: 25px;
+	color: #000099;
+}
+a:link {  
+	color: #000099
+}
+a:hover {  
+	font-style: normal; font-weight: normal; color: #FF9A22;
+}
+a:active {  
+	font-style: normal; font-weight: normal; color: #FF9A22;
+}
+a:visited {  
+	font-style: normal; font-weight: normal; color: #000099;
+}
+INPUT{
+	color : #FF7200;
+	font-size :30px;
+	font-weight: bold;
+}
+SELECT{
+	color : #FF7200;
+	font-size :30px;
+	font-weight: bold;
+}
+
+
+.header-title{
+	font-size: 30px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+.header-text{
+	font-size: 19px;
+	//color: #3a59b8;
+	color: #000099;
+}
+.header-background{
+	background-color: #ffae4f;
+}
+
+.section-list-title{
+	background-color: #000099;
+	color: #FFFFFF;
+	font-size: 23px; 
+	font-style: normal;
+	font-weight: bold;
+}
+.sections-list-text{
+	font-size: 20px; 
+	font-style: normal; 
+	color: #000099;
+}
+
+
+.assessment-title{
+	font-size: 30px; 
+	font-style: normal; 
+	color: #306192;
+}
+.section{
+	font-size: 14px;
+	//color: #306192;
+	color: #336699;
+	text-transform: none;
+	text-decoration: none;
+}
+.section-title{
+	font-size: 14px;
+	font-weight:bold;
+	color: #306192;
+	text-decoration:none;
+}
+
+.item-assessment{
+	font-size: 25px;
+	//font-weight:bold;
+}
+.item-response { 
+	font-size: 25px;
+}
+.item-add-interaction{
+	background-color: #E2E9FE;
+}
+.item-candidate-interaction{
+	color: #FF7200;
+	font-size: 20px;
+}
+.item-teacher-interaction{
+	color: #000099;
+	font-size: 20px;
+}
+.item-interaction-title{
+	font-weight: bold;
+}
+
+.item-feedback-ok{
+	color: green;
+	background: url(../image/correcte.gif) no-repeat;
+	padding: 15px;
+	font-size: 20px;
+}
+.item-feedback-ko{
+	color: red;
+	background: url(../image/incorrecte.gif) no-repeat;
+	padding: 15px;
+	padding-left: 30px;
+	font-size: 20px;
+}

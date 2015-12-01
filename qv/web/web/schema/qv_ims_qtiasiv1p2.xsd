@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- filename=ims_qtiasiv1p2.xsd -->
+<!-- Copyright (2) 2002 IMS Global Learning Consortium, Inc. -->
+<xs:schema xmlns:xml="http://www.w3.org/XML/1998/namespace"
+ xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="Adaptation IMS QTI ASI 1.2 to Quaderns Virtuals">
+ <!-- **************************** -->
+ <!-- ** Inclusions and Imports ** -->
+ <!-- **************************** -->
+ <xs:redefine schemaLocation="ims_qtiasiv1p2.xsd">
+ <!-- ******************** -->
+ <!-- ** assessmentcontrol ** -->
+ <!-- ******************** -->
+ <xs:complexType name="assessmentcontrolType">
+   <xs:complexContent>
+    <xs:extension base="assessmentcontrolType">
+     <xs:attribute name="interactionswitch" default="Yes">
+      <xs:simpleType>
+       <xs:restriction base="xs:NMTOKEN">
+        <xs:enumeration value="Yes"/>
+        <xs:enumeration value="No"/>
+       </xs:restriction>
+      </xs:simpleType>
+     </xs:attribute>
+    </xs:extension>
+   </xs:complexContent>
+ </xs:complexType>
+
+ <!-- ***************** -->
+ <!-- ** itemcontrol ** -->
+ <!-- ***************** -->
+ <xs:complexType name="itemcontrolType">
+   <xs:complexContent>
+    <xs:extension base="itemcontrolType">
+     <xs:attribute name="interactionswitch" default="Yes">
+      <xs:simpleType>
+       <xs:restriction base="xs:NMTOKEN">
+        <xs:enumeration value="Yes"/>
+        <xs:enumeration value="No"/>
+       </xs:restriction>
+      </xs:simpleType>
+     </xs:attribute>
+    </xs:extension>
+   </xs:complexContent>
+ </xs:complexType>
+  <!-- ************** -->
+  <!-- ** mataudio ** -->
+  <!-- ************** -->
+  <xs:complexType name="mataudioType">
+   <xs:simpleContent>
+    <xs:extension base="mataudioType">
+     <xs:attribute name="align">
+      <xs:simpleType>
+       <xs:restriction base="xs:NMTOKEN">
+        <xs:enumeration value="left"/>
+        <xs:enumeration value="right"/>
+        <xs:enumeration value="top"/>
+        <xs:enumeration value="texttop"/>
+        <xs:enumeration value="middle"/>
+        <xs:enumeration value="absmiddle"/>
+        <xs:enumeration value="baseline"/>
+        <xs:enumeration value="bottom"/>
+        <xs:enumeration value="absbottom"/>
+        <xs:enumeration value="center"/>
+       </xs:restriction>
+      </xs:simpleType>
+     </xs:attribute>
+    </xs:extension>
+   </xs:simpleContent>
+  </xs:complexType>
+  <!-- ************** -->
+  <!-- ** material ** -->
+  <!-- ************** -->
+  <xs:complexType name="materialType">
+   <xs:complexContent>
+    <xs:extension base="materialType">
+     <xs:attribute name="align">
+      <xs:simpleType>
+       <xs:restriction base="xs:NMTOKEN">
+        <xs:enumeration value="left"/>
+        <xs:enumeration value="right"/>
+        <xs:enumeration value="top"/>
+        <xs:enumeration value="texttop"/>
+        <xs:enumeration value="middle"/>
+        <xs:enumeration value="absmiddle"/>
+        <xs:enumeration value="baseline"/>
+        <xs:enumeration value="bottom"/>
+        <xs:enumeration value="absbottom"/>
+        <xs:enumeration value="center"/>
+       </xs:restriction>
+      </xs:simpleType>
+     </xs:attribute>
+    </xs:extension>
+   </xs:complexContent>
+  </xs:complexType>
+  <!-- ************** -->
+  <!-- ** matimage ** -->
+  <!-- ************** -->
+  <xs:complexType name="matimageType">
+   <xs:simpleContent>
+    <xs:extension base="matimageType">
+     <xs:attribute name="align" >
+      <xs:simpleType>
+       <xs:restriction base="xs:NMTOKEN">
+        <xs:enumeration value="left"/>
+        <xs:enumeration value="right"/>
+        <xs:enumeration value="top"/>
+        <xs:enumeration value="texttop"/>
+        <xs:enumeration value="middle"/>
+        <xs:enumeration value="absmiddle"/>
+        <xs:enumeration value="baseline"/>
+        <xs:enumeration value="bottom"/>
+        <xs:enumeration value="absbottom"/>
+        <xs:enumeration value="center"/>
+       </xs:restriction>
+      </xs:simpleType>
+     </xs:attribute>
+    </xs:extension>
+   </xs:simpleContent>
+  </xs:complexType>
+  <!-- ******************* -->
+  <!-- ** render_choice ** -->
+  <!-- ******************* -->
+  <xs:complexType name="render_choiceType">
+   <xs:complexContent>
+    <xs:extension base="render_choiceType">
+     <xs:attribute name="display">
+      <xs:simpleType>
+       <xs:restriction base="xs:NMTOKEN">
+        <xs:enumeration value="LIST"/>
+       </xs:restriction>
+      </xs:simpleType>
+     </xs:attribute>
+    </xs:extension>
+   </xs:complexContent>
+  </xs:complexType>
+  <!-- ******************** -->
+  <!-- ** render_hotspot ** -->
+  <!-- ******************** -->
+  <xs:complexType name="render_hotspotType">
+   <xs:complexContent>
+    <xs:extension base="render_hotspotType">
+     <xs:attribute name="showoptions" default="No">
+      <xs:simpleType>
+       <xs:restriction base="xs:NMTOKEN">
+        <xs:enumeration value="Yes"/>
+        <xs:enumeration value="No"/>
+       </xs:restriction>
+      </xs:simpleType>
+     </xs:attribute>
+     <xs:attribute name="transp" default="No">
+      <xs:simpleType>
+       <xs:restriction base="xs:NMTOKEN">
+        <xs:enumeration value="Yes"/>
+        <xs:enumeration value="No"/>
+       </xs:restriction>
+      </xs:simpleType>
+     </xs:attribute>
+     <xs:attribute name="initparam" type="xs:string"/>
+     <xs:attribute name="style" type="xs:string"/>
+    </xs:extension>
+   </xs:complexContent>
+  </xs:complexType>
+  
+ <!-- ******************** -->
+ <!-- ** sectioncontrol ** -->
+ <!-- ******************** -->
+ <xs:complexType name="sectioncontrolType">
+   <xs:complexContent>
+    <xs:extension base="sectioncontrolType">
+     <xs:attribute name="interactionswitch" default="Yes">
+      <xs:simpleType>
+       <xs:restriction base="xs:NMTOKEN">
+        <xs:enumeration value="Yes"/>
+        <xs:enumeration value="No"/>
+       </xs:restriction>
+      </xs:simpleType>
+     </xs:attribute>
+    </xs:extension>
+   </xs:complexContent>
+ </xs:complexType>
+
+ </xs:redefine>
+</xs:schema>

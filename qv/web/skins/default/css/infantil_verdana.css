@@ -1,0 +1,37 @@
+body{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+.header-title{
+	font-size: 19px;
+}
+.header-text{
+	font-size: 12px;
+}
+
+.section-list-title{
+	font-size: 14px; 
+}
+.sections-list-text{
+	font-size: 11px; 
+}
+.sections-list-puntuation{
+	font-size: 14px;
+	font-weight: bold;
+}
+
+
+.assessment-title{
+	font-size: 12px; 
+}
+.section-title{
+	font-size: 14px;
+}
+
+.item-assessment{
+	font-size: 16px;
+}
+.item-response { 
+	font-size: 12px;
+}

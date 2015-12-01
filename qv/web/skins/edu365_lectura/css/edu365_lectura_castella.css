@@ -1,0 +1,217 @@
+body {
+	font-family: Verdana, Arial, helvetica, sans-serif;
+	font-size: 11px;
+	width: 610px;
+	vertical-align: top;
+	color: #000000;
+	margin:0px 0px 0px 0px;
+	padding:0px 0px 0px 0px;
+	background-image: url(../image/linea.png);
+	background-repeat: repeat-y;
+	background-color: #CCCCCC;
+}
+
+p {
+	font-size: 11px;
+}
+
+h1 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;  
+	font-size: 22px;
+	color: #424242;
+}
+h2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	color: #118CE6;
+	
+}
+
+h3 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #306192;
+}
+h4 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #306192;
+}
+.text {
+	font-family: Verdana, Arial, helvetica, sans-serif;
+	font-size: 11px;
+}
+.clar {
+	color: #FFFFFF;
+}
+.blau {
+	color: #118CE6;
+}	
+
+.vermell {
+	color: #CC0000;
+	font-weight: bold;
+}
+
+.credits {
+	font-size: 10px;
+	color: #666666;
+}
+
+.notes {
+	font-size: 10px;
+	color: #FF6600;
+}	
+a:link {
+	font-weight: bold;
+	color: #118CE6;
+	text-transform: none;
+	text-decoration: none;
+}
+a:visited {
+	font-weight: bold;
+	color: #118CE6;
+	text-transform: none;
+	text-decoration: none;
+}
+a:hover {
+	font-weight: bold;
+	color: #118CE6;
+	text-decoration: underline;
+	text-transform: none;
+}
+a:active {
+	font-weight: bold;
+	color: #306192;
+	text-transform: none;
+	text-decoration: none;
+}
+.clar a:link {
+	font-weight: bold;
+	color: #FFFFFF;
+	text-transform: none;
+	text-decoration: none;
+}
+.clar a:visited {
+	font-weight: bold;
+	color: #FFFFFF;
+	text-transform: none;
+	text-decoration: none;
+}
+.clar a:hover {
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: underline;
+	text-transform: none;
+}
+.clar a:active {
+	font-weight: bold;
+	color: #9999FF;
+	text-transform: none;
+	text-decoration: none;
+}
+#marge{
+	text-align:left;
+	margin: auto;
+	background-color:#FFFFFF; width:610px; height:100%;
+	z-index:1;
+}
+
+
+#barra {
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:615px;
+	height:25px;
+	border: 1px none #000000;
+	margin:0px 0px 0px 0px;
+	padding:0px 0px 0px 0px;
+	z-index:2;
+	visibility: visible;
+	}
+
+#proposta {
+	position:absolute;
+	left:0px;
+	top:25px;
+	width:615px;
+	height:30px;
+	border: 1px none #000000;
+	background-color: #118CE6;
+	layer-background-color: #118CE6;
+	border: 1px none #000000;
+	margin:0px 0px 0px 0px;
+	padding:0px 0px 0px 0px;
+	z-index:3;
+	visibility: visible;
+}
+
+#titol {
+	position:absolute;
+	left:25px;
+	top:60px;
+	width:595px;
+	height:83px;
+	border: 1px none #000000;
+	margin:0px 0px 0px 0px;
+	padding:0px 0px 0px 0px;
+	z-index:4;
+}
+
+#imatge {
+	position:absolute;
+	left:25px;
+	top:150px;
+	width:320px;
+	height:280px;
+	z-index:5;
+	visibility: visible;
+}
+
+
+#credits {
+	position:absolute;
+	left:20px;
+	top:433px;
+	width:249px;
+	height:10px;
+	z-index: 6;
+	visibility: visible;
+}
+ #navegacio {
+    position:absolute;
+	 left:352px; 
+	 top:282px; 
+	 width:254px; 
+	 height:155px; 
+	 z-index:7;
+ }
+#navegacio1 {
+	position:absolute;
+	left:118px;
+	top:144px;
+	width:492px;
+	height:72px;
+	z-index:8;
+	text-align: right;
+ }
+#contingut {
+	position:absolute; 
+	left:20px; 
+	top:220px; 
+	width:570px; 
+	
+	z-index:9;
+}
+#contingut1 {
+	position:absolute; 
+	left:15px; 
+	top:25px; 
+	
+	z-index:10;
+}
+li {
+	list-style-image: url(../image/bola_blava.gif);
+	margin-bottom: 20px;
+}

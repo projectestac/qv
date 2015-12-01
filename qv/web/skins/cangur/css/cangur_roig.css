@@ -1,0 +1,74 @@
+body {
+	background-image: url("../image/roig/fons.gif");
+}
+a:link {text-decoration: underline;color: #92354B;}
+a:visited {text-decoration: underline; color: #92354B;}
+a:active {text-decoration: underline; color: #92354B;}
+a:hover {text-decoration: underline; color: #FFFFFF; background-color:#92354B;}
+
+.header{
+	background: #92354B;
+}
+.header-background{
+	background: #F9ECED;
+}
+.header-text{
+	color: #92354B;
+}
+.box{
+	background: #92354B;
+}
+.text{
+	color: #92354B;
+}
+.title{
+	color: #92354B;
+}
+
+.background{
+	background: #F9ECED;
+}
+.section-additional-material{
+	background: #F9ECED;
+	border-color: #92354B;
+}
+.section-additional-material:TD{
+	color : #92354B;
+}
+
+.item{
+	background: #F9ECED;
+	border-color: #92354B;
+}
+
+.item-assessment{
+	background: #92354B;
+}
+
+.item-additional-material{
+	background: #F9ECED;
+	color : #92354B;
+}
+.item-additional-material:TD{
+	color : #92354B;
+}
+
+.item-response{
+	color : #92354B;
+	background: #F9ECED;
+}
+
+.item-add-interaction{
+	background: #92354B;
+	border-color: #92354B;
+}
+.item-teacher-interaction{
+	background: #D5F4CC;
+}
+
+INPUT{
+	color : #92354B;
+}
+SELECT{
+	color : #92354B;
+}

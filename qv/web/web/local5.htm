@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1106" name=GENERATOR></HEAD>
+<BODY>
+<TABLE>
+  <FORM action=prepareQV>
+  <TBODY>
+  <TR>
+    <TD align=middle colSpan=2><B>prepareQV</B></TD></TR>
+  <TR>
+    <TD>assignacioId</TD>
+    <TD><INPUT size=10 value=prova name=assignacioId></TD></TR>
+  <TR>
+    <TD valign="top">quadernUrl</TD>
+    <TD ><!-- <input type="text" name="quadernUrl" size="60" value="file:/C:\Documents%20and%20Settings\allastar\quaderns\inteligencia2\test_CI.xml"> -->
+    <SELECT name="autoQuadernUrl" onChange="this.form.quadernUrl.value=this.value"> 
+      <OPTION id="" value="" selected>Manual</OPTION>
+      <OPTION id="http://www.xtec.es/~allastar/quaderns/com/comarques.xml"
+        value="http://www.xtec.es/~allastar/quaderns/com/comarques.xml" 
+        >Exemple comarques</OPTION>
+	  <OPTION id=http://www.xtec.es/~allastar/quaderns/angles/angles.xml 
+        value=http://www.xtec.es/~allastar/quaderns/angles/angles.xml 
+        >Angles</OPTION> <OPTION 
+        id=http://www.xtec.es/~allastar/quaderns/conduir/conduir.xml 
+        value=http://www.xtec.es/~allastar/quaderns/conduir/conduir.xml>Conduccio</OPTION> 
+        <OPTION id=http://www.xtec.es/~allastar/quaderns/economia/economia.xml 
+        value=http://www.xtec.es/~allastar/quaderns/economia/economia.xml>Economia</OPTION> 
+        <OPTION id=http://www.xtec.es/~allastar/quaderns/infantil/infantil.xml 
+        value=http://www.xtec.es/~allastar/quaderns/infantil/infantil.xml>Infantil</OPTION> 
+        <OPTION id=http://www.xtec.es/~allastar/quaderns/int/IQ_test.xml 
+        value=http://www.xtec.es/~allastar/quaderns/int/IQ_test.xml>Test 
+        intellencia (1)</OPTION> <OPTION 
+        id=http://www.xtec.es/~allastar/quaderns/inteligencia2/test_CI.xml 
+        value=http://www.xtec.es/~allastar/quaderns/inteligencia2/test_CI.xml>Test 
+        intellencia (2)</OPTION> <OPTION 
+        id=http://www.xtec.es/~allastar/quaderns/inteligencia3/test_i_33_mensa.xml 
+        value=http://www.xtec.es/~allastar/quaderns/inteligencia3/test_i_33_mensa.xml>Test 
+        intellencia (i.33 MENSA)</OPTION> <OPTION 
+        id=http://www.xtec.es/~allastar/quaderns/medi_social/medi_social_junt.xml 
+        value=http://www.xtec.es/~allastar/quaderns/medi_social/medi_social_junt.xml>Medi 
+        Social (CSASE)</OPTION> <OPTION 
+        id=http://www.xtec.es/~allastar/quaderns/ordenar/ordenar2.xml 
+        value=http://www.xtec.es/~allastar/quaderns/ordenar/ordenar2.xml>Ordenar</OPTION> 
+        <OPTION id=http://www.xtec.es/~allastar/quaderns/qualitat/qualitat.xml 
+        value=http://www.xtec.es/~allastar/quaderns/qualitat/qualitat.xml>Enquesta</OPTION> 
+        <OPTION id=http://www.xtec.es/~allastar/quaderns/solar/solar.xml 
+        value=http://www.xtec.es/~allastar/quaderns/solar/solar.xml>Solar</OPTION> 
+        <OPTION id=http://www.xtec.es/~allastar/quaderns/exemples/exemples.xml 
+        value=http://www.xtec.es/~allastar/quaderns/exemples/exemples.xml>Exemples</OPTION></SELECT> 
+        
+        <BR/><INPUT type="text" size="100" name="quadernUrl"/>
+    </TD></TR>
+  <TR>
+    <TD>quadernXSL</TD>
+    <TD><INPUT size=60 value=qti_infantil name=quadernXSL></TD></TR>
+  <TR>
+    <TD>endPage</TD>
+    <TD><INPUT size=60 value=getAssignacio name=endPage></TD></TR>
+  <TR>
+    <TD>max</TD>
+    <TD><INPUT size=3 value=-1 name=max></TD></TR>
+  <TR>
+    <TD>correccio</TD>
+    <TD><SELECT name=correccio> <OPTION id=0 value=0>No</OPTION> <OPTION 
+        id=1 value=1 selected>Si</OPTION></SELECT> </TD></TR>
+  <TR>
+    <TD>contestar</TD>
+    <TD><SELECT name=contestar> <OPTION id=0 value=0 selected>No</OPTION> 
+        <OPTION id=1 value=1>Si</OPTION></SELECT> </TD></TR>
+  <TR>
+    <TD align=middle colSpan=2><INPUT type=submit value=preparar></TD></TR></FORM>
+  <TR>
+    <TD colSpan=2>
+      <HR>
+    </TD></TR>
+  <FORM action=getAssignacio>
+  <TR>
+    <TD align=middle colSpan=2><B>getAssignacio</B></TD></TR>
+  <TR>
+    <TD>assignacioId</TD>
+    <TD><INPUT size=10 value=prova name=assignacioId></TD></TR>
+  <TR>
+    <TD align=middle colSpan=2><INPUT type=submit value=mostrar></TD></TR></FORM>
+  <TR>
+    <TD colSpan=2>
+      <HR>
+    </TD></TR>
+  <FORM action=getAssignacionsDocent>
+  <TR>
+    <TD align=middle colSpan=2><B>getAssignacionsDocent</B></TD></TR>
+  <TR>
+    <TD>assignacioId</TD>
+    <TD><INPUT size=10 value=prova name=assignacioId></TD></TR>
+  <TR>
+    <TD align=middle colSpan=2><INPUT type=submit value=mostrar></TD></TR></FORM>
+  <TR>
+    <TD colSpan=2>
+      <HR>
+    </TD></TR>
+  <FORM action=delete>
+  <TR>
+    <TD align=middle colSpan=2><B>delete</B></TD></TR>
+  <TR>
+    <TD>assignacioId</TD>
+    <TD><INPUT size=10 value=prova name=assignacioId></TD></TR>
+  <TR>
+    <TD>historic (aaaa-mm-dd) </TD>
+    <TD><INPUT size=10 name=historic></TD></TR>
+  <TR>
+    <TD align=middle 
+  colSpan=2><INPUT type=submit value=eliminar></TD></TR></FORM></TBODY></TABLE></BODY></HTML>

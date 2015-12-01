@@ -1,0 +1,29 @@
+body {
+	background-image: url("../imatges/blau/fons.gif");
+}
+a:link {text-decoration: underline;color: #318D51;}
+a:visited {text-decoration: underline; color: #318D51;}
+a:active {text-decoration: underline; color: #318D51;}
+a:hover {text-decoration: underline; color: #FFFFFF; background-color:#318D51;}
+.headerText{
+	color : #45794B;
+}
+.assignacioText{
+	color : #45794B;
+}
+.fullText{
+	color : #318D51;
+}
+.presentacio{
+	background:#318D51;
+}
+.fonsPresentacio{
+	background:#318D51;
+}
+.preguntes{
+	color : #318D51;
+}
+.intervencioDocent{
+	background: #E5F7EB;
+}
+

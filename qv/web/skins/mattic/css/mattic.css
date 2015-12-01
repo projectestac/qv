@@ -1,0 +1,27 @@
+body{
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	FONT-SIZE: 10pt;
+	FONT-STYLE: normal; 
+}
+.item-assessment{
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	FONT-SIZE: 11pt;
+	FONT-STYLE: normal; 
+	COLOR: #6666CC;
+	BACKGROUND: #EFEFFA;
+	PADDING: 1px;
+}
+.item-response { 
+	FONT-WEIGHT: normal; 
+	FONT-SIZE: 10pt; 
+	COLOR: #000000; 
+	FONT-STYLE: normal;
+	FONT-FAMILY: Arial, Helvetica, sans-serif 
+}
+.item-feedback{
+	FONT-SIZE: 10pt;	
+	COLOR: #7777B3;
+}
+.feedbackOK,feedbackKO{
+	padding: 0;
+}

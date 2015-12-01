@@ -1,0 +1,18 @@
+<html>
+<head>
+<script>
+function previewImage(){
+localSource = "file://"+document.getElementById('val1').value;
+document.getElementById('img1').src = localSource;
+}
+</script>
+</head>
+<body>
+<form name="f" action="" method="post" ENCTYPE="multipart/form-data">
+<img id="img1" name="img1" src="file:///E:/tmp/a_orig_1.gif"/><br/>
+<input type="file" id="val1" name="val1" onchange="previewImage();"><br/>
+<!--input type="file" name="val1" onchange="document.img1.src='file:///'+this.value.replace(new RegExp('\\\\','g'),'/');"><br/-->
+<!--input type="file" name="val1" onclick="document.img1.src='file:///'+this.value;"><br/-->
+</form>
+</body>
+</html>

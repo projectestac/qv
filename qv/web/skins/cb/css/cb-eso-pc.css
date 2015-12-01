@@ -1,0 +1,26 @@
+.header-title2{
+	color: #0079C2;
+}
+
+#header-left{
+	background-image:url(../image/cb-header-eso-pc.gif);
+}
+
+#title{ 
+	background-color: #0079C2;
+}
+#content{ 
+	background-color:#B8D7F8;
+}
+#content-left{
+	background-color: #0079C2;
+}
+#footer{ 
+	background-color:#B8D7F8;
+}
+#footer-left{
+	background-image: url(../image/cb-footer-eso-pc.gif) ;
+}
+#footer-right{
+	background-image: url(../image/edu-eso-pc.gif);
+}

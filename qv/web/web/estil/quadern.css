@@ -1,0 +1,131 @@
+body {
+	background-color: #E5E5E5;
+	scrollbar-face-color: #DEE3E7;
+	scrollbar-highlight-color: #FFFFFF;
+	scrollbar-shadow-color: #DEE3E7;
+	scrollbar-3dlight-color: #D1D7DC;
+	scrollbar-arrow-color:  #006699;
+	scrollbar-track-color: #EFEFEF;
+	scrollbar-darkshadow-color: #98AAB1;
+}
+
+/* Famílies de fonts per als tags principals */
+font,th,td,p {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+a:link,a:active,a:visited {
+	color : #006699;
+}
+
+a:hover		{
+	text-decoration: underline;
+	color : #DD6900;
+}
+
+hr	{
+	height: 2px;
+	border : 0px solid #D1D7DC;
+}
+
+/* estil titol1 */
+.caixaTitol1	{
+	background-color: White;
+	border: 1px #98AAB1 solid;
+}
+
+.titol1{
+	font-size : 15px;
+}
+
+.info1{
+	font-size : 9px;
+}
+
+/* estil titol2 */
+.caixaTitol2	{
+	background-color: #3399CC;
+	border: 1px #006699 solid;
+}
+
+/* estil titol3 */
+.caixaTitol3  {
+	background-color: #DDEAEE;
+	border: 1px #98AAB1 solid;
+}
+
+.titol3{
+	color : #005E81;	
+	font-size : 11px;
+}
+
+.titol3Gran{
+	color : #005E81;
+	font-size : 14px;
+}
+
+.info3{
+	color : #005E81;
+	font-size : 9px;
+}
+
+.error1{
+	color : Red;
+}
+
+.sep10{
+	font-size : 10px;
+}
+
+.caixaItem1	{
+	background-color: White;
+	border: 1px #98AAB1 solid;
+}
+
+.intervencio1{
+	background-color: #FFFACD;
+	border: 1px #98AAB1 solid;
+}
+
+.enunciat1{
+	font-size : 13px;
+	font-weight : bold;
+	padding-bottom : 6px;
+}
+
+.intro1{
+	font-size : 13px;
+	font-weight : bold;
+	padding-bottom : 12px;
+}
+
+.resposta1{
+	font-size : 12px;
+}
+
+.caixaItem3	{
+	background-color: #F5F5DC;
+	border: 1px #98AAB1 solid;
+}
+
+.interac_teacher{
+	background-color : #FFFFE0;
+	color: Red;
+	font-size : 10px;
+}
+
+.interac_candidate{
+	background-color : #FFFFE0;	
+	color: Black;
+	font-size : 10px;
+}
+
+.feedback{
+	background-color: White;
+	color: Teal;
+}
+
+.sectionfeedback{
+	background-color: #ffeeee;
+	color: Teal;
+}

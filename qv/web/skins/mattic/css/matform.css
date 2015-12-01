@@ -1,0 +1,39 @@
+.nomcurs { FONT-WEIGHT: bold; FONT-SIZE: 16pt; COLOR:#FFFFFF; FONT-STYLE: normal; 
+FONT-FAMILY: Arial, Helvetica, sans-serif } .modulsup { FONT-WEIGHT: bold; FONT-SIZE: 
+13pt; COLOR: #ffffff; FONT-STYLE: normal; FONT-FAMILY: Arial, Helvetica, sans-serif 
+} .titol1 { FONT-WEIGHT: bold; FONT-SIZE: 12pt; COLOR: #FFFFFF; FONT-STYLE: normal; 
+FONT-FAMILY: Arial, Helvetica, sans-serif } .text { FONT-WEIGHT: normal; FONT-SIZE: 
+11pt; COLOR: #000000; FONT-STYLE: normal; FONT-FAMILY: Arial, Helvetica, sans-serif 
+} A:link { FONT-SIZE: 11pt; COLOR:#FF6600; FONT-FAMILY: Arial, Helvetica, sans-serif 
+; text-decoration: none } A:hover { FONT-WEIGHT: normal; FONT-SIZE: 11pt; COLOR: 
+#FF6600; FONT-STYLE: normal; FONT-FAMILY: Arial, Helvetica, sans-serif ; text-decoration: 
+none } A:active { FONT-WEIGHT: normal; FONT-SIZE: 11pt; COLOR: #FF6600; FONT-STYLE: 
+normal; FONT-FAMILY: Arial, Helvetica, sans-serif ; text-decoration: none } A:visited 
+{ FONT-WEIGHT: normal; FONT-SIZE: 11pt; COLOR: #FF6600; FONT-STYLE: normal; FONT-FAMILY: 
+Arial, Helvetica, sans-serif ; text-decoration: none } LI { LIST-STYLE-TYPE: square 
+} UL { FONT-SIZE: 11pt; COLOR: #000000; FONT-FAMILY: Arial, Helvetica, sans-serif 
+} .titol2 { FONT-WEIGHT: bold; FONT-SIZE: 12pt; COLOR: #4F4F00; FONT-STYLE: normal; 
+FONT-FAMILY: Arial, Helvetica, sans-serif } .peuimatge { FONT-WEIGHT: normal; 
+FONT-SIZE: 8pt; FONT-STYLE: italic; FONT-FAMILY: Arial, Helvetica, sans-serif 
+} .codi { FONT-WEIGHT: normal; FONT-SIZE: 10pt; COLOR: #003333; FONT-STYLE: normal; 
+FONT-FAMILY: "Courier New", Courier, mono } .apartat { FONT-WEIGHT: bold; FONT-SIZE: 
+14pt; FONT-STYLE: normal; FONT-FAMILY: Arial, Helvetica, sans-serif } .mattic 
+{ FONT-WEIGHT: bold; FONT-SIZE: 18pt; COLOR: #4F4F00; FONT-STYLE: normal; FONT-FAMILY: 
+Arial, Helvetica, sans-serif } .autor { font-family: Arial, Helvetica, sans-serif; 
+font-size: 9pt; font-style: italic; font-weight: normal; color: #000000} .aut 
+{ font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-style: italic; 
+font-weight: bold; color: #333333}.java {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11pt; font-weight: bold; color: #000000}
+.codi2 {  font-family: Arial, Helvetica, sans-serif; font-size: 11pt; font-weight: bold; color: #000000}
+.lletrapetita {  font-family: Arial, Helvetica, sans-serif; font-size: 9pt; font-weight: normal}
+.subtitol { FONT-WEIGHT: bold; FONT-SIZE: 11pt; COLOR: #4F4F00; FONT-STYLE: normal; FONT-FAMILY: Arial, Helvetica, sans-serif }
+.codiComentari { FONT-WEIGHT: normal; FONT-SIZE: 10pt; COLOR: #0066CC; FONT-STYLE: normal; FONT-FAMILY: "Courier New", Courier, mono }
+.codijaescrit { FONT-WEIGHT: normal; FONT-SIZE: 10pt; COLOR: #cccccc; FONT-STYLE: normal; FONT-FAMILY: "Courier New", Courier, mono }
+.textnegreta {
+FONT-WEIGHT: bold; FONT-SIZE: 
+11pt; COLOR: #000000; FONT-STYLE: normal; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.textcursiva {
+
+FONT-WEIGHT: normal; FONT-SIZE: 
+11pt; COLOR: #000000; FONT-STYLE: italic; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
