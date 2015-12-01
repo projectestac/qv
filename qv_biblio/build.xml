@@ -112,7 +112,7 @@
 		   encoding="${ant.build.javac.encoding}"
 		   source="${ant.build.javac.source}"
 		   target="${ant.build.javac.target}"
-       includeantruntime="false">
+           includeantruntime="false">
       <classpath>
         <pathelement location="${lib.dir}/dbconn.jar"/>
         <pathelement location="${lib.dir}/jdom.jar"/>
@@ -166,7 +166,7 @@
     <delete dir="${web.dir}/WEB-INF/classes"/>
     <mkdir dir="${web.dir}/WEB-INF/classes"/>
     <copy todir="${web.dir}/WEB-INF/classes" >
-      <fileset dir="${build.dir}/e13_qv_biblio/WEB-INF/classes"/>
+      <fileset dir="${build.dir}/qv_biblio/WEB-INF/classes"/>
     </copy>
     <copy todir="${web.dir}/WEB-INF/classes/edu/xtec/resources" >
       <fileset dir="${src.dir}/biblio/edu/xtec/resources"/>
