@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.lang.reflect.Constructor;
-import java.security.Timestamp;
+import java.security.MessageDigest;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Enumeration;
@@ -116,7 +116,7 @@ public class QVBean implements QVConstants{
 						if (isLogout()){
 							logout();
 						}else if (getUserId()!=null){
-							//logger.info("L'usuari '"+getUserId()+"' no és professor o no s'ha validat correctament a l'edu365");
+							//logger.info("L'usuari '"+getUserId()+"' no ï¿½s professor o no s'ha validat correctament a l'edu365");
 							redirectToValidation();
 						}
 						return false;
@@ -520,9 +520,74 @@ public class QVBean implements QVConstants{
 			sUserId = null;
 		}
 	}
+	
+	protected String string2MD5(String sPassword) {
+		String sMD5 = "";
+		try {
+			MessageDigest md = MessageDigest.getInstance("MD5");
+	        md.update(sPassword.getBytes());
+	        byte byteData[] = md.digest();
+	 
+	        //convert the byte to hex format method 1
+	        StringBuffer sb = new StringBuffer();
+	        for (int i = 0; i < byteData.length; i++) {
+	         sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
+	        }
+	        sMD5 = sb.toString();
+		} catch (Exception e) {
+			logger.error("EXCEPTION string2MD5", e);
+			e.printStackTrace();
+		}
+		return sMD5;
+	}
 
 	public String getUserId() {
-		if(isLogout() || sUserId != null || request == null) {
+		if (getParameter(request, "userid") != null && !getParameter(request, "userid").equals(sUserId)){
+			logger.debug("getUserId --> currentUser="+sUserId+" newUser="+getParameter(request, "userid"));
+			String sUsername = getParameter(request, "userid");
+			String sUserpwd = getParameter(request, "userpwd");
+			if (sUsername!=null && sUserpwd!=null){
+				String sUsers = getSetting("validation.users", true);
+				if (sUsers!=null){
+					StringTokenizer stUsers = new StringTokenizer(sUsers, "$$");
+					while (stUsers.hasMoreTokens()){
+						String sName = stUsers.nextToken();
+						if (stUsers.hasMoreTokens()) {
+							String sPassword = stUsers.nextToken(); 
+							logger.debug("getUserId --> Check if specified user is in validation.users param: "+sName);
+							if (sUsername.equals(sName)){
+								if (string2MD5(sUserpwd).equalsIgnoreCase(sPassword)) {
+									logger.debug("getUserId --> Change current userId: "+sName);
+									sUserId=sName;
+									session.setAttribute("userid", sUserId);
+								}
+								break;
+							}
+						}
+					}
+				}
+			}								
+		}
+		
+		if(!isLogout() && sUserId==null && request!=null){
+			// non sso users (specified in validation.users config parameter)
+			String sUser = getAuthenticatedUser();
+			//logger.debug("getUserId --> authenticated="+sUser);
+			if (sUser!=null && getSetting("validation.users.admin", true).indexOf("$$"+sUser+"$$")>=0){
+				Object o=session.getAttribute("userid");
+				if(o!=null) {
+					sUserId=o.toString();
+				}
+			}
+			
+			if (sUserId==null){
+				sUserId = sUser;
+			}
+		}
+		return sUserId;		
+		
+		
+/*		if(isLogout() || sUserId != null || request == null) {
 			return sUserId;
 		}
 
@@ -551,6 +616,7 @@ public class QVBean implements QVConstants{
 
 		String sUsername = getParameter(request, "userid");
 		String sUserpwd = getParameter(request, "userpwd");
+		logger.debug("getUserId --> username="+sUsername);
 		if (sUsername != null && sUserpwd != null) {
 			String sUsers = getSetting("validation.users", true);
 			if (sUsers != null){
@@ -560,6 +626,7 @@ public class QVBean implements QVConstants{
 					if (stUsers.hasMoreTokens()) {
 						String sPassword = stUsers.nextToken();
 						if (sUsername.equals(sName)){
+							logger.debug("getUserId --> Change username to "+sName+" if password matches");
 							if (sUserpwd.equalsIgnoreCase(sPassword)) {
 								sUserId = sName;
 								session.setAttribute("userid", sUserId);
@@ -573,12 +640,11 @@ public class QVBean implements QVConstants{
 
 		sUserId = sUser;
 		return sUserId;
+*/		
 	}
 
 	protected String getAuthenticatedUser() {
-
 		String sType = getSetting("validation.type", true);
-
 		if ("sso".equalsIgnoreCase(sType)){
 			// SSO LOGIN
 			if (request.getRemoteUser() != null) {
@@ -1271,7 +1337,7 @@ public class QVBean implements QVConstants{
 	}
 
 	/**
-	 * Obté el nom de tots els fitxers d'aplicacions que conté el quadern indicat
+	 * Obtï¿½ el nom de tots els fitxers d'aplicacions que contï¿½ el quadern indicat
 	 */
 	protected String[] getAssessmentApplications(String sAssessmentName){
 		String[] files = FileUtil.getApplicationFiles(getQuadernLocalDirectory(sAssessmentName));
