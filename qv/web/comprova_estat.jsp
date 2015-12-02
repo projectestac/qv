@@ -1,6 +1,6 @@
 <%@page session="false" contentType="text/html; charset=iso-8859-1"%>
 <%
-String sServer = "http://clic.xtec.cat";
+String sServer = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort();
 String msg="OK";
 edu.xtec.qv.db.LearningDatabaseAdmin oDB = new edu.xtec.qv.db.LearningDatabaseAdmin();
 if (!oDB.checkConnection()) msg ="ERROR: database connection failed";
