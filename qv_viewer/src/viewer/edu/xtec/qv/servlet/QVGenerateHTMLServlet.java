@@ -28,6 +28,8 @@ import org.apache.log4j.Logger;
 import org.jdom.Document;
 import org.jdom.Element;
 
+import sun.java2d.Surface;
+
 import edu.xtec.qv.servlet.zip.Constants;
 import edu.xtec.qv.servlet.zip.QTITransformer;
 
@@ -76,12 +78,11 @@ public class QVGenerateHTMLServlet extends HttpServlet {
 
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {	
+		String sUser=null;
+		String sAssessment = null;
+		String sURL = null;
+		HashMap oMap = new HashMap();
 		try{
-			String sUser=null;
-			String sAssessment = null;
-			String sURL = null;
-			HashMap oMap = new HashMap();
-			
 			String sXML = getParameter(request, P_XML);
 			String sBase = getParameter(request, P_BASE);
 			String sLang = getParameter(request, P_LANG);
@@ -99,8 +100,10 @@ public class QVGenerateHTMLServlet extends HttpServlet {
 					oMap.put("teacher", sUser);
 					oMap.put("assessment", sAssessment);
 				}
+				logger.debug("processRequest1->  XML="+sXML+"   Base="+sBase);
 				sURL = getRemoteBase(sUser, sAssessment)+"html/"+getSectionNameFile(iSection);
 				sBase+="html/";
+				logger.debug("processRequest1->  URL="+sURL+"   Base="+sBase);
 				writeHTML(sXML, sBase, sSkin, iSection, oMap);
 			}else{
 				String sLocalXML = null;
@@ -111,8 +114,10 @@ public class QVGenerateHTMLServlet extends HttpServlet {
 				} else { //ALLR
 					sLocalXML = sXML;
 				}
+				logger.debug("processRequest2->  XML="+sXML+"   Base="+sBase);
 				sURL=sXML.substring(0,sXML.lastIndexOf("/"))+"/html/"+getSectionNameFile(iSection);
 				sBase+="/html/";				
+				logger.debug("processRequest2->  URL="+sURL+"   Base="+sBase);
 				sAssessment = parseXMLFileName(sXML);
 				oMap.put("assessment", sAssessment);
 				writeAllHTML(sLocalXML, sXML, sBase, sSkin, oMap);				
@@ -121,6 +126,7 @@ public class QVGenerateHTMLServlet extends HttpServlet {
 			String sParams = request.getQueryString();
 			createResponse(response, sURL, sSkin, sLang, iSection, sParams);
 		}catch (Exception e){
+			logger.error("EXCEPTION processRequest-> "+e.toString()+"  URL="+sURL, e);
 			e.printStackTrace(response.getWriter());
 			response.sendError(400, e.toString());
 		}
@@ -182,7 +188,7 @@ public class QVGenerateHTMLServlet extends HttpServlet {
 	}
 
 	protected void writeHTML(String sXML, String sBase, String sSkin, int iSection, HashMap oMap) throws Exception{
-		//System.out.println("writeHTML("+sXML+", "+sBase+", "+sSkin+", "+iSection+",...)");//ALLR
+		logger.debug("writeHTML("+sXML+", "+sBase+", "+sSkin+", "+iSection+",...)");
 		if (sXML!=null && sBase!=null){
 			sSkin=(sSkin!=null?sSkin:"default");
 			
@@ -262,7 +268,7 @@ public class QVGenerateHTMLServlet extends HttpServlet {
 				return fXML.exists();
 			}
 		} catch (Exception e) {
-			//System.out.println("File: "+sURL); //ALLR
+			logger.error("EXCEPTION-> "+e.toString()+" -- File: "+sURL);
 			e.printStackTrace();
 			return false;
 		}
@@ -274,7 +280,7 @@ public class QVGenerateHTMLServlet extends HttpServlet {
 			sValue = request.getParameter(sParam);
 			if (sValue!=null && sValue.trim().length()==0) sValue=null;
 		}catch (Exception e){
-			logger.debug("EXCEPTION getting request parameter '"+sParam+"' -->"+e);
+			logger.error("EXCEPTION getting request parameter '"+sParam+"' -->"+e);
 		}
 		return sValue;
 	}
@@ -325,7 +331,7 @@ public class QVGenerateHTMLServlet extends HttpServlet {
 				result=Integer.parseInt(s);
 		}
 		catch (Exception e){
-			logger.debug("EXCEPCIO obtenint el parametre '"+sParam+"' (value="+s+" -->"+e);
+			logger.error("EXCEPCIO obtenint el parametre '"+sParam+"' (value="+s+" -->"+e);
 		}
 		return result;
 	}

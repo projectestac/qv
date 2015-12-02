@@ -30,8 +30,10 @@ qv_applets/dist
 qv_admin/web/WEB-INF/classes
 
 qv_editor/dist/qti.jar
+qv_editor/dist/xtec-int/
 qv_editor/web/WEB-INF/classes
 qv_editor/web/quaderns/anonymous/
+qv_editor/web/quaderns/sarjona
 
 qv_viewer/web/WEB-INF/classes
 
