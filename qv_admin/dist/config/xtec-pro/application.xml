@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE application PUBLIC "-//Sun Microsystems, Inc.//DTD J2EE Application 1.2//EN" "http://java.sun.com/j2ee/dtds/application_1_2.dtd">
+
+<application>
+
+  <display-name>Administration tool of Quaderns Virtuals</display-name>
+
+  <module>
+    <web>
+      <web-uri>qv_admin.war</web-uri>
+      <context-root>/qv_admin</context-root>
+    </web>
+  </module>
+
+</application>
