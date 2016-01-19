@@ -15,7 +15,7 @@
         </wls:prefer-application-packages>
     </wls:container-descriptor>
     <wls:virtual-directory-mapping>
-        <wls:local-path>/serveis/dades/pre/h02e/apache/1066/quaderns_virtuals</wls:local-path>
+        <wls:local-path>/serveis/dades/pre/w02/dataapps/1066/quaderns_virtuals</wls:local-path>
         <wls:url-pattern>/quaderns/*</wls:url-pattern>
     </wls:virtual-directory-mapping>
 </wls:weblogic-web-app>
