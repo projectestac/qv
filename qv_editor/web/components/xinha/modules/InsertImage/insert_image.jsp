@@ -1,6 +1,6 @@
-<%@page contentType="text/html; charset=ISO-8859-1" errorPage="error.html"%>
+<%@page contentType="text/html; charset=ISO-8859-1"  import="java.util.*,edu.xtec.qv.qti.QTIObject"%>
 <jsp:useBean id="qvb" class="edu.xtec.qv.editor.beans.QVBean" scope="request" />
-<%if(!qvb.init(request, session, response)){%><jsp:forward page="redirect.jsp"/><%}
+<%if(!qvb.init(request, session, response)){%><jsp:forward page="../../../../web/redirect.jsp"/><%}
 
 String sPath = qvb.getQuadernResourcesURL()+"/";
 %>

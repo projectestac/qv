@@ -110,24 +110,27 @@ public class QVBean implements QVConstants{
 			bInitiated = true;
 			try{
 				writeCacheInfo();
-				//logger.debug("userId="+getUserId()+"  teacher?"+isTeacher()+"  validated?"+isValidated()+" logout?"+isLogout()+" needValidation?"+needValidation());
+				logger.debug("userId="+getUserId()+"  teacher?"+isTeacher()+"  validated?"+isValidated()+" logout?"+isLogout()+" needValidation?"+needValidation());
 				if (needValidation()){
 					if (!isTeacher() || !isValidated() || isLogout()){
 						if (isLogout()){
 							logout();
 						}else if (getUserId()!=null){
-							//logger.info("L'usuari '"+getUserId()+"' no �s professor o no s'ha validat correctament a l'edu365");
+							logger.info("L'usuari '"+getUserId()+"' no s'ha validat correctament.");
 							redirectToValidation();
 						}
 						return false;
 					}
 				}
 				if (getUserId()!=null){
+					logger.debug("Initializing user settings... -> "+getUserId());
 					initUserSettings();
 				}
+				logger.debug("Initializing language...");
 				initLanguage();
 				bOk = initSpecificBean();
 				if (bOk){
+					logger.debug("Initializing specific bean... -> "+getSpecificBean());
 					bOk = getSpecificBean().init();
 				}
 			} catch (Exception e){
@@ -542,8 +545,9 @@ public class QVBean implements QVConstants{
 	}
 
 	public String getUserId() {
+		//logger.debug("getUserId --> currentUser="+sUserId);
 		if (getParameter(request, "userid") != null && !getParameter(request, "userid").equals(sUserId)){
-			logger.debug("getUserId --> currentUser="+sUserId+" newUser="+getParameter(request, "userid"));
+			logger.debug("getUserId: Request userid --> newUser="+getParameter(request, "userid"));
 			String sUsername = getParameter(request, "userid");
 			String sUserpwd = getParameter(request, "userpwd");
 			if (sUsername!=null && sUserpwd!=null){
@@ -572,7 +576,7 @@ public class QVBean implements QVConstants{
 		if(!isLogout() && sUserId==null && request!=null){
 			// non sso users (specified in validation.users config parameter)
 			String sUser = getAuthenticatedUser();
-			//logger.debug("getUserId --> authenticated="+sUser);
+			logger.debug("getUserId: Non sso user--> authenticated="+sUser);
 			if (sUser!=null && getSetting("validation.users.admin", true).indexOf("$$"+sUser+"$$")>=0){
 				Object o=session.getAttribute("userid");
 				if(o!=null) {
