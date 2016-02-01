@@ -39,7 +39,7 @@ public class QVLoginBean extends QVSpecificBean {
 					Cookie cUser = new Cookie(mainBean.USER_KEY, sUsername);
 					//cUser.setDomain("edu365.com");
 					cUser.setMaxAge(24 * 60 * 60);
-					//cUser.setPath("/");
+					cUser.setPath("/");
 					mainBean.response.addCookie(cUser);
 					logger.debug("Cookie creada per "+sUsername);
 					mainBean.redirectResponse(JSP_INDEX+".jsp");
