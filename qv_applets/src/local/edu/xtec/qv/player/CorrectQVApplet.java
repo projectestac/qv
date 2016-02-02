@@ -113,7 +113,7 @@ public class CorrectQVApplet extends Applet{
         } else{
             try{
             	InputStream is = null;
-				if (sFile.startsWith("http:")){
+				if (sFile.startsWith("http:") || sFile.startsWith("https:")){
 					if (sFile.indexOf("?")<0) sFile+="?";
 					else sFile+="&";
 					sFile+="random="+(new Date().getTime())+Math.round(Math.random()*100);
