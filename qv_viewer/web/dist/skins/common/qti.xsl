@@ -1499,7 +1499,7 @@ null, null,'qvApplet','<xsl:value-of select="$ident"/>',true); -->
               <xsl:value-of select="$src"/>
             </xsl:when>
             <xsl:when test="starts-with($src, '/')">
-              http://clic.xtec.net<xsl:value-of select="$src"/>
+              http://clic.xtec.cat<xsl:value-of select="$src"/>
             </xsl:when>
             <xsl:otherwise>
               <xsl:value-of select="$QTIUrl"/>/../<xsl:value-of select="$src"/>

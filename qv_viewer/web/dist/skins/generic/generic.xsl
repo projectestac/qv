@@ -353,7 +353,7 @@
     <SCRIPT type="text/javascript">
 	    <xsl:attribute name="src"><xsl:value-of select="$specific_scripts_path"/>/<xsl:value-of select="$skin_name"/>.js</xsl:attribute>
     </SCRIPT>
-	<script language="JavaScript" src="http://clic.xtec.net/qv/dist/launchQV.js" type="text/javascript"></script>
+	<script language="JavaScript" src="http://clic.xtec.cat/qv/dist/launchQV.js" type="text/javascript"></script>
  </xsl:template>
  
   
