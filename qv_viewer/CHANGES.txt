@@ -1,10 +1,10 @@
 Release notes for qv_viewer (http://clic.xtec.cat/qv)
 
-More information on each of the fixes can be found in the project 
-development home at https://projectes.lafarga.cat/projects/q-virtuals/
+More information on each of the fixes can be found in the project
+development home at https://github.com/projectestac/qv/tree/master/qv_viewer
 
 
 
-Changes in 8.X (not yet released)
+Changes in 16.02.19
 ---------------------------------------------------------------------------------------
-
+- Fixed bug with applets in HTTPS (Trello #1087)
