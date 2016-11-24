@@ -13,6 +13,7 @@
         <wls:prefer-application-packages>
             <wls:package-name>com.sun.xml.messaging.saaj.*</wls:package-name>
         </wls:prefer-application-packages>
+        <wls:resource-reload-check-secs>0</wls:resource-reload-check-secs>
     </wls:container-descriptor>
     <wls:virtual-directory-mapping>
         <wls:local-path>/serveis/dades/pre/w02/dataapps/1066/quaderns_virtuals</wls:local-path>
